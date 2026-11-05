@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Users, Roles and Permissions — YasMar Pharmacy</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1A2FCC}a:hover{color:#0F1E99}
+.side{flex:0 0 auto;align-self:stretch}
+@media (max-width:760px){.side{display:none}}
+.card{background:#fff;border:1px solid #E4E7F0;border-radius:16px;box-sizing:border-box}
+.sub{font:400 12px Inter,sans-serif;color:#555C78}
+.chip{display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 8px;border-radius:999px;font:600 11px Inter,sans-serif;white-space:nowrap}
+table{border-collapse:collapse;width:100%}
+th{font:600 11px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#555C78;text-align:left;padding:10px 12px;border-bottom:1px solid #E4E7F0;white-space:nowrap;background:#FBFBFE}
+td{font:500 13px Inter,sans-serif;padding:11px 12px;border-bottom:1px solid #F0F1F6;white-space:nowrap}
+.btn{height:42px;padding:0 14px;border-radius:12px;font:600 13px Inter,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;box-sizing:border-box}
+.cellc{text-align:center}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; background: #F6F7FB; font-family: Inter, sans-serif; color: #0F1733">
+  <div class="side"><dc-import name="Sidebar" active="users" hint-size="248px,100%"></dc-import></div>
+  <main style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <dc-import name="Topbar" title="User Management" subtitle="Staff accounts, roles and what each role can do" role="Administrator" hint-size="100%,72px"></dc-import>
+    <div style="padding: 24px; display: flex; flex-direction: column; gap: 16px; box-sizing: border-box; width: 100%; max-width: 1440px">
+      <div class="card" style="overflow: hidden">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 16px">
+          <div><h2 style="margin: 0; font: 600 17px Poppins, sans-serif">Staff accounts</h2><span class="sub">6 active · 1 invited · Poblacion Branch</span></div>
+          <button type="button" class="btn" style="border: 0; background: #223CFF; color: #fff; box-shadow: 0 6px 16px rgba(34,60,255,.25)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>Invite staff</button>
+        </div>
+        <div style="overflow-x: auto">
+          <table>
+            <thead><tr><th>Name</th><th>Role</th><th>Email</th><th>PRC license</th><th>Last sign-in</th><th>Status</th><th></th></tr></thead>
+            <tbody>
+              <sc-for list="{{users}}" as="u" hint-placeholder-count="7">
+                <tr>
+                  <td><span style="display: flex; align-items: center; gap: 10px"><span style="{{u.av}}">{{u.ini}}</span><span style="font-weight: 600">{{u.name}}</span></span></td>
+                  <td><span class="chip" style="{{u.roleStyle}}">{{u.role}}</span></td>
+                  <td style="color: #3A4160">{{u.email}}</td>
+                  <td style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #555C78">{{u.prc}}</td>
+                  <td style="color: #555C78">{{u.last}}</td>
+                  <td><span class="chip" style="{{u.stStyle}}">{{u.status}}</span></td>
+                  <td><button type="button" style="height: 32px; padding: 0 10px; border-radius: 8px; border: 1px solid #E4E7F0; background: #fff; font: 600 12px Inter, sans-serif; cursor: pointer">Manage</button></td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+        <div class="card" style="flex: 999 1 640px; min-width: 0; overflow: hidden">
+          <div style="padding: 16px"><h2 style="margin: 0; font: 600 17px Poppins, sans-serif">Role permissions</h2><span class="sub">● full · ◐ needs approval or limited · — no access</span></div>
+          <div style="overflow-x: auto">
+            <table>
+              <thead><tr><th>Capability</th><th class="cellc">Administrator</th><th class="cellc">Pharmacist</th><th class="cellc">Cashier</th><th class="cellc">Inventory Staff</th></tr></thead>
+              <tbody>
+                <sc-for list="{{perms}}" as="p" hint-placeholder-count="14">
+                  <tr>
+                    <td style="white-space: normal"><span style="font-weight: 600">{{p.cap}}</span><br><span class="sub">{{p.note}}</span></td>
+                    <sc-for list="{{p.cells}}" as="c" hint-placeholder-count="4"><td class="cellc"><span style="{{c.style}}" title="{{c.title}}">{{c.mark}}</span></td></sc-for>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <aside class="card" style="flex: 1 1 320px; padding: 20px; display: flex; flex-direction: column; gap: 12px">
+          <span style="width: 44px; height: 44px; border-radius: 12px; background: #EEF1FF; color: #223CFF; display: grid; place-items: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h2 style="margin: 0; font: 600 17px Poppins, sans-serif">Enforced on the server</h2>
+          <p style="margin: 0; font: 400 13px/1.6 Inter, sans-serif; color: #3A4160">Hiding a button is not a permission. Each rule here maps to Supabase Row Level Security policies and to checks inside database functions, so a cashier’s session cannot void a sale or change a price even through the API.</p>
+          <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font: 400 13px/1.5 Inter, sans-serif; color: #3A4160">
+            <li>Sales finalize through one transactional function (stock deduction + receipt) with an idempotency key.</li>
+            <li>Approvals (refunds, voids, adjustments, manual discounts) record who approved, when and why.</li>
+            <li>The service-role key never reaches the browser.</li>
+            <li>All records are branch-scoped.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1100}}'>
+const ROLE = { Administrator: ['background:#0F1733;color:#fff', '#0F1733'], Pharmacist: ['background:#EEF1FF;color:#1A2FCC', '#223CFF'], Cashier: ['background:#E1F5F1;color:#0B6B5B', '#14A38B'], 'Inventory Staff': ['background:#FFF4D6;color:#7A4E00', '#D18A00'] };
+const USERS = [['Yasmin Marquez','YM','Administrator','yasmin@yasmar.demo','—','Today, 8:02 AM','Active'],['Jose Reyes, RPh','JR','Pharmacist','jose@yasmar.demo','0098765 (demo)','Today, 7:55 AM','Active'],['Kathleen Ong, RPh','KO','Pharmacist','kath@yasmar.demo','0087654 (demo)','Yesterday','Active'],['Maria Santos','MS','Cashier','maria@yasmar.demo','—','Today, 7:58 AM','Active'],['Carlo Dizon','CD','Cashier','carlo@yasmar.demo','—','Today, 12:01 PM','Active'],['Paolo Lim','PL','Inventory Staff','paolo@yasmar.demo','—','Today, 9:14 AM','Active'],['Joy Bautista','JB','Cashier','joy@yasmar.demo','—','—','Invited']];
+// F full, A approval/limited, N none  — order: Admin, Pharmacist, Cashier, Inventory
+const PERMS = [
+  ['Process sales at POS', 'Scan, cart, take payment', 'FFFN'],
+  ['Hold, resume and cancel sales', 'Cancel is logged', 'FFFN'],
+  ['Authorize Rx dispensing', 'Pharmacist PIN required', 'AFNN'],
+  ['Apply SC / PWD discount', 'ID number recorded', 'FFFN'],
+  ['Apply manual discount', 'Admin PIN at the counter', 'FAAN'],
+  ['Refund a sale', 'Restocks to a saleable batch', 'FFNN'],
+  ['Void a sale', 'Same-day only', 'FNNN'],
+  ['Reprint receipt', 'Marked REPRINT', 'FFFN'],
+  ['Add / edit medicines', 'Catalog details', 'FFNA'],
+  ['Change selling prices', 'Old price kept in history', 'FANN'],
+  ['Manage batches & expiry', 'Quarantine, recall', 'FFNA'],
+  ['Stock adjustments', 'Needs Admin approval', 'FAAA'],
+  ['Purchase orders & receiving', 'Batch + expiry required', 'FANF'],
+  ['Suppliers', 'Contacts, terms', 'FANF'],
+  ['Reports & analytics', 'Cashier: own shift only', 'FFAA'],
+  ['Users, roles & settings', 'Printer, receipt, branch', 'FNNN'],
+];
+class Component extends DCLogic {
+  renderVals() {
+    const mk = c => c === 'F' ? { mark: '●', title: 'Full access', style: 'font:700 16px Inter,sans-serif;color:#12805C' } : c === 'A' ? { mark: '◐', title: 'Needs approval or limited', style: 'font:700 16px Inter,sans-serif;color:#A36A00' } : { mark: '—', title: 'No access', style: 'font:600 14px Inter,sans-serif;color:#A0A6BC' };
+    return {
+      users: USERS.map(u => ({ name: u[0], ini: u[1], role: u[2], roleStyle: ROLE[u[2]][0], email: u[3], prc: u[4], last: u[5], status: u[6],
+        stStyle: u[6] === 'Active' ? 'background:#E3F5EC;color:#0E6B4C' : 'background:#EEF0F4;color:#4A5068',
+        av: 'width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font:600 12px Poppins,sans-serif;color:#fff;flex:none;background:' + ROLE[u[2]][1] })),
+      perms: PERMS.map(p => ({ cap: p[0], note: p[1], cells: p[2].split('').map(mk) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

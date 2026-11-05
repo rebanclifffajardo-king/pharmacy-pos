@@ -1,0 +1,13 @@
+import type { Supplier } from "@/lib/types";
+
+/** Fictional distributors. Phone numbers and e-mails use reserved/example ranges. */
+export const SUPPLIERS: Omit<Supplier, "createdAt">[] = [
+  { id: "sup_lm", code: "LM", name: "Luzon MedSupply Co.", contactPerson: "Ramon Cruz", phone: "(02) 8000-0101", email: "orders@luzonmed.example", address: "45 Sample Ave., Brgy. Demo", city: "Quezon City", tin: "000-101-000-000", paymentTerms: "Net 30", leadTimeDays: 3, status: "active", notes: "Primary OTC distributor. Delivers Mon/Wed/Fri." },
+  { id: "sup_mr", code: "MR", name: "Metro Rx Wholesale", contactPerson: "Liza Tan", phone: "(02) 8000-0202", email: "po@metrorx.example", address: "12 Example St.", city: "Pasig City", tin: "000-202-000-000", paymentTerms: "Net 30", leadTimeDays: 4, status: "active", notes: "Branded Rx maintenance lines." },
+  { id: "sup_pg", code: "PG", name: "Pacific Generics Inc.", contactPerson: "Dennis Uy", phone: "(02) 8000-0303", email: "sales@pacgen.example", address: "88 Placeholder Rd.", city: "Makati City", tin: "000-303-000-000", paymentTerms: "Net 45", leadTimeDays: 5, status: "active", notes: "Generic Rx and OTC." },
+  { id: "sup_vp", code: "VP", name: "Visayas Pharma Distributors", contactPerson: "Grace Lim", phone: "(032) 800-0404", email: "cebu@vpd.example", address: "7 Demo Blvd.", city: "Cebu City", tin: "000-404-000-000", paymentTerms: "COD", leadTimeDays: 7, status: "active", notes: "Herbal and syrup lines." },
+  { id: "sup_mh", code: "MH", name: "Mindanao Health Trading", contactPerson: "Noel Garcia", phone: "(082) 800-0505", email: "hello@mht.example", address: "21 Sample St.", city: "Davao City", tin: "000-505-000-000", paymentTerms: "Net 15", leadTimeDays: 8, status: "active", notes: "First aid and antiseptics." },
+  { id: "sup_np", code: "NP", name: "Northpoint Medical Supply", contactPerson: "Ana Reyes", phone: "(074) 800-0606", email: "np@northpoint.example", address: "3 Example Hill", city: "Baguio City", tin: "000-606-000-000", paymentTerms: "Net 30", leadTimeDays: 6, status: "active", notes: "Diabetes devices and test strips." },
+  { id: "sup_bo", code: "BO", name: "Bayside OTC Distributors", contactPerson: "Mark Santos", phone: "(02) 8000-0707", email: "otc@bayside.example", address: "56 Demo Coastal Rd.", city: "Parañaque City", tin: "000-707-000-000", paymentTerms: "Net 30", leadTimeDays: 3, status: "active", notes: "Vitamins and supplements." },
+  { id: "sup_st", code: "ST", name: "Southern Tagalog Pharma", contactPerson: "Rina Flores", phone: "(049) 800-0808", email: "po@stpharma.example", address: "9 Placeholder Ave.", city: "Calamba, Laguna", tin: "000-808-000-000", paymentTerms: "Net 30", leadTimeDays: 5, status: "active", notes: "Respiratory and antibiotics." },
+];

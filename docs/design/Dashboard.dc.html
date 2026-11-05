@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dashboard — YasMar Pharmacy</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1A2FCC}a:hover{color:#0F1E99}
+.side{flex:0 0 auto;align-self:stretch;position:relative}
+@media (max-width:760px){.side{display:none}}
+.card{background:#fff;border:1px solid #E4E7F0;border-radius:16px;padding:20px;box-sizing:border-box;box-shadow:0 1px 2px rgba(15,23,51,.03)}
+.kpi{display:flex;flex-direction:column;gap:8px}
+.kpi-h{display:flex;justify-content:space-between;align-items:center;font:500 13px Inter,sans-serif;color:#555C78}
+.kpi-i{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;flex:none}
+.kpi-v{font:600 26px Poppins,sans-serif;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.kpi-s{font:500 12px Inter,sans-serif}
+.h3{margin:0;font:600 16px Poppins,sans-serif}
+.sub{font:400 12px Inter,sans-serif;color:#555C78}
+.chip{display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 8px;border-radius:999px;font:600 11px Inter,sans-serif;white-space:nowrap}
+table{border-collapse:collapse;width:100%}
+th{font:600 11px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#555C78;text-align:left;padding:8px 10px;border-bottom:1px solid #E4E7F0;white-space:nowrap}
+td{font:500 13px Inter,sans-serif;padding:10px;border-bottom:1px solid #F0F1F6;white-space:nowrap}
+.bar{transition:height 400ms cubic-bezier(.2,.8,.2,1)}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; background: #F6F7FB; font-family: Inter, sans-serif; color: #0F1733">
+  <div class="side"><dc-import name="Sidebar" active="dashboard" hint-size="248px,100%"></dc-import></div>
+  <main style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <dc-import name="Topbar" title="Dashboard" subtitle="Poblacion Branch · Today’s pharmacy operations" role="Administrator" hint-size="100%,72px"></dc-import>
+    <div style="padding: 24px; display: flex; flex-direction: column; gap: 20px; max-width: 1400px; width: 100%; box-sizing: border-box">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 style="margin: 0; font: 600 22px Poppins, sans-serif">Magandang hapon, Yasmin</h2>
+          <span class="sub" style="font-size: 13px">4 expired batches are quarantined and 25 medicines are at or below reorder level.</span>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap">
+          <a href="Reports.dc.html" style="height: 44px; padding: 0 16px; border-radius: 12px; border: 1px solid #D5D9E6; background: #fff; color: #0F1733; display: inline-flex; align-items: center; gap: 8px; font: 600 14px Inter, sans-serif; text-decoration: none">View reports</a>
+          <a href="POS.dc.html" style="height: 44px; padding: 0 18px; border-radius: 12px; background: #223CFF; color: #fff; display: inline-flex; align-items: center; gap: 8px; font: 600 14px Inter, sans-serif; text-decoration: none; box-shadow: 0 6px 16px rgba(34,60,255,.25)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>New sale</a>
+        </div>
+      </div>
+
+      <!-- KPIs -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px">
+        <div class="card kpi"><div class="kpi-h">Today’s total sales<span class="kpi-i" style="background: #EEF1FF; color: #223CFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg></span></div><span class="kpi-v">{{k.sales}}</span><span class="kpi-s" style="color: #0E6B4C">▲ 12.4% vs yesterday</span></div>
+        <div class="card kpi"><div class="kpi-h">Today’s transactions<span class="kpi-i" style="background: #EEF1FF; color: #223CFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span></div><span class="kpi-v">{{k.txns}}</span><span class="kpi-s" style="color: #555C78">Avg basket ₱259.22</span></div>
+        <div class="card kpi"><div class="kpi-h">Medicines / SKUs<span class="kpi-i" style="background: #EEF1FF; color: #223CFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></span></div><span class="kpi-v">{{k.skus}}</span><span class="kpi-s" style="color: #555C78">Across 12 categories · 8 suppliers</span></div>
+        <div class="card kpi"><div class="kpi-h">Available stock units<span class="kpi-i" style="background: #E3F5EC; color: #12805C"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.29 7 12 12l8.71-5"/><path d="M12 22V12"/></svg></span></div><span class="kpi-v">{{k.units}}</span><span class="kpi-s" style="color: #555C78">Saleable batches only</span></div>
+        <div class="card kpi"><div class="kpi-h">Monthly revenue<span class="kpi-i" style="background: #EEF1FF; color: #223CFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span></div><span class="kpi-v">{{k.month}}</span><span class="kpi-s" style="color: #0E6B4C">▲ 6.1% vs October</span></div>
+        <div class="card kpi"><div class="kpi-h">Low-stock medicines<span class="kpi-i" style="background: #FFF4D6; color: #A36A00"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 17 13.5 8.5 8.5 13.5 2 7"/><path d="M16 17h6v-6"/></svg></span></div><span class="kpi-v">{{k.low}}</span><a href="Inventory.dc.html" class="kpi-s" style="color: #7A4E00">At or below reorder level →</a></div>
+        <div class="card kpi"><div class="kpi-h">Out of stock<span class="kpi-i" style="background: #FDECEF; color: #B80F2F"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.9 4.9 14.2 14.2"/></svg></span></div><span class="kpi-v">{{k.out}}</span><a href="PurchaseOrders.dc.html" class="kpi-s" style="color: #B80F2F">6 already on order →</a></div>
+        <div class="card kpi"><div class="kpi-h">Expiring ≤ 90 days<span class="kpi-i" style="background: #FFEADD; color: #C2410C"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3.5M16 2v4M8 2v4M3 10h5"/><circle cx="16" cy="16" r="6"/><path d="M16 14v2l1 1"/></svg></span></div><span class="kpi-v">{{k.exp}}</span><a href="Expiry.dc.html" class="kpi-s" style="color: #A3360A">6 within 30 days →</a></div>
+        <div class="card kpi"><div class="kpi-h">Expired medicines<span class="kpi-i" style="background: #B80F2F; color: #fff"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg></span></div><span class="kpi-v">{{k.expired}}</span><span class="kpi-s" style="color: #B80F2F">Quarantined · blocked from sale</span></div>
+        <div class="card kpi"><div class="kpi-h">Gross profit (est.)<span class="kpi-i" style="background: #E3F5EC; color: #12805C"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span></div><span class="kpi-v">{{k.gp}}</span><span class="kpi-s" style="color: #555C78">25.5% margin · this month</span></div>
+      </div>
+
+      <!-- CHARTS ROW -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <div class="card" style="flex: 2 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+            <div><h3 class="h3">Sales overview</h3><span class="sub">{{periodNote}}</span></div>
+            <div role="tablist" style="display: flex; padding: 4px; gap: 4px; border-radius: 12px; background: #F1F3F8">
+              <sc-for list="{{periods}}" as="p" hint-placeholder-count="4">
+                <button type="button" role="tab" aria-selected="{{p.sel}}" onClick="{{p.pick}}" style="{{p.style}}">{{p.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div style="display: flex; gap: 10px; height: 240px">
+            <div style="display: flex; flex-direction: column; justify-content: space-between; font: 500 11px Inter, sans-serif; color: #6B7189; text-align: right; padding-bottom: 22px; width: 44px; flex: none">
+              <span>{{axis.a3}}</span><span>{{axis.a2}}</span><span>{{axis.a1}}</span><span>₱0</span>
+            </div>
+            <div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+              <div style="flex: 1; display: flex; align-items: flex-end; gap: 6px; border-bottom: 1px solid #E4E7F0; background: repeating-linear-gradient(to top, transparent 0, transparent calc(33.33% - 1px), #F0F1F6 calc(33.33% - 1px), #F0F1F6 33.33%)">
+                <sc-for list="{{bars}}" as="b" hint-placeholder-count="14">
+                  <div title="{{b.tip}}" style="flex: 1; min-width: 0; height: 100%; display: flex; align-items: flex-end; justify-content: center">
+                    <div class="bar" style="{{b.style}}"></div>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="display: flex; gap: 6px; height: 22px; align-items: flex-end">
+                <sc-for list="{{bars}}" as="b" hint-placeholder-count="14"><span style="flex: 1; min-width: 0; text-align: center; font: 500 10.5px Inter, sans-serif; color: #6B7189; white-space: nowrap; overflow: hidden">{{b.label}}</span></sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 16px">
+          <div><h3 class="h3">Sales by payment method</h3><span class="sub">This month · 4,562 transactions</span></div>
+          <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap">
+            <svg width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Cash 58 percent, QR Ph 29 percent, Card 13 percent">
+              <circle cx="80" cy="80" r="60" fill="none" stroke="#F1F3F8" stroke-width="22"/>
+              <circle cx="80" cy="80" r="60" fill="none" stroke="#223CFF" stroke-width="22" stroke-dasharray="{{donut.d1}}" stroke-dashoffset="0" transform="rotate(-90 80 80)"/>
+              <circle cx="80" cy="80" r="60" fill="none" stroke="#14A38B" stroke-width="22" stroke-dasharray="{{donut.d2}}" stroke-dashoffset="{{donut.o2}}" transform="rotate(-90 80 80)"/>
+              <circle cx="80" cy="80" r="60" fill="none" stroke="#F2A93B" stroke-width="22" stroke-dasharray="{{donut.d3}}" stroke-dashoffset="{{donut.o3}}" transform="rotate(-90 80 80)"/>
+              <text x="80" y="76" text-anchor="middle" style="font: 600 20px Poppins, sans-serif; fill: #0F1733">₱1.18M</text>
+              <text x="80" y="96" text-anchor="middle" style="font: 500 11px Inter, sans-serif; fill: #555C78">November</text>
+            </svg>
+            <div style="flex: 1; min-width: 140px; display: flex; flex-direction: column; gap: 12px">
+              <div style="display: flex; justify-content: space-between; gap: 8px; font: 500 13px Inter, sans-serif"><span style="display: flex; align-items: center; gap: 8px"><i style="width: 10px; height: 10px; border-radius: 3px; background: #223CFF; display: block"></i>Cash</span><b>58%</b></div>
+              <div style="display: flex; justify-content: space-between; gap: 8px; font: 500 13px Inter, sans-serif"><span style="display: flex; align-items: center; gap: 8px"><i style="width: 10px; height: 10px; border-radius: 3px; background: #14A38B; display: block"></i>QR Ph</span><b>29%</b></div>
+              <div style="display: flex; justify-content: space-between; gap: 8px; font: 500 13px Inter, sans-serif"><span style="display: flex; align-items: center; gap: 8px"><i style="width: 10px; height: 10px; border-radius: 3px; background: #F2A93B; display: block"></i>Card</span><b>13%</b></div>
+              <span class="sub">QR Ph share up 4 pts since August.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOP SELLERS + CATEGORY -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <div class="card" style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 14px">
+          <div><h3 class="h3">Top 10 best-selling medicines</h3><span class="sub">Units sold · last 30 days</span></div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <sc-for list="{{top}}" as="t" hint-placeholder-count="10">
+              <div style="display: grid; grid-template-columns: 22px minmax(0, 1fr) 64px; gap: 10px; align-items: center">
+                <span style="font: 600 12px Inter, sans-serif; color: #6B7189">{{t.rank}}</span>
+                <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0">
+                  <span style="font: 500 13px Inter, sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{t.name}}</span>
+                  <div style="height: 8px; border-radius: 4px; background: #F1F3F8"><div style="{{t.style}}"></div></div>
+                </div>
+                <span style="font: 600 13px Inter, sans-serif; text-align: right; font-variant-numeric: tabular-nums">{{t.units}}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <div class="card" style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 14px">
+          <div><h3 class="h3">Inventory by category</h3><span class="sub">Stock value at cost · ₱612,480 total</span></div>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            <sc-for list="{{cats}}" as="c" hint-placeholder-count="10">
+              <div style="display: grid; grid-template-columns: 110px minmax(0, 1fr) 76px; gap: 10px; align-items: center">
+                <span style="font: 500 13px Inter, sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{c.name}}</span>
+                <div style="height: 14px; border-radius: 4px; background: #F1F3F8"><div style="{{c.style}}"></div></div>
+                <span style="font: 600 13px Inter, sans-serif; text-align: right; font-variant-numeric: tabular-nums">{{c.value}}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <!-- WIDGETS -->
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <div class="card" style="flex: 2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; justify-content: space-between; align-items: center"><h3 class="h3">Recent sales</h3><a href="Sales.dc.html" style="font: 600 13px Inter, sans-serif">View all</a></div>
+          <div style="overflow-x: auto">
+            <table>
+              <thead><tr><th>Receipt</th><th>Time</th><th>Cashier</th><th>Items</th><th>Payment</th><th style="text-align: right">Total</th></tr></thead>
+              <tbody>
+                <sc-for list="{{recent}}" as="r" hint-placeholder-count="6">
+                  <tr><td style="font-family: 'JetBrains Mono', monospace; font-size: 12px">{{r.ref}}</td><td>{{r.time}}</td><td>{{r.cashier}}</td><td>{{r.items}}</td><td><span class="chip" style="{{r.payStyle}}">{{r.pay}}</span></td><td style="text-align: right; font-weight: 600">{{r.total}}</td></tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card" style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; justify-content: space-between; align-items: center"><h3 class="h3">Low stock alerts</h3><span class="chip" style="background: #FFF4D6; color: #7A4E00">25</span></div>
+          <sc-for list="{{lowList}}" as="l" hint-placeholder-count="6">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid #F0F1F6">
+              <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font: 600 13px Inter, sans-serif">{{l.name}}</span><span class="sub">Reorder at {{l.reorder}}</span></div>
+              <span class="chip" style="{{l.style}}">{{l.left}}</span>
+            </div>
+          </sc-for>
+          <a href="PurchaseOrders.dc.html" style="font: 600 13px Inter, sans-serif">Create purchase order →</a>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <div class="card" style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px">
+            <h3 class="h3">Medicines expiring soon</h3>
+            <div role="tablist" style="display: flex; padding: 4px; gap: 4px; border-radius: 12px; background: #F1F3F8">
+              <sc-for list="{{expTabs}}" as="e" hint-placeholder-count="3">
+                <button type="button" role="tab" aria-selected="{{e.sel}}" onClick="{{e.pick}}" style="{{e.style}}">{{e.label}}</button>
+              </sc-for>
+            </div>
+          </div>
+          <table>
+            <thead><tr><th>Medicine</th><th>Batch</th><th>Expiry</th><th style="text-align: right">Units</th></tr></thead>
+            <tbody>
+              <sc-for list="{{expList}}" as="x" hint-placeholder-count="5">
+                <tr><td style="font-weight: 600">{{x.name}}</td><td style="font-family: 'JetBrains Mono', monospace; font-size: 12px">{{x.batch}}</td><td><span class="chip" style="{{x.style}}">{{x.date}} · {{x.days}}d</span></td><td style="text-align: right">{{x.units}}</td></tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <div class="card" style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 4px">
+          <h3 class="h3" style="margin-bottom: 8px">Recent inventory activity</h3>
+          <sc-for list="{{activity}}" as="a" hint-placeholder-count="6">
+            <div style="display: grid; grid-template-columns: 12px minmax(0, 1fr) auto; gap: 12px; align-items: start; padding: 8px 0">
+              <span style="{{a.dot}}"></span>
+              <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font: 500 13px Inter, sans-serif">{{a.text}}</span><span class="sub">{{a.who}}</span></div>
+              <span class="sub" style="white-space: nowrap">{{a.time}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <p class="sub" style="margin: 0; text-align: center">Demo Mode · all figures are fictional sample data.</p>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1640}}'>
+const SERIES = {
+  daily: { note: 'Last 14 days', unit: 1000, labels: ['Oct 23','24','25','26','27','28','29','30','31','Nov 1','2','3','4','Today'], v: [36120,41210,44890,31840,38760,40120,42980,45210,51870,47630,33290,39840,42910,48215] },
+  weekly: { note: 'Last 12 weeks', unit: 1000, labels: ['W34','W35','W36','W37','W38','W39','W40','W41','W42','W43','W44','W45'], v: [251200,262400,248900,270300,281500,276100,268800,290400,284700,301200,296500,288900] },
+  monthly: { note: 'Dec 2025 – Nov 2026', unit: 1000, labels: ['Dec','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov'], v: [1240300,1012400,968200,1034800,1056700,1101300,1188900,1214600,1172300,1098500,1114500,1182640] },
+  yearly: { note: '2022 – 2026 (2026 to date)', unit: 1000, labels: ['2022','2023','2024','2025','2026 YTD'], v: [8920400,10450800,11870200,12960500,12145440] },
+};
+const peso = n => '₱' + n.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const short = n => n >= 1e6 ? '₱' + (n / 1e6).toFixed(n >= 1e7 ? 0 : 1) + 'M' : n >= 1e3 ? '₱' + Math.round(n / 1e3) + 'k' : '₱' + n;
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { t: 0, period: 'daily', exp: 30 }; }
+  componentDidMount() {
+    const start = performance.now(); const dur = 900;
+    const step = now => { const x = Math.min(1, (now - start) / dur); this.setState({ t: 1 - Math.pow(1 - x, 3) }); if (x < 1) this.raf = requestAnimationFrame(step); };
+    this.raf = requestAnimationFrame(step);
+  }
+  componentWillUnmount() { cancelAnimationFrame(this.raf); }
+  renderVals() {
+    const t = this.state.t;
+    const n = v => Math.round(v * t).toLocaleString('en-PH');
+    const S = SERIES[this.state.period];
+    const max = Math.max(...S.v) * 1.1;
+    const seg = (on, label, pick) => ({ label, sel: on ? 'true' : 'false', pick, style: 'height:34px;padding:0 12px;border-radius:9px;border:0;font:600 12px Inter,sans-serif;cursor:pointer;' + (on ? 'background:#fff;color:#1A2FCC;box-shadow:0 1px 3px rgba(15,23,51,.12)' : 'background:transparent;color:#555C78') });
+    const C = 2 * Math.PI * 60;
+    const shares = [0.58, 0.29, 0.13];
+    const top = [['Biogesic Paracetamol 500 mg', 1920], ['Neozep 10/2/500 mg', 1544], ['Bioflu 10/2/500 mg', 1318], ['Generic Ascorbic Acid 500 mg', 1205], ['Allerta Cetirizine 10 mg', 986], ['Solmux Carbocisteine 500 mg', 871], ['Kremil-S tablet', 802], ['Cozaar Losartan 50 mg', 744], ['Glucophage Metformin 500 mg', 690], ['Generic Amlodipine 10 mg', 655]];
+    const cats = [['Pain & Fever', 98400], ['Hypertension', 92300], ['Antibiotics', 81200], ['Vitamins', 64900], ['Diabetes', 58100], ['Cold & Flu', 52700], ['Respiratory', 48300], ['Cholesterol', 44600], ['Digestive', 39800], ['First Aid', 32180]];
+    const payStyle = { Cash: 'background:#EEF1FF;color:#1A2FCC', 'QR Ph': 'background:#E1F5F1;color:#0B6B5B', Card: 'background:#FFF4D6;color:#7A4E00' };
+    const recent = [['RX-000200','3:41 PM','Maria Santos','3','Cash',73.00],['RX-000199','3:36 PM','Maria Santos','5','QR Ph',412.50],['RX-000198','3:28 PM','Carlo Dizon','2','Card',910.00],['RX-000197','3:19 PM','Maria Santos','1','Cash',55.00],['RX-000196','3:07 PM','Carlo Dizon','4','QR Ph',268.75],['RX-000195','2:58 PM','Maria Santos','2','Cash',96.00]];
+    const EXP = {
+      30: [['Diatabs Loperamide 2 mg','DT24-1201','Nov 29, 2026',24,160],['Generic Cefalexin 500 mg','CF24-0918','Nov 21, 2026',16,48],['Ceelin Drops 15 mL','CD24-1003','Dec 2, 2026',27,12],['Generic Mefenamic Acid 250 mg','MF24-0821','Nov 14, 2026',9,30]],
+      60: [['Cozaar Losartan 50 mg','CZ24-1015','Dec 16, 2026',41,220],['Generic Salbutamol 2 mg','SB24-1104','Dec 28, 2026',53,80],['Lagundi Syrup 60 mL','LS24-0930','Dec 22, 2026',47,18]],
+      90: [['Bactroban Mupirocin 2%','BC24-1107','Jan 7, 2027',63,14],['Generic Cetirizine syrup','CT24-1122','Jan 20, 2027',76,22],['Neurobion tablet','NB24-1201','Feb 1, 2027',88,60],['Hydrite ORS sachet','HY24-1130','Jan 30, 2027',86,40]],
+    };
+    const expColor = d => d <= 30 ? 'background:#FDECEF;color:#B80F2F' : d <= 60 ? 'background:#FFEADD;color:#A3360A' : 'background:#FFF4D6;color:#7A4E00';
+    const act = [['Received PO-2026-0148 · 1,200 units across 6 SKUs', 'Paolo Lim · Inventory Staff', '2:40 PM', '#12805C'], ['Quarantined batch AL24-0611 (Ascof Lagundi) — expired', 'Jose Reyes, RPh', '1:15 PM', '#B80F2F'], ['Adjusted Betadine 60 mL −2 · damaged bottle', 'Paolo Lim · approved by Y. Marquez', '11:52 AM', '#D18A00'], ['Stock count Aisle B completed · 0 variance', 'Paolo Lim', '10:30 AM', '#223CFF'], ['Reorder level for Norvasc 5 mg set to 60', 'Yasmin Marquez', '9:12 AM', '#223CFF'], ['Refund RF-000031 restocked 1 × Allerta 10 mg', 'Jose Reyes, RPh', 'Yesterday', '#555C78']];
+    return {
+      k: { sales: peso(48215.5 * t), txns: n(186), skus: n(100), units: n(38420), month: peso(1182640 * t), low: n(25), out: n(10), exp: n(15), expired: n(4), gp: peso(301573.2 * t) },
+      periods: [['daily', 'Daily'], ['weekly', 'Weekly'], ['monthly', 'Monthly'], ['yearly', 'Yearly']].map(([k, l]) => seg(this.state.period === k, l, () => this.setState({ period: k }))),
+      periodNote: S.note + ' · total ' + peso(S.v.reduce((a, b) => a + b, 0)),
+      axis: { a3: short(max), a2: short(max * 2 / 3), a1: short(max / 3) },
+      bars: S.v.map((v, i) => ({ label: S.labels[i], tip: S.labels[i] + ': ' + peso(v), style: 'width:100%;max-width:44px;border-radius:6px 6px 2px 2px;height:' + (v / max * 100 * t).toFixed(1) + '%;background:' + (i === S.v.length - 1 ? '#223CFF' : '#AEB9FF') })),
+      donut: { d1: (C * shares[0] * t) + ' ' + C, d2: (C * shares[1] * t) + ' ' + C, o2: -(C * shares[0] * t), d3: (C * shares[2] * t) + ' ' + C, o3: -(C * (shares[0] + shares[1]) * t) },
+      top: top.map((x, i) => ({ rank: i + 1, name: x[0], units: Math.round(x[1] * t).toLocaleString(), style: 'height:8px;border-radius:4px;background:' + (i < 3 ? '#223CFF' : '#7F8FFF') + ';width:' + (x[1] / 1920 * 100 * t) + '%' })),
+      cats: cats.map(c => ({ name: c[0], value: short(c[1]), style: 'height:14px;border-radius:4px;background:#14A38B;width:' + (c[1] / 98400 * 100 * t) + '%' })),
+      recent: recent.map(r => ({ ref: r[0], time: r[1], cashier: r[2], items: r[3], pay: r[4], payStyle: payStyle[r[4]], total: peso(r[5]) })),
+      lowList: [['Norvasc Amlodipine 5 mg', 12, 60], ['Bioflu 10/2/500 mg', 18, 60], ['Ceelin Syrup 120 mL', 22, 30], ['Amoxil Amoxicillin 500 mg', 42, 100], ['Ventolin Inhaler', 9, 6]].slice(0, 4).concat([['Generic Losartan 100 mg', 28, 80]]).map(x => ({ name: x[0], reorder: x[2], left: x[1] + ' left', style: x[1] <= x[2] / 3 ? 'background:#FDECEF;color:#B80F2F' : 'background:#FFF4D6;color:#7A4E00' })),
+      expTabs: [30, 60, 90].map(d => seg(this.state.exp === d, '≤ ' + d + ' days', () => this.setState({ exp: d }))),
+      expList: EXP[this.state.exp].map(x => ({ name: x[0], batch: x[1], date: x[2], days: x[3], units: x[4], style: expColor(x[3]) })),
+      activity: act.map(a => ({ text: a[0], who: a[1], time: a[2], dot: 'width:10px;height:10px;border-radius:50%;margin-top:4px;display:block;background:' + a[3] })),
+    };
+  }
+}
+</script>
+</body>
+</html>

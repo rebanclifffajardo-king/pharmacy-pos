@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>YasMar Pharmacy — Design System</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1A2FCC}a:hover{color:#0F1E99}
+.sw{display:flex;flex-direction:column;gap:8px}
+.sw-chip{height:72px;border-radius:12px;border:1px solid rgba(15,23,51,.08)}
+.sw b{font:600 13px Inter,sans-serif;color:#0F1733}
+.sw span{font:400 12px 'JetBrains Mono',monospace;color:#555C78}
+.lbl{font:600 11px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#555C78;margin:0}
+.chip{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;font:600 12px Inter,sans-serif}
+.chip i{width:7px;height:7px;border-radius:50%;display:block}
+.card{background:#fff;border:1px solid #E4E7F0;border-radius:16px;padding:24px;box-shadow:0 1px 2px rgba(15,23,51,.04),0 4px 16px rgba(15,23,51,.04)}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1240px; box-sizing: border-box; background: #F6F7FB; font-family: Inter, sans-serif; color: #0F1733; padding: 56px 64px; display: flex; flex-direction: column; gap: 32px">
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 32px">
+    <div style="display: flex; align-items: center; gap: 28px">
+      <img src="/_blob/e52fd4a1bd56b3f116f07d7d8c2f45be" alt="YasMar Pharmacy — Affordable Medicine, Right Nextdoor" style="height: 72px; width: auto; display: block">
+      <div style="width: 1px; height: 56px; background: #D5D9E6"></div>
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <p class="lbl">Design system v1.0</p>
+        <h1 style="margin: 0; font: 600 28px Poppins, sans-serif; letter-spacing: -0.01em">Pharmacy POS &amp; Inventory</h1>
+      </div>
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center">
+      <span class="chip" style="background: #FFF4D6; color: #7A4E00"><i style="background: #D18A00"></i>Demo Mode data</span>
+      <span class="chip" style="background: #EEF1FF; color: #1A2FCC">Next.js · Tailwind · shadcn/ui</span>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px">
+    <div class="card" style="grid-column: span 7; display: flex; flex-direction: column; gap: 20px">
+      <p class="lbl">Color — extracted from the logo</p>
+      <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px">
+        <div class="sw"><div class="sw-chip" style="background: #223CFF"></div><b>Brand Blue</b><span>#223CFF</span></div>
+        <div class="sw"><div class="sw-chip" style="background: #1A2FCC"></div><b>Blue 700</b><span>#1A2FCC</span></div>
+        <div class="sw"><div class="sw-chip" style="background: #EEF1FF"></div><b>Blue 50</b><span>#EEF1FF</span></div>
+        <div class="sw"><div class="sw-chip" style="background: #DE1339"></div><b>Brand Red</b><span>#DE1339</span></div>
+        <div class="sw"><div class="sw-chip" style="background: #B80F2F"></div><b>Red 700</b><span>#B80F2F</span></div>
+        <div class="sw"><div class="sw-chip" style="background: #FDECEF"></div><b>Red 50</b><span>#FDECEF</span></div>
+        <div class="sw"><div class="sw-chip" style="background: #0F1733"></div><b>Ink 900</b><span>#0F1733</span></div>
+        <div class="sw"><div class="sw-chip" style="background: #555C78"></div><b>Ink 500</b><span>#555C78</span></div>
+        <div class="sw"><div class="sw-chip" style="background: #E4E7F0"></div><b>Line</b><span>#E4E7F0</span></div>
+        <div class="sw"><div class="sw-chip" style="background: #F6F7FB"></div><b>Canvas</b><span>#F6F7FB</span></div>
+        <div class="sw"><div class="sw-chip" style="background: #FFFFFF"></div><b>Surface</b><span>#FFFFFF</span></div>
+        <div class="sw"><div class="sw-chip" style="background: #0B1024"></div><b>Dark canvas</b><span>#0B1024</span></div>
+      </div>
+      <p style="margin: 0; font-size: 13px; line-height: 1.55; color: #555C78">Blue carries action and navigation (primary buttons, links, selection). Red is reserved for brand moments and danger — never for a primary button, so “Charge” and “Void” can’t be confused. Dark mode swaps Canvas → #0B1024, Surface → #141B36, Line → #26305A and lifts Blue to #6F82FF.</p>
+    </div>
+
+    <div class="card" style="grid-column: span 5; display: flex; flex-direction: column; gap: 18px">
+      <p class="lbl">Inventory status</p>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="chip" style="background: #E3F5EC; color: #0E6B4C"><i style="background: #12805C"></i>In stock</span><span style="font-size: 13px; color: #555C78">Above reorder level</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="chip" style="background: #FFF4D6; color: #7A4E00"><i style="background: #D18A00"></i>Low stock</span><span style="font-size: 13px; color: #555C78">At or below reorder level</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="chip" style="background: #FDECEF; color: #B80F2F"><i style="background: #DE1339"></i>Out of stock</span><span style="font-size: 13px; color: #555C78">0 saleable units</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="chip" style="background: #FFEADD; color: #A3360A"><i style="background: #EA580C"></i>Expiring soon</span><span style="font-size: 13px; color: #555C78">Nearest batch ≤ 90 days</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="chip" style="background: #EEF0F4; color: #4A5068"><i style="background: #8A90A6"></i>Inactive</span><span style="font-size: 13px; color: #555C78">Archived SKU</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="chip" style="background: #B80F2F; color: #FFFFFF"><i style="background: #FFFFFF"></i>Expired / Quarantined</span><span style="font-size: 13px; color: #555C78">Blocked from sale</span></div>
+        <div style="display: flex; align-items: center; justify-content: space-between"><span class="chip" style="background: #EEF1FF; color: #1A2FCC">Rx</span><span style="font-size: 13px; color: #555C78">Pharmacist verification required</span></div>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: span 5; display: flex; flex-direction: column; gap: 16px">
+      <p class="lbl">Typography</p>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid #E4E7F0; padding-bottom: 12px"><span style="font: 600 32px Poppins, sans-serif">₱48,215.50</span><span style="font: 400 12px 'JetBrains Mono', monospace; color: #555C78">Poppins 600 / 32 · KPI</span></div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid #E4E7F0; padding-bottom: 12px"><span style="font: 600 22px Poppins, sans-serif">Medicine Inventory</span><span style="font: 400 12px 'JetBrains Mono', monospace; color: #555C78">Poppins 600 / 22 · H1</span></div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid #E4E7F0; padding-bottom: 12px"><span style="font: 600 16px Inter, sans-serif">Biogesic Paracetamol 500 mg</span><span style="font: 400 12px 'JetBrains Mono', monospace; color: #555C78">Inter 600 / 16 · Title</span></div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid #E4E7F0; padding-bottom: 12px"><span style="font: 400 14px Inter, sans-serif; color: #3A4160">Tablet · Box of 100 · Unilab</span><span style="font: 400 12px 'JetBrains Mono', monospace; color: #555C78">Inter 400 / 14 · Body</span></div>
+      <div style="display: flex; align-items: baseline; justify-content: space-between"><span style="font: 400 13px 'JetBrains Mono', monospace">RX-000201  2 x 8.00</span><span style="font: 400 12px 'JetBrains Mono', monospace; color: #555C78">JetBrains Mono · SKU, receipt</span></div>
+    </div>
+
+    <div class="card" style="grid-column: span 7; display: flex; flex-direction: column; gap: 20px">
+      <p class="lbl">Controls</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+        <button type="button" style="height: 48px; padding: 0 22px; border-radius: 12px; border: 0; background: #223CFF; color: #fff; font: 600 15px Inter, sans-serif; box-shadow: 0 6px 16px rgba(34,60,255,.28)">Charge ₱73.00</button>
+        <button type="button" style="height: 48px; padding: 0 20px; border-radius: 12px; border: 1px solid #D5D9E6; background: #fff; color: #0F1733; font: 600 15px Inter, sans-serif">Hold sale</button>
+        <button type="button" style="height: 48px; padding: 0 20px; border-radius: 12px; border: 0; background: #EEF1FF; color: #1A2FCC; font: 600 15px Inter, sans-serif">Print receipt</button>
+        <button type="button" style="height: 48px; padding: 0 20px; border-radius: 12px; border: 1px solid #F5C2CC; background: #FDECEF; color: #B80F2F; font: 600 15px Inter, sans-serif">Void transaction</button>
+        <button type="button" disabled style="height: 48px; padding: 0 20px; border-radius: 12px; border: 0; background: #E4E7F0; color: #6B7189; font: 600 15px Inter, sans-serif">Insufficient cash</button>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+        <label style="display: flex; flex-direction: column; gap: 6px; font: 600 13px Inter, sans-serif; color: #3A4160">Search medicine
+          <span style="display: flex; align-items: center; gap: 10px; height: 46px; padding: 0 14px; border: 1.5px solid #223CFF; border-radius: 12px; background: #fff; box-shadow: 0 0 0 4px rgba(34,60,255,.12)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#555C78" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" value="parace" style="border: 0; outline: 0; font: 400 15px Inter, sans-serif; color: #0F1733; flex: 1; min-width: 0; background: transparent">
+          </span>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font: 600 13px Inter, sans-serif; color: #3A4160">Amount received
+          <span style="display: flex; align-items: center; gap: 8px; height: 46px; padding: 0 14px; border: 1px solid #D5D9E6; border-radius: 12px; background: #fff">
+            <span style="font: 600 15px Inter, sans-serif; color: #555C78">₱</span>
+            <input type="text" value="100.00" style="border: 0; outline: 0; font: 600 15px Inter, sans-serif; color: #0F1733; flex: 1; min-width: 0; background: transparent">
+          </span>
+        </label>
+      </div>
+      <div style="display: flex; gap: 10px; flex-wrap: wrap">
+        <span style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 10px; background: #0F1733; color: #fff; font: 600 13px Inter, sans-serif">All</span>
+        <span style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 10px; background: #fff; border: 1px solid #E4E7F0; font: 500 13px Inter, sans-serif">Pain &amp; Fever</span>
+        <span style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 10px; background: #fff; border: 1px solid #E4E7F0; font: 500 13px Inter, sans-serif">Cold &amp; Flu</span>
+        <span style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border-radius: 10px; background: #fff; border: 1px solid #E4E7F0; font: 500 13px Inter, sans-serif">Hypertension</span>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: span 4; display: flex; flex-direction: column; gap: 14px">
+      <p class="lbl">KPI card</p>
+      <div style="border: 1px solid #E4E7F0; border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+        <div style="display: flex; justify-content: space-between; align-items: center">
+          <span style="font: 500 13px Inter, sans-serif; color: #555C78">Today’s sales</span>
+          <span style="width: 36px; height: 36px; border-radius: 10px; background: #EEF1FF; display: grid; place-items: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#223CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></svg></span>
+        </div>
+        <span style="font: 600 28px Poppins, sans-serif">₱48,215.50</span>
+        <span style="font: 500 12px Inter, sans-serif; color: #0E6B4C">▲ 12.4% vs yesterday · 186 txns</span>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: span 4; display: flex; flex-direction: column; gap: 14px">
+      <p class="lbl">Product tile</p>
+      <div style="border: 1px solid #E4E7F0; border-radius: 14px; padding: 14px; display: flex; gap: 12px; align-items: center">
+        <span style="width: 52px; height: 52px; border-radius: 12px; background: #EEF1FF; display: grid; place-items: center; flex: none"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#223CFF" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></span>
+        <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px">
+          <span style="font: 600 14px Inter, sans-serif">Amoxil 500 mg <span class="chip" style="height: 20px; padding: 0 7px; font-size: 11px; background: #EEF1FF; color: #1A2FCC">Rx</span></span>
+          <span style="font: 400 12px Inter, sans-serif; color: #555C78">Amoxicillin · Capsule</span>
+          <span style="font: 600 14px Inter, sans-serif; color: #1A2FCC">₱14.00 <span style="font-weight: 500; color: #7A4E00; font-size: 12px">· 42 left</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="grid-column: span 4; display: flex; flex-direction: column; gap: 14px">
+      <p class="lbl">Shape &amp; motion</p>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; font: 400 13px Inter, sans-serif; color: #3A4160">
+        <span>Radius · 10 / 12 / 16</span><span>Spacing · 4-pt grid</span>
+        <span>Shadow · 0 4 16 / 4%</span><span>Touch target · ≥ 44 px</span>
+        <span>Motion · 160–240 ms</span><span>Easing · cubic(.2,.8,.2,1)</span>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.5; color: #555C78">All motion respects prefers-reduced-motion. Cashier-critical feedback (add to cart, totals) never exceeds 240 ms.</p>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1240}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

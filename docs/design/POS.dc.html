@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Point of Sale — YasMar Pharmacy</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1A2FCC}a:hover{color:#0F1E99}
+.pos-root{height:100vh;display:flex;background:#F6F7FB;font-family:Inter,sans-serif;color:#0F1733;overflow:hidden}
+.pos-side{flex:none;height:100%}
+.pos-main{flex:1;min-width:0;display:flex;flex-wrap:wrap;height:100%}
+.pos-products{flex:999 1 520px;min-width:0;height:100%;display:flex;flex-direction:column}
+.pos-cart{flex:1 1 400px;max-width:460px;min-width:0;height:100%;display:flex;flex-direction:column;background:#fff;border-left:1px solid #E4E7F0}
+@media (max-width:1000px){.pos-root{height:auto;min-height:100vh;overflow:visible}.pos-side{display:none}.pos-main,.pos-products,.pos-cart{height:auto}.pos-cart{max-width:none;border-left:0;border-top:1px solid #E4E7F0}}
+.prod{all:unset;box-sizing:border-box;background:#fff;border:1px solid #E4E7F0;border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:transform 140ms,box-shadow 140ms,border-color 140ms;min-height:150px}
+.prod:hover{border-color:#B9C3FF;box-shadow:0 6px 18px rgba(34,60,255,.10);transform:translateY(-1px)}
+.prod:active{transform:scale(.98)}
+.prod:focus-visible{outline:3px solid #223CFF;outline-offset:2px}
+.prod[disabled]{cursor:not-allowed;opacity:.62;transform:none;box-shadow:none}
+.ib{width:44px;height:44px;border-radius:10px;border:1px solid #E4E7F0;background:#fff;display:grid;place-items:center;cursor:pointer;color:#3A4160}
+.ib:hover{background:#F6F7FB}
+.chip{display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 8px;border-radius:999px;font:600 11px Inter,sans-serif;white-space:nowrap}
+.line{transition:background 400ms}
+.btn{height:48px;border-radius:12px;font:600 15px Inter,sans-serif;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 18px;box-sizing:border-box}
+.btn[disabled]{cursor:not-allowed;background:#E4E7F0 !important;color:#6B7189 !important;box-shadow:none !important;border-color:#E4E7F0 !important}
+.inp{height:46px;border:1px solid #D5D9E6;border-radius:12px;padding:0 14px;font:500 15px Inter,sans-serif;color:#0F1733;background:#fff;outline:0;width:100%;box-sizing:border-box}
+.inp:focus{border-color:#223CFF;box-shadow:0 0 0 4px rgba(34,60,255,.12)}
+@keyframes pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.08);opacity:1}100%{transform:scale(1)}}
+@keyframes rise{from{transform:translateY(12px);opacity:0}to{transform:none;opacity:1}}
+@keyframes feed{from{transform:translateY(-100%)}to{transform:translateY(0)}}
+@keyframes grow{from{width:0}to{width:100%}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes draw{from{stroke-dashoffset:40}to{stroke-dashoffset:0}}
+.pop{animation:pop 380ms cubic-bezier(.2,.8,.2,1) both}
+.rise{animation:rise 220ms cubic-bezier(.2,.8,.2,1) both}
+.feed{animation:feed 2.4s linear both}
+.grow{animation:grow 2.4s linear both}
+.spin{animation:spin 900ms linear infinite}
+.pulse{animation:pulse 1.2s ease-in-out infinite}
+.draw{stroke-dasharray:40;animation:draw 500ms 150ms ease-out both}
+@media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important}}
+</style>
+</helmet>
+<div class="pos-root">
+  <div class="pos-side"><dc-import name="Sidebar" active="pos" collapsed="{{ true }}" hint-size="76px,100%"></dc-import></div>
+
+  <div class="pos-main">
+    <!-- PRODUCTS -->
+    <section class="pos-products" aria-label="Medicine selection">
+      <div style="padding: 16px 20px 12px; display: flex; flex-direction: column; gap: 12px; background: #fff; border-bottom: 1px solid #E4E7F0">
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+          <label style="flex: 1 1 360px; display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 14px; border: 1.5px solid #223CFF; border-radius: 14px; background: #fff; box-shadow: 0 0 0 4px rgba(34,60,255,.10)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#223CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 7v10M12 7v10M17 7v10"/></svg>
+            <span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Scan barcode or search medicines</span>
+            <input type="search" value="{{query}}" onChange="{{onQuery}}" onKeyDown="{{onScanKey}}" placeholder="Scan barcode or search generic, brand, SKU…" style="border: 0; outline: 0; background: transparent; font: 500 16px Inter, sans-serif; color: #0F1733; flex: 1; min-width: 0">
+            <span style="font: 500 12px Inter, sans-serif; color: #555C78; white-space: nowrap">Enter ↵ to add</span>
+          </label>
+          <div style="display: flex; gap: 8px; align-items: center">
+            <button type="button" class="btn" onClick="{{resumeHeld}}" disabled="{{noHeld}}" style="height: 52px; border: 1px solid #E4E7F0; background: #fff; color: #0F1733; font-size: 14px">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+              Held sales <span style="min-width: 22px; height: 22px; border-radius: 999px; background: #EEF1FF; color: #1A2FCC; font: 700 12px Inter, sans-serif; display: inline-grid; place-items: center">{{heldCount}}</span>
+            </button>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; padding: 0 6px">
+              <span style="font: 600 14px Inter, sans-serif">Maria Santos</span>
+              <span style="font: 500 11px Inter, sans-serif; color: #555C78">Cashier · Counter 1</span>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px">
+          <sc-for list="{{cats}}" as="c" hint-placeholder-count="8">
+            <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="{{c.style}}">{{c.label}}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="flex: 1; overflow-y: auto; padding: 16px 20px 24px">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px">
+          <span style="font: 500 13px Inter, sans-serif; color: #555C78">{{resultLabel}}</span>
+          <span class="chip" style="background: #FFF4D6; color: #7A4E00">Demo catalog · fictional prices &amp; barcodes</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px">
+          <sc-for list="{{products}}" as="p" hint-placeholder-count="12">
+            <button type="button" class="prod" onClick="{{p.add}}" disabled="{{p.blocked}}" aria-label="{{p.aria}}">
+              <div style="display: flex; gap: 10px; align-items: flex-start">
+                <span style="{{p.tileStyle}}">
+                  <sc-if value="{{p.isPill}}" hint-placeholder-val="{{ true }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></sc-if>
+                  <sc-if value="{{p.isBottle}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2h6v3H9z"/><path d="M8 5h8l1 3v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V8z"/><path d="M7 12h10"/></svg></sc-if>
+                  <sc-if value="{{p.isOther}}" hint-placeholder-val="{{ false }}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M12 11v5M9.5 13.5h5"/></svg></sc-if>
+                </span>
+                <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+                  <span style="font: 600 14px Inter, sans-serif; color: #0F1733; line-height: 1.3">{{p.brand}} {{p.str}}</span>
+                  <span style="font: 400 12px Inter, sans-serif; color: #555C78; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{p.gen}} · {{p.form}}</span>
+                </div>
+                <sc-if value="{{p.rx}}" hint-placeholder-val="{{ false }}"><span class="chip" style="background: #EEF1FF; color: #1A2FCC">Rx</span></sc-if>
+              </div>
+              <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 8px">
+                <div style="display: flex; flex-direction: column; gap: 4px">
+                  <span style="font: 700 16px Inter, sans-serif; color: #1A2FCC">{{p.priceLabel}}<span style="font: 500 12px Inter, sans-serif; color: #555C78"> / {{p.unit}}</span></span>
+                  <span class="chip" style="{{p.statusStyle}}"><i style="{{p.dotStyle}}"></i>{{p.statusLabel}}</span>
+                </div>
+                <span style="{{p.plusStyle}}" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M12 5v14"/></svg></span>
+              </div>
+            </button>
+          </sc-for>
+        </div>
+        <sc-if value="{{noResults}}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 48px 16px; text-align: center; color: #555C78; font: 500 14px Inter, sans-serif">No medicines match “{{query}}”. Try the generic name, or scan the barcode again.</div>
+        </sc-if>
+      </div>
+    </section>
+
+    <!-- CART -->
+    <aside class="pos-cart" aria-label="Current sale">
+      <div style="padding: 16px 20px; border-bottom: 1px solid #E4E7F0; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <h2 style="margin: 0; font: 600 18px Poppins, sans-serif">Current sale</h2>
+          <span style="font: 500 12px 'JetBrains Mono', monospace; color: #555C78">{{nextRef}} · {{itemCount}} items</span>
+        </div>
+        <div style="display: flex; gap: 8px">
+          <button type="button" class="ib" onClick="{{hold}}" disabled="{{cartEmpty}}" aria-label="Hold sale" title="Hold sale"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg></button>
+          <button type="button" class="ib" onClick="{{cancelSale}}" disabled="{{cartEmpty}}" aria-label="Cancel sale" title="Cancel sale" style="color: #B80F2F"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></button>
+        </div>
+      </div>
+
+      <div style="flex: 1; overflow-y: auto; min-height: 160px">
+        <sc-if value="{{cartEmpty}}" hint-placeholder-val="{{ false }}">
+          <div style="height: 100%; min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 24px; text-align: center; color: #555C78">
+            <span style="width: 64px; height: 64px; border-radius: 50%; background: #EEF1FF; display: grid; place-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#223CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg></span>
+            <span style="font: 600 15px Inter, sans-serif; color: #0F1733">Scan or tap a medicine to start</span>
+            <span style="font: 400 13px Inter, sans-serif">Tip: try barcode 2000000000017 then press Enter.</span>
+          </div>
+        </sc-if>
+        <sc-for list="{{lines}}" as="l" hint-placeholder-count="3">
+          <div class="line" style="{{l.rowStyle}}">
+            <div style="display: flex; justify-content: space-between; gap: 12px">
+              <div style="min-width: 0; display: flex; flex-direction: column; gap: 2px">
+                <span style="font: 600 14px Inter, sans-serif">{{l.name}} <sc-if value="{{l.rx}}" hint-placeholder-val="{{ false }}"><span class="chip" style="height: 18px; font-size: 10px; background: #EEF1FF; color: #1A2FCC">Rx</span></sc-if></span>
+                <span style="font: 400 12px Inter, sans-serif; color: #555C78">{{l.fefo}}</span>
+              </div>
+              <span style="font: 700 15px Inter, sans-serif; white-space: nowrap">{{l.total}}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap">
+              <div style="display: flex; gap: 4px; flex-wrap: wrap">
+                <sc-for list="{{l.packs}}" as="k" hint-placeholder-count="1">
+                  <button type="button" onClick="{{k.pick}}" aria-pressed="{{k.pressed}}" style="{{k.style}}">{{k.label}}</button>
+                </sc-for>
+              </div>
+              <div style="display: flex; align-items: center; gap: 4px">
+                <button type="button" class="ib" onClick="{{l.dec}}" aria-label="Decrease quantity" style="width: 40px; height: 40px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"/></svg></button>
+                <span style="min-width: 36px; text-align: center; font: 700 16px Inter, sans-serif; font-variant-numeric: tabular-nums">{{l.qty}}</span>
+                <button type="button" class="ib" onClick="{{l.inc}}" aria-label="Increase quantity" style="width: 40px; height: 40px"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg></button>
+                <button type="button" class="ib" onClick="{{l.remove}}" aria-label="Remove item" style="width: 40px; height: 40px; border-color: transparent; color: #B80F2F"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+              </div>
+            </div>
+            <span style="font: 500 12px Inter, sans-serif; color: #555C78">{{l.unitLine}}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="border-top: 1px solid #E4E7F0; padding: 14px 20px 18px; display: flex; flex-direction: column; gap: 12px; background: #FBFBFE">
+        <sc-if value="{{needsRx}}" hint-placeholder-val="{{ false }}">
+          <div class="rise" style="display: flex; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 12px; background: #EEF1FF; border: 1px solid #C9D1FF">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A2FCC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+            <span style="flex: 1; font: 500 13px Inter, sans-serif; color: #1A2FCC">{{rxCount}} prescription item(s) need pharmacist verification</span>
+            <button type="button" onClick="{{openRx}}" style="height: 36px; padding: 0 12px; border-radius: 10px; border: 0; background: #223CFF; color: #fff; font: 600 13px Inter, sans-serif; cursor: pointer">Verify</button>
+          </div>
+        </sc-if>
+        <sc-if value="{{rxOk}}" hint-placeholder-val="{{ false }}">
+          <div style="display: flex; gap: 8px; align-items: center; font: 500 12px Inter, sans-serif; color: #0E6B4C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Rx verified by Jose Reyes, RPh · logged</div>
+        </sc-if>
+
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 600 12px Inter, sans-serif; color: #3A4160">Discount</span>
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px">
+            <sc-for list="{{discOpts}}" as="d" hint-placeholder-count="4">
+              <button type="button" onClick="{{d.pick}}" aria-pressed="{{d.pressed}}" style="{{d.style}}">{{d.label}}</button>
+            </sc-for>
+          </div>
+          <sc-if value="{{showId}}" hint-placeholder-val="{{ false }}">
+            <label class="rise" style="display: flex; flex-direction: column; gap: 4px; font: 600 12px Inter, sans-serif; color: #3A4160">{{idLabel}}
+              <input class="inp" type="text" value="{{scId}}" onChange="{{onScId}}" placeholder="e.g. OSCA-2024-001234 (demo)" style="height: 42px; font-size: 14px">
+            </label>
+          </sc-if>
+          <sc-if value="{{manualNote}}" hint-placeholder-val="{{ false }}">
+            <span style="font: 500 12px Inter, sans-serif; color: #7A4E00">Manual discounts need an Administrator PIN and are written to the audit log.</span>
+          </sc-if>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 6px; font: 500 14px Inter, sans-serif; color: #3A4160">
+          <div style="display: flex; justify-content: space-between"><span>Subtotal</span><span style="font-variant-numeric: tabular-nums">{{t.subtotal}}</span></div>
+          <div style="display: flex; justify-content: space-between"><span>{{t.l2}}</span><span style="font-variant-numeric: tabular-nums">{{t.v2}}</span></div>
+          <div style="display: flex; justify-content: space-between"><span>{{t.l3}}</span><span style="font-variant-numeric: tabular-nums; color: {{t.c3}}">{{t.v3}}</span></div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 8px; border-top: 1px dashed #D5D9E6; color: #0F1733">
+            <span style="font: 600 16px Inter, sans-serif">Total</span>
+            <span style="font: 700 28px Poppins, sans-serif; font-variant-numeric: tabular-nums; letter-spacing: -0.01em">{{t.total}}</span>
+          </div>
+        </div>
+
+        <sc-if value="{{blockReason}}" hint-placeholder-val="{{ false }}"><span style="font: 500 12px Inter, sans-serif; color: #555C78; text-align: center">{{blockReason}}</span></sc-if>
+        <button type="button" class="btn" onClick="{{openPay}}" disabled="{{cantCharge}}" style="height: 60px; border: 0; background: #223CFF; color: #fff; font-size: 18px; box-shadow: 0 10px 24px rgba(34,60,255,.30)">
+          Charge {{t.total}}
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <!-- TOAST -->
+  <sc-if value="{{toast}}" hint-placeholder-val="{{ false }}">
+    <div role="status" style="{{toastStyle}}">{{toast}}</div>
+  </sc-if>
+
+  <!-- RX VERIFICATION -->
+  <sc-if value="{{stageRx}}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; inset: 0; background: rgba(11,16,36,.55); display: grid; place-items: center; padding: 16px; z-index: 20">
+      <div class="pop" role="dialog" aria-modal="true" aria-label="Pharmacist verification" style="width: 100%; max-width: 520px; background: #fff; border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 80px rgba(5,10,40,.35)">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font: 600 22px Poppins, sans-serif">Pharmacist verification</h2>
+            <span style="font: 400 14px Inter, sans-serif; color: #555C78">Check the prescription, then authorize with a pharmacist PIN. A label on screen is not authorization.</span>
+          </div>
+          <button type="button" class="ib" onClick="{{closeModal}}" aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border-radius: 12px; background: #F6F7FB">
+          <sc-for list="{{rxItems}}" as="r" hint-placeholder-count="2">
+            <div style="display: flex; justify-content: space-between; font: 500 14px Inter, sans-serif"><span>{{r.name}}</span><span style="color: #555C78">{{r.qty}}</span></div>
+          </sc-for>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+          <label style="display: flex; flex-direction: column; gap: 4px; font: 600 12px Inter, sans-serif; color: #3A4160">Prescribing physician<input class="inp" type="text" value="Dr. Ana Villanueva"></label>
+          <label style="display: flex; flex-direction: column; gap: 4px; font: 600 12px Inter, sans-serif; color: #3A4160">PRC license no.<input class="inp" type="text" value="0123456 (demo)"></label>
+          <label style="display: flex; flex-direction: column; gap: 4px; font: 600 12px Inter, sans-serif; color: #3A4160">Prescription date<input class="inp" type="text" value="11/03/2026"></label>
+          <label style="display: flex; flex-direction: column; gap: 4px; font: 600 12px Inter, sans-serif; color: #3A4160">Pharmacist PIN<input class="inp" type="password" value="{{pin}}" onChange="{{onPin}}" inputmode="numeric" placeholder="4–6 digits"></label>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: flex-end">
+          <button type="button" class="btn" onClick="{{closeModal}}" style="border: 1px solid #D5D9E6; background: #fff; color: #0F1733">Cancel</button>
+          <button type="button" class="btn" onClick="{{authorizeRx}}" disabled="{{pinShort}}" style="border: 0; background: #223CFF; color: #fff">Authorize dispensing</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- PAYMENT -->
+  <sc-if value="{{stagePay}}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; inset: 0; background: rgba(11,16,36,.55); display: grid; place-items: center; padding: 16px; z-index: 20; overflow-y: auto">
+      <div class="pop" role="dialog" aria-modal="true" aria-label="Payment" style="width: 100%; max-width: 880px; background: #fff; border-radius: 22px; display: flex; flex-wrap: wrap; overflow: hidden; box-shadow: 0 30px 80px rgba(5,10,40,.35)">
+        <div style="flex: 1 1 280px; background: #0F1733; color: #fff; padding: 28px; display: flex; flex-direction: column; gap: 18px; box-sizing: border-box">
+          <span style="font: 600 12px Inter, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #A9B4FF">Amount due</span>
+          <span style="font: 700 44px Poppins, sans-serif; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">{{t.total}}</span>
+          <div style="display: flex; flex-direction: column; gap: 8px; font: 400 14px Inter, sans-serif; color: #C9CEE6">
+            <div style="display: flex; justify-content: space-between"><span>{{itemCount}} items</span><span>{{t.subtotal}}</span></div>
+            <div style="display: flex; justify-content: space-between"><span>{{t.l3}}</span><span>{{t.v3}}</span></div>
+            <div style="display: flex; justify-content: space-between"><span>Reference</span><span style="font-family: 'JetBrains Mono', monospace">{{nextRef}}</span></div>
+          </div>
+          <div style="margin-top: auto; padding: 12px; border-radius: 12px; background: rgba(255,255,255,.08); font: 400 12px/1.5 Inter, sans-serif; color: #C9CEE6">Demo Mode: every payment confirmation here is simulated and labeled. Live mode only completes on a provider-verified reference.</div>
+        </div>
+        <div style="flex: 2 1 420px; padding: 24px 28px 28px; display: flex; flex-direction: column; gap: 18px; box-sizing: border-box">
+          <div style="display: flex; justify-content: space-between; align-items: center">
+            <h2 style="margin: 0; font: 600 20px Poppins, sans-serif">Payment method</h2>
+            <button type="button" class="ib" onClick="{{closeModal}}" aria-label="Close payment"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+          </div>
+          <div role="tablist" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+            <button type="button" role="tab" aria-selected="{{selCash}}" onClick="{{pickCash}}" style="{{tabCash}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/></svg>Cash</button>
+            <button type="button" role="tab" aria-selected="{{selQr}}" onClick="{{pickQr}}" style="{{tabQr}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="3" width="5" height="5" rx="1"/><rect x="16" y="3" width="5" height="5" rx="1"/><rect x="3" y="16" width="5" height="5" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3M21 21v.01M12 7v3a2 2 0 0 1-2 2H7M3 12h.01M12 3h.01M12 16v.01M16 12h1M21 12v.01M12 21v-1"/></svg>QR Ph</button>
+            <button type="button" role="tab" aria-selected="{{selCard}}" onClick="{{pickCard}}" style="{{tabCard}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Card</button>
+          </div>
+
+          <sc-if value="{{selCashB}}" hint-placeholder-val="{{ true }}">
+            <div class="rise" style="display: flex; flex-direction: column; gap: 14px">
+              <label style="display: flex; flex-direction: column; gap: 6px; font: 600 13px Inter, sans-serif; color: #3A4160">Amount received
+                <span style="display: flex; align-items: center; gap: 8px; height: 60px; padding: 0 16px; border: 1.5px solid #223CFF; border-radius: 14px; box-shadow: 0 0 0 4px rgba(34,60,255,.10)">
+                  <span style="font: 600 24px Poppins, sans-serif; color: #555C78">₱</span>
+                  <input type="text" inputmode="decimal" value="{{cash}}" onChange="{{onCash}}" placeholder="0.00" style="border: 0; outline: 0; font: 600 26px Poppins, sans-serif; color: #0F1733; flex: 1; min-width: 0; background: transparent">
+                </span>
+              </label>
+              <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px">
+                <sc-for list="{{quickCash}}" as="q" hint-placeholder-count="5">
+                  <button type="button" onClick="{{q.pick}}" style="height: 48px; border-radius: 12px; border: 1px solid #D5D9E6; background: #fff; font: 600 14px Inter, sans-serif; color: #0F1733; cursor: pointer">{{q.label}}</button>
+                </sc-for>
+              </div>
+              <div style="{{changeBox}}">
+                <span style="font: 600 14px Inter, sans-serif">{{changeLabel}}</span>
+                <span style="font: 700 30px Poppins, sans-serif; font-variant-numeric: tabular-nums">{{changeValue}}</span>
+              </div>
+              <button type="button" class="btn" onClick="{{finalize}}" disabled="{{cashShort}}" style="height: 56px; border: 0; background: #223CFF; color: #fff; font-size: 17px">Complete cash sale</button>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{selQrB}}" hint-placeholder-val="{{ false }}">
+            <div class="rise" style="display: flex; gap: 20px; flex-wrap: wrap">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px">
+                <div role="img" aria-label="Demonstration QR code, not payable" style="width: 200px; height: 200px; padding: 12px; border-radius: 16px; border: 1px solid #E4E7F0; background: #fff; position: relative; box-sizing: content-box">
+                  <div style="display: grid; grid-template-columns: repeat(25, 8px); grid-auto-rows: 8px">
+                    <sc-for list="{{qrCells}}" as="c" hint-placeholder-count="0"><span style="{{c}}"></span></sc-for>
+                  </div>
+                  <span style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); background: #fff; padding: 4px 8px; border-radius: 6px; font: 800 13px Inter, sans-serif; color: #223CFF; border: 1px solid #E4E7F0">QR Ph</span>
+                </div>
+                <span class="chip" style="background: #FFF4D6; color: #7A4E00">DEMO QR · not payable</span>
+              </div>
+              <div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 12px">
+                <div style="{{qrStatusBox}}">
+                  <sc-if value="{{qrPending}}" hint-placeholder-val="{{ true }}"><svg class="spin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.22-8.56"/></svg></sc-if>
+                  <span>{{qrStatusText}}</span>
+                </div>
+                <label style="display: flex; flex-direction: column; gap: 4px; font: 600 12px Inter, sans-serif; color: #3A4160">Payment reference (from provider)<input class="inp" type="text" value="{{qrRef}}" readonly placeholder="Filled in by the acquiring provider"></label>
+                <span style="font: 400 12px/1.5 Inter, sans-serif; color: #555C78">QR Ph is the interoperability standard; confirmation comes from your acquiring bank or payment provider — never from the QR being shown or scanned.</span>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap">
+                  <button type="button" onClick="{{qrSimOk}}" style="height: 40px; padding: 0 12px; border-radius: 10px; border: 1px dashed #C99A2E; background: #FFF9EA; color: #7A4E00; font: 600 13px Inter, sans-serif; cursor: pointer">Simulate paid (demo)</button>
+                  <button type="button" onClick="{{qrSimFail}}" style="height: 40px; padding: 0 12px; border-radius: 10px; border: 1px dashed #C99A2E; background: #FFF9EA; color: #7A4E00; font: 600 13px Inter, sans-serif; cursor: pointer">Simulate failed (demo)</button>
+                </div>
+                <button type="button" class="btn" onClick="{{finalize}}" disabled="{{qrNotOk}}" style="border: 0; background: #223CFF; color: #fff">Complete QR Ph sale</button>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{selCardB}}" hint-placeholder-val="{{ false }}">
+            <div class="rise" style="display: flex; flex-direction: column; gap: 14px">
+              <div style="display: flex; gap: 8px; flex-wrap: wrap">
+                <sc-for list="{{cardSteps}}" as="s" hint-placeholder-count="4">
+                  <span style="{{s.style}}">{{s.label}}</span>
+                </sc-for>
+              </div>
+              <div style="{{cardBox}}">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="{{cardIconClass}}"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8v4H8z"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>
+                <div style="display: flex; flex-direction: column; gap: 2px">
+                  <span style="font: 600 16px Inter, sans-serif">{{cardTitle}}</span>
+                  <span style="font: 400 13px Inter, sans-serif; opacity: .85">{{cardSub}}</span>
+                </div>
+              </div>
+              <span style="font: 400 12px/1.5 Inter, sans-serif; color: #555C78">Card details are entered on the external terminal only. This system never sees or stores card numbers, CVV or PIN — only the provider’s approval reference.</span>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap">
+                <sc-if value="{{cardIdle}}" hint-placeholder-val="{{ true }}"><button type="button" class="btn" onClick="{{cardSend}}" style="border: 0; background: #0F1733; color: #fff">Send {{t.total}} to terminal</button></sc-if>
+                <sc-if value="{{cardWaiting}}" hint-placeholder-val="{{ false }}">
+                  <div style="display: flex; gap: 8px; flex-wrap: wrap">
+                    <button type="button" onClick="{{cardSimOk}}" style="height: 44px; padding: 0 14px; border-radius: 10px; border: 1px dashed #C99A2E; background: #FFF9EA; color: #7A4E00; font: 600 13px Inter, sans-serif; cursor: pointer">Simulate approved (demo)</button>
+                    <button type="button" onClick="{{cardSimFail}}" style="height: 44px; padding: 0 14px; border-radius: 10px; border: 1px dashed #C99A2E; background: #FFF9EA; color: #7A4E00; font: 600 13px Inter, sans-serif; cursor: pointer">Simulate declined (demo)</button>
+                  </div>
+                </sc-if>
+                <sc-if value="{{cardDeclined}}" hint-placeholder-val="{{ false }}"><button type="button" class="btn" onClick="{{cardSend}}" style="border: 1px solid #D5D9E6; background: #fff; color: #0F1733">Retry on terminal</button></sc-if>
+              </div>
+              <button type="button" class="btn" onClick="{{finalize}}" disabled="{{cardNotOk}}" style="border: 0; background: #223CFF; color: #fff">Complete card sale</button>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- DONE + RECEIPT + PRINT -->
+  <sc-if value="{{stageDone}}" hint-placeholder-val="{{ false }}">
+    <div style="position: fixed; inset: 0; background: rgba(11,16,36,.55); display: grid; place-items: center; padding: 16px; z-index: 20; overflow-y: auto">
+      <div class="pop" role="dialog" aria-modal="true" aria-label="Sale complete" style="width: 100%; max-width: 900px; background: #fff; border-radius: 22px; display: flex; flex-wrap: wrap; overflow: hidden; box-shadow: 0 30px 80px rgba(5,10,40,.35)">
+        <div style="flex: 1 1 380px; padding: 28px; display: flex; flex-direction: column; gap: 18px; box-sizing: border-box">
+          <div style="display: flex; gap: 16px; align-items: center">
+            <span class="pop" style="width: 64px; height: 64px; border-radius: 50%; background: #E3F5EC; display: grid; place-items: center; flex: none"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#12805C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="draw" d="M20 6 9 17l-5-5"/></svg></span>
+            <div style="display: flex; flex-direction: column; gap: 2px">
+              <h2 style="margin: 0; font: 600 22px Poppins, sans-serif">Payment successful</h2>
+              <span style="font: 500 13px 'JetBrains Mono', monospace; color: #555C78">{{done.ref}} · {{done.method}}</span>
+            </div>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+            <div style="padding: 14px; border-radius: 14px; background: #F6F7FB; display: flex; flex-direction: column; gap: 4px"><span style="font: 500 12px Inter, sans-serif; color: #555C78">Total paid</span><span style="font: 700 22px Poppins, sans-serif">{{done.total}}</span></div>
+            <div style="padding: 14px; border-radius: 14px; background: #F6F7FB; display: flex; flex-direction: column; gap: 4px"><span style="font: 500 12px Inter, sans-serif; color: #555C78">{{done.l2}}</span><span style="font: 700 22px Poppins, sans-serif">{{done.v2}}</span></div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; font: 500 13px Inter, sans-serif; color: #0E6B4C">
+            <span>✓ Sale finalized once (idempotency key {{done.key}})</span>
+            <span>✓ Stock deducted from FEFO batches</span>
+            <span>✓ Receipt record created</span>
+          </div>
+
+          <div style="border: 1px solid #E4E7F0; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; align-items: center; gap: 14px; min-height: 250px; justify-content: center">
+            <sc-if value="{{prIdle}}" hint-placeholder-val="{{ true }}">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#223CFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8"/></svg>
+                <span style="font: 600 15px Inter, sans-serif">XPrinter 58mm · USB</span>
+                <span style="font: 400 13px Inter, sans-serif; color: #555C78">Ready. Printing never creates a second sale.</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{prPreparing}}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 12px">
+                <svg class="pulse" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#223CFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8"/></svg>
+                <span style="font: 600 15px Inter, sans-serif">Preparing receipt…</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{prPrinting}}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 0; width: 220px">
+                <div style="width: 220px; height: 64px; border-radius: 16px 16px 10px 10px; background: #1B2140; position: relative; box-shadow: inset 0 -6px 0 #0F1430">
+                  <span style="position: absolute; left: 16px; top: 14px; width: 8px; height: 8px; border-radius: 50%; background: #3BD38A" class="pulse"></span>
+                  <span style="position: absolute; left: 30px; top: 12px; font: 700 10px Inter, sans-serif; color: #8E97C8; letter-spacing: .1em">XPRINTER</span>
+                  <span style="position: absolute; left: 24px; right: 24px; bottom: 10px; height: 4px; border-radius: 2px; background: #05081A"></span>
+                </div>
+                <div style="width: 168px; height: 140px; overflow: hidden">
+                  <div class="feed" style="width: 168px; height: 140px; background: #fff; border: 1px solid #E4E7F0; border-top: 0; box-shadow: 0 6px 14px rgba(15,23,51,.12); padding: 10px 12px; box-sizing: border-box; display: flex; flex-direction: column; gap: 5px">
+                    <span style="height: 6px; width: 60%; align-self: center; background: #0F1733; border-radius: 2px"></span>
+                    <span style="height: 4px; width: 40%; align-self: center; background: #9AA0B8; border-radius: 2px"></span>
+                    <span style="height: 1px; background: repeating-linear-gradient(90deg,#9AA0B8 0 3px,transparent 3px 6px); margin: 3px 0"></span>
+                    <span style="height: 4px; width: 80%; background: #9AA0B8; border-radius: 2px"></span>
+                    <span style="height: 4px; width: 70%; background: #9AA0B8; border-radius: 2px"></span>
+                    <span style="height: 4px; width: 85%; background: #9AA0B8; border-radius: 2px"></span>
+                    <span style="height: 1px; background: repeating-linear-gradient(90deg,#9AA0B8 0 3px,transparent 3px 6px); margin: 3px 0"></span>
+                    <span style="height: 6px; width: 50%; align-self: flex-end; background: #0F1733; border-radius: 2px"></span>
+                  </div>
+                </div>
+                <div style="width: 100%; height: 6px; border-radius: 3px; background: #EEF1FF; overflow: hidden; margin-top: 10px"><div class="grow" style="height: 100%; background: #223CFF"></div></div>
+                <span style="font: 600 14px Inter, sans-serif; margin-top: 8px">Printing…</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{prDone}}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+                <span class="pop" style="width: 56px; height: 56px; border-radius: 50%; background: #E3F5EC; display: grid; place-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#12805C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="draw" d="M20 6 9 17l-5-5"/></svg></span>
+                <span style="font: 600 15px Inter, sans-serif">Receipt printed successfully</span>
+                <span class="chip" style="background: #FFF4D6; color: #7A4E00">Simulated printer · Demo Mode</span>
+                <span style="font: 400 12px/1.5 Inter, sans-serif; color: #555C78; max-width: 300px">On a live terminal this state appears only when the ESC/POS bridge confirms. Browser print can only report “sent to print dialog”.</span>
+              </div>
+            </sc-if>
+            <sc-if value="{{prFailed}}" hint-placeholder-val="{{ false }}">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+                <span class="pop" style="width: 56px; height: 56px; border-radius: 50%; background: #FDECEF; display: grid; place-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B80F2F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+                <span style="font: 600 15px Inter, sans-serif; color: #B80F2F">Printer out of paper</span>
+                <span style="font: 400 13px/1.5 Inter, sans-serif; color: #555C78; max-width: 300px">Load a new 58mm roll and close the cover. The sale is already saved — retrying only reprints.</span>
+              </div>
+            </sc-if>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <button type="button" class="btn" onClick="{{print}}" disabled="{{printBusy}}" style="flex: 1 1 140px; border: 0; background: #EEF1FF; color: #1A2FCC">{{printLabel}}</button>
+            <button type="button" class="btn" onClick="{{newSale}}" style="flex: 1 1 140px; border: 0; background: #223CFF; color: #fff">New sale</button>
+          </div>
+          <label style="display: flex; align-items: center; gap: 8px; font: 500 12px Inter, sans-serif; color: #555C78; min-height: 32px"><input type="checkbox" checked="{{simFail}}" onChange="{{toggleFail}}" style="width: 16px; height: 16px; accent-color: #DE1339">Demo: simulate paper-out on next print</label>
+        </div>
+
+        <div style="flex: 1 1 300px; background: #EEF0F4; padding: 28px 20px; display: flex; flex-direction: column; align-items: center; gap: 10px; box-sizing: border-box">
+          <span style="font: 600 12px Inter, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #555C78">58mm receipt preview</span>
+          <div style="background: #fff; padding: 16px 12px 20px; box-shadow: 0 8px 24px rgba(15,23,51,.12); display: flex; flex-direction: column; align-items: center; gap: 8px">
+            <img src="/_blob/e52fd4a1bd56b3f116f07d7d8c2f45be" alt="YasMar Pharmacy" style="width: 170px; height: auto; filter: grayscale(1) contrast(1.4)">
+            <div style="font: 400 11.5px/1.45 'JetBrains Mono', monospace; color: #111; width: 32ch">
+              <sc-for list="{{receipt}}" as="r" hint-placeholder-count="20"><div style="white-space: pre">{{r}}</div></sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+const CATALOG = [
+  [1,'Biogesic','Paracetamol','500 mg','Tablet','Pain & Fever',5.50,1240,200,false,412,'BG24-0917','Dec 2027'],
+  [2,'Advil','Ibuprofen','200 mg','Softgel','Pain & Fever',9.75,380,100,false,290,'AD24-1102','Aug 2027'],
+  [3,'Dolfenal','Mefenamic Acid','500 mg','Tablet','Pain & Fever',18.00,210,80,true,350,'DF25-0211','Oct 2027'],
+  [4,'Bioflu','Phenylephrine + Chlorphenamine + Paracetamol','10/2/500 mg','Tablet','Cold & Flu',8.25,18,60,false,198,'BF25-0330','May 2027'],
+  [5,'Neozep','Phenylephrine + Chlorphenamine + Paracetamol','10/2/500 mg','Tablet','Cold & Flu',6.75,300,100,false,265,'NZ25-0102','Jul 2027'],
+  [6,'Solmux','Carbocisteine','500 mg','Capsule','Cough',11.50,420,100,false,380,'SX25-0415','Nov 2027'],
+  [7,'Ascof Lagundi','Vitex negundo L. leaf','600 mg','Tablet','Cough',7.25,64,80,false,-12,'AL24-0611','Oct 2026',true],
+  [8,'Allerta','Cetirizine','10 mg','Tablet','Allergy',15.00,300,80,false,301,'AT25-0120','Sep 2027'],
+  [9,'Claritin','Loratadine','10 mg','Tablet','Allergy',38.00,0,40,false,0,'—','—'],
+  [10,'Diatabs','Loperamide','2 mg','Capsule','Digestive',7.50,160,60,false,24,'DT24-1201','Nov 29, 2026'],
+  [11,'Kremil-S','Aluminum Hydroxide + Magnesium Hydroxide + Simeticone','178/233/30 mg','Tablet','Digestive',9.50,200,80,false,330,'KS25-0222','Sep 2027'],
+  [12,'ORS','Oral Rehydration Salts','20.5 g','Sachet','Digestive',12.00,96,40,false,520,'OR25-0301','Apr 2028'],
+  [13,'Ceelin','Ascorbic Acid','100 mg/5 mL · 120 mL','Syrup','Vitamins',165.00,22,30,false,240,'CE25-0118','Jul 2027'],
+  [14,'Generic','Ascorbic Acid','500 mg','Tablet','Vitamins',3.00,900,200,false,610,'AA25-0505','Jul 2028'],
+  [15,'Neurobion','Vitamin B1 + B6 + B12','100/200/0.2 mg','Tablet','Vitamins',32.00,140,60,false,400,'NB25-0303','Dec 2027'],
+  [16,'Generic','Omeprazole','20 mg','Capsule','Digestive',6.50,260,100,true,455,'OM25-0219','Feb 2028'],
+  [17,'Glucophage','Metformin','500 mg','Tablet','Diabetes',9.00,480,150,true,380,'GP25-0110','Nov 2027'],
+  [18,'Norvasc','Amlodipine','5 mg','Tablet','Hypertension',48.00,12,60,true,300,'NV25-0201','Sep 2027'],
+  [19,'Cozaar','Losartan','50 mg','Tablet','Hypertension',52.00,220,80,true,41,'CZ24-1015','Dec 16, 2026'],
+  [20,'Lipitor','Atorvastatin','20 mg','Tablet','Cholesterol',68.00,90,40,true,500,'LP25-0401','Mar 2028'],
+  [21,'Amoxil','Amoxicillin','500 mg','Capsule','Antibiotics',14.00,42,100,true,270,'AX25-0128','Aug 2027'],
+  [22,'Augmentin','Co-amoxiclav','625 mg','Tablet','Antibiotics',92.00,0,40,true,0,'—','—'],
+  [23,'Ventolin','Salbutamol','100 mcg · 200 doses','Inhaler','Respiratory',455.00,9,6,true,330,'VT25-0212','Sep 2027'],
+  [24,'Betadine','Povidone-Iodine','10% · 60 mL','Solution','First Aid',128.00,34,12,false,700,'BT25-0102','Oct 2028'],
+  [25,'Bactroban','Mupirocin','2% · 15 g','Ointment','First Aid',385.00,14,6,true,63,'BC24-1107','Jan 2027'],
+].map(r => ({ id: r[0], brand: r[1], gen: r[2], str: r[3], form: r[4], cat: r[5], price: r[6], stock: r[7], reorder: r[8], rx: r[9], expDays: r[10], batch: r[11], exp: r[12], expired: !!r[13], bc: '20000000' + String(r[0]).padStart(4, '0') + '7', sku: 'YM-' + String(1000 + r[0]) }));
+const CATS = ['All','Pain & Fever','Cold & Flu','Cough','Allergy','Digestive','Vitamins','Hypertension','Diabetes','Cholesterol','Antibiotics','Respiratory','First Aid'];
+const PACKS = [{ k: 'pc', mult: 1 }, { k: 'strip', label: 'Strip ×10', mult: 10 }, { k: 'box', label: 'Box ×100', mult: 100 }];
+const peso = n => '₱' + (Math.round(n * 100) / 100).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const num = n => (Math.round(n * 100) / 100).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const W = 32;
+const center = s => { s = s.slice(0, W); const p = Math.floor((W - s.length) / 2); return ' '.repeat(p) + s; };
+const lr = (a, b) => { const sp = W - a.length - b.length; return sp >= 1 ? a + ' '.repeat(sp) + b : a.slice(0, W - b.length - 1) + ' ' + b; };
+const DASH = '-'.repeat(W);
+const unitNoun = f => ({ Tablet: 'tab', Capsule: 'cap', Softgel: 'cap', Syrup: 'bottle', Sachet: 'sachet', Inhaler: 'inhaler', Solution: 'bottle', Ointment: 'tube' })[f] || 'pc';
+const isPack = f => f === 'Tablet' || f === 'Capsule' || f === 'Softgel';
+
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    const stock = {}; CATALOG.forEach(x => { stock[x.id] = x.stock; });
+    this.state = { stock, cat: 'All', query: '', cart: [], disc: 'none', scId: '', held: [], seq: 201, stage: 'browse', method: 'cash', cash: '', qr: 'pending', card: 'idle', pin: '', rxKey: null, toast: null, toastTone: 'info', lastAdded: null, done: null, pr: 'idle', simFail: false };
+    this.timers = [];
+  }
+  componentWillUnmount() { this.timers.forEach(clearTimeout); }
+  later(fn, ms) { this.timers.push(setTimeout(fn, ms)); }
+  say(msg, tone) { this.setState({ toast: msg, toastTone: tone || 'info' }); clearTimeout(this.tt); this.tt = setTimeout(() => this.setState({ toast: null }), 2400); }
+  used(cart, id) { return cart.filter(l => l.id === id).reduce((a, l) => a + l.qty * PACKS.find(p => p.k === l.pack).mult, 0); }
+  add(p) {
+    const s = this.state;
+    if (p.expired) return this.say(p.brand + ' — all batches expired. Blocked from sale.', 'bad');
+    const avail = s.stock[p.id];
+    if (avail <= 0) return this.say(p.brand + ' is out of stock.', 'bad');
+    if (this.used(s.cart, p.id) + 1 > avail) return this.say('Only ' + avail + ' ' + unitNoun(p.form) + ' of ' + p.brand + ' available.', 'warn');
+    const cart = s.cart.slice();
+    const i = cart.findIndex(l => l.id === p.id && l.pack === 'pc');
+    if (i >= 0) cart[i] = { ...cart[i], qty: cart[i].qty + 1 }; else cart.push({ id: p.id, qty: 1, pack: 'pc' });
+    this.setState({ cart, lastAdded: p.id });
+    clearTimeout(this.la); this.la = setTimeout(() => this.setState({ lastAdded: null }), 700);
+    if (p.expDays <= 90) this.say(p.brand + ': nearest batch expires ' + p.exp + ' (FEFO).', 'warn');
+  }
+  setLine(idx, patch) {
+    const s = this.state; const cart = s.cart.slice(); const next = { ...cart[idx], ...patch };
+    if (next.qty <= 0) { cart.splice(idx, 1); return this.setState({ cart }); }
+    const p = CATALOG.find(x => x.id === next.id);
+    const others = cart.filter((l, j) => j !== idx);
+    const need = this.used(others, p.id) + next.qty * PACKS.find(k => k.k === next.pack).mult;
+    if (need > s.stock[p.id]) return this.say('Not enough stock — ' + s.stock[p.id] + ' ' + unitNoun(p.form) + ' available.', 'warn');
+    cart[idx] = next; this.setState({ cart });
+  }
+  totals(cart, disc) {
+    const sub = cart.reduce((a, l) => { const p = CATALOG.find(x => x.id === l.id); return a + p.price * PACKS.find(k => k.k === l.pack).mult * l.qty; }, 0);
+    if (disc === 'sc' || disc === 'pwd') {
+      const net = sub / 1.12; const lessVat = sub - net; const d = net * 0.20; const total = net - d;
+      return { sub, total, rows: [['Less VAT (12%) — exempt', '−' + peso(lessVat)], [(disc === 'sc' ? 'Senior citizen' : 'PWD') + ' 20%', '−' + peso(d)]], disc: d + lessVat, label: disc === 'sc' ? 'SC' : 'PWD', lessVat, d };
+    }
+    const vatable = sub / 1.12;
+    return { sub, total: sub, rows: [['VATable sales', peso(vatable)], ['VAT (12%)', peso(sub - vatable)]], disc: 0 };
+  }
+  finalize() {
+    if (this.finalizing) return; this.finalizing = true;
+    const s = this.state; const T = this.totals(s.cart, s.disc);
+    const stock = { ...s.stock };
+    s.cart.forEach(l => { stock[l.id] -= l.qty * PACKS.find(k => k.k === l.pack).mult; });
+    const ref = 'RX-' + String(s.seq).padStart(6, '0');
+    const now = new Date(); const tz = 'Asia/Manila';
+    const d = now.toLocaleDateString('en-US', { timeZone: tz, month: '2-digit', day: '2-digit', year: 'numeric' });
+    const tm = now.toLocaleTimeString('en-US', { timeZone: tz, hour: '2-digit', minute: '2-digit' });
+    const L = [center('YASMAR PHARMACY'), center('Poblacion Branch'), center('[Branch address]'), center('Tel: [contact no.]'), center('TIN: [YOUR TIN]'), DASH, center('SALES RECEIPT'), DASH, 'Receipt No: ' + ref, lr('Date: ' + d, tm), 'Cashier: Maria Santos', DASH, lr('ITEM', 'AMOUNT'), DASH];
+    s.cart.forEach(l => { const p = CATALOG.find(x => x.id === l.id); const pk = PACKS.find(k => k.k === l.pack); const up = p.price * pk.mult; L.push((p.brand + ' ' + p.str).slice(0, W)); L.push(lr('  ' + l.qty + (pk.k === 'pc' ? '' : ' ' + pk.k) + ' x ' + num(up), num(up * l.qty))); });
+    L.push(DASH, lr('SUBTOTAL', num(T.sub)));
+    if (T.label) { L.push(lr('LESS VAT 12%', '-' + num(T.lessVat)), lr(T.label + ' DISC 20%', '-' + num(T.d)), lr(T.label + ' ID', s.scId.slice(0, 18))); }
+    else { L.push(lr('VATABLE SALES', num(T.sub / 1.12)), lr('VAT 12%', num(T.sub - T.sub / 1.12))); }
+    L.push(lr('TOTAL', num(T.total)), DASH);
+    const method = { cash: 'CASH', qr: 'QR PH', card: 'CARD' }[s.method];
+    L.push('PAYMENT: ' + method);
+    let l2 = 'Payment', v2 = method;
+    if (s.method === 'cash') { const c = parseFloat(s.cash) || 0; L.push(lr('CASH', num(c)), lr('CHANGE', num(c - T.total))); l2 = 'Change due'; v2 = peso(c - T.total); }
+    else if (s.method === 'qr') { L.push(lr('REF', 'DEMO-QR-' + s.seq)); v2 = 'DEMO-QR-' + s.seq; l2 = 'Provider ref'; }
+    else { L.push(lr('APPROVAL', 'DEMO-AUTH-' + s.seq)); v2 = 'DEMO-AUTH-' + s.seq; l2 = 'Approval ref'; }
+    L.push(DASH, center('THANK YOU!'), center('GET WELL SOON!'), DASH, center('DEMO - NOT AN OFFICIAL RECEIPT'));
+    this.setState({ stock, stage: 'done', pr: 'idle', done: { ref, method: { cash: 'Cash', qr: 'QR Ph (simulated)', card: 'Card (simulated)' }[s.method], total: peso(T.total), l2, v2, key: 'idem-' + s.seq + '-' + s.cart.length, lines: L } });
+  }
+  print() {
+    if (this.state.pr === 'preparing' || this.state.pr === 'printing') return;
+    this.setState({ pr: 'preparing' });
+    this.later(() => this.setState({ pr: this.state.simFail ? 'failed' : 'printing' }), 900);
+    this.later(() => { if (this.state.pr === 'printing') this.setState({ pr: 'printed', printedOnce: true }); }, 3400);
+  }
+  newSale() { this.finalizing = false; this.setState({ cart: [], disc: 'none', scId: '', stage: 'browse', cash: '', qr: 'pending', card: 'idle', pin: '', rxKey: null, seq: this.state.seq + 1, done: null, pr: 'idle', printedOnce: false, method: 'cash' }); }
+
+  renderVals() {
+    const s = this.state;
+    const q = s.query.trim().toLowerCase();
+    const list = CATALOG.filter(p => (s.cat === 'All' || p.cat === s.cat) && (!q || (p.brand + ' ' + p.gen + ' ' + p.sku + ' ' + p.bc).toLowerCase().includes(q)));
+    const products = list.map(p => {
+      const st = s.stock[p.id]; const left = st - this.used(s.cart, p.id);
+      let label, bg, fg, dot;
+      if (p.expired) { label = 'Expired · blocked'; bg = '#B80F2F'; fg = '#fff'; dot = '#fff'; }
+      else if (st <= 0) { label = 'Out of stock'; bg = '#FDECEF'; fg = '#B80F2F'; dot = '#DE1339'; }
+      else if (p.expDays <= 90) { label = 'Exp. ' + p.exp; bg = '#FFEADD'; fg = '#A3360A'; dot = '#EA580C'; }
+      else if (st <= p.reorder) { label = 'Low · ' + left + ' left'; bg = '#FFF4D6'; fg = '#7A4E00'; dot = '#D18A00'; }
+      else { label = left.toLocaleString() + ' in stock'; bg = '#E3F5EC'; fg = '#0E6B4C'; dot = '#12805C'; }
+      const kind = isPack(p.form) ? 'pill' : (p.form === 'Syrup' || p.form === 'Solution') ? 'bottle' : 'other';
+      const tint = { pill: ['#EEF1FF', '#223CFF'], bottle: ['#E3F5EC', '#12805C'], other: ['#FFF1E6', '#C2410C'] }[kind];
+      const blocked = p.expired || st <= 0;
+      return { ...p, priceLabel: peso(p.price), unit: unitNoun(p.form), statusLabel: label, statusStyle: 'background:' + bg + ';color:' + fg, dotStyle: 'width:6px;height:6px;border-radius:50%;display:block;background:' + dot,
+        isPill: kind === 'pill', isBottle: kind === 'bottle', isOther: kind === 'other', blocked,
+        tileStyle: 'width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex:none;background:' + tint[0] + ';color:' + tint[1],
+        plusStyle: 'width:36px;height:36px;border-radius:10px;display:grid;place-items:center;' + (blocked ? 'background:#EEF0F4;color:#8A90A6' : 'background:#223CFF;color:#fff'),
+        aria: 'Add ' + p.brand + ' ' + p.str + ', ' + peso(p.price) + ' per ' + unitNoun(p.form) + ', ' + label,
+        add: () => this.add(p) };
+    });
+    const cats = CATS.map(c => ({ label: c, pressed: c === s.cat ? 'true' : 'false', pick: () => this.setState({ cat: c }),
+      style: 'flex:none;height:40px;padding:0 14px;border-radius:10px;font:' + (c === s.cat ? '600' : '500') + ' 13px Inter,sans-serif;cursor:pointer;white-space:nowrap;' + (c === s.cat ? 'background:#0F1733;color:#fff;border:1px solid #0F1733' : 'background:#fff;color:#3A4160;border:1px solid #E4E7F0') }));
+
+    const lines = s.cart.map((l, idx) => {
+      const p = CATALOG.find(x => x.id === l.id); const pk = PACKS.find(k => k.k === l.pack); const up = p.price * pk.mult;
+      const packs = isPack(p.form) ? PACKS.map(k => ({ label: k.k === 'pc' ? (p.form === 'Tablet' ? 'Tablet' : 'Capsule') : k.label, pressed: k.k === l.pack ? 'true' : 'false', pick: () => this.setLine(idx, { pack: k.k }),
+        style: 'height:30px;padding:0 9px;border-radius:8px;font:600 11px Inter,sans-serif;cursor:pointer;' + (k.k === l.pack ? 'background:#EEF1FF;color:#1A2FCC;border:1px solid #B9C3FF' : 'background:#fff;color:#555C78;border:1px solid #E4E7F0') })) : [{ label: p.form, pressed: 'true', pick: () => {}, style: 'height:30px;padding:0 9px;border-radius:8px;font:600 11px Inter,sans-serif;background:#F6F7FB;color:#555C78;border:1px solid #E4E7F0' }];
+      return { name: p.brand + ' ' + p.str, rx: p.rx, qty: l.qty, total: peso(up * l.qty), packs,
+        fefo: 'Batch ' + p.batch + ' · Exp ' + p.exp + ' · FEFO',
+        unitLine: peso(up) + ' per ' + (pk.k === 'pc' ? unitNoun(p.form) : pk.label.toLowerCase()) + (pk.mult > 1 ? ' (' + pk.mult + ' units deducted each)' : ''),
+        rowStyle: 'padding:14px 20px;border-bottom:1px solid #EEF0F4;display:flex;flex-direction:column;gap:10px;' + (s.lastAdded === l.id ? 'background:#EEF1FF' : 'background:#fff'),
+        inc: () => this.setLine(idx, { qty: l.qty + 1 }), dec: () => this.setLine(idx, { qty: l.qty - 1 }), remove: () => this.setLine(idx, { qty: 0 }) };
+    });
+
+    const T = this.totals(s.cart, s.disc);
+    const rxLines = s.cart.filter(l => CATALOG.find(x => x.id === l.id).rx);
+    const rxKey = rxLines.map(l => l.id).sort().join(',');
+    const needsRx = rxLines.length > 0 && s.rxKey !== rxKey;
+    const idNeeded = (s.disc === 'sc' || s.disc === 'pwd') && !s.scId.trim();
+    const cartEmpty = s.cart.length === 0;
+    const blockReason = cartEmpty ? '' : needsRx ? 'Pharmacist verification required before payment' : idNeeded ? 'Enter the ' + (s.disc === 'sc' ? 'Senior Citizen' : 'PWD') + ' ID number to apply the discount' : '';
+    const discOpts = [['none', 'None'], ['sc', 'Senior'], ['pwd', 'PWD'], ['manual', 'Manual 🔒']].map(([k, label]) => ({ label: k === 'manual' ? 'Manual' : label, pressed: s.disc === k ? 'true' : 'false',
+      pick: () => k === 'manual' ? this.setState({ disc: 'manualNote' }) : this.setState({ disc: k }),
+      style: 'height:40px;border-radius:10px;font:600 13px Inter,sans-serif;cursor:pointer;' + ((s.disc === k || (k === 'manual' && s.disc === 'manualNote')) ? 'background:#0F1733;color:#fff;border:1px solid #0F1733' : 'background:#fff;color:#3A4160;border:1px solid #E4E7F0') }));
+
+    const cash = parseFloat(s.cash) || 0; const change = cash - T.total;
+    const quick = [T.total, Math.ceil(T.total / 50) * 50, Math.ceil(T.total / 100) * 100, Math.ceil(T.total / 500) * 500, Math.ceil(T.total / 1000) * 1000].filter((v, i, a) => a.indexOf(v) === i && v > 0);
+    while (quick.length < 5) quick.push(quick[quick.length - 1] + 1000);
+    const quickCash = quick.slice(0, 5).map((v, i) => ({ label: i === 0 ? 'Exact' : '₱' + v.toLocaleString(), pick: () => this.setState({ cash: v.toFixed(2) }) }));
+
+    const tab = on => 'height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font:600 14px Inter,sans-serif;cursor:pointer;' + (on ? 'background:#EEF1FF;color:#1A2FCC;border:1.5px solid #223CFF' : 'background:#fff;color:#3A4160;border:1px solid #E4E7F0');
+    const qrMap = { pending: ['Waiting for customer to pay…', '#EEF1FF', '#1A2FCC'], success: ['Paid — confirmed by provider (simulated)', '#E3F5EC', '#0E6B4C'], failed: ['Payment failed or expired. Ask the customer to retry.', '#FDECEF', '#B80F2F'] }[s.qr];
+    const cardMap = {
+      idle: ['Terminal ready', 'Connected · Demo terminal T-01', '#F6F7FB', '#0F1733', ''],
+      waiting: ['Waiting for payment', 'Customer taps, inserts or swipes on the terminal', '#EEF1FF', '#1A2FCC', 'pulse'],
+      processing: ['Processing…', 'Contacting the acquiring bank', '#EEF1FF', '#1A2FCC', 'pulse'],
+      approved: ['Approved', 'Approval ref DEMO-AUTH-' + s.seq + ' (simulated)', '#E3F5EC', '#0E6B4C', ''],
+      declined: ['Declined', 'Issuer declined (simulated). Try again or use another method.', '#FDECEF', '#B80F2F', ''],
+    }[s.card];
+    const stepOrder = ['waiting', 'processing', 'approved'];
+    const cardSteps = ['Waiting', 'Processing', s.card === 'declined' ? 'Declined' : 'Approved'].map((lb, i) => {
+      const cur = s.card === 'declined' ? 2 : stepOrder.indexOf(s.card); const on = cur >= i;
+      return { label: (i + 1) + ' · ' + lb, style: 'height:28px;padding:0 10px;border-radius:999px;display:inline-flex;align-items:center;font:600 12px Inter,sans-serif;' + (on ? (lb === 'Declined' ? 'background:#FDECEF;color:#B80F2F' : 'background:#EEF1FF;color:#1A2FCC') : 'background:#F6F7FB;color:#6B7189') };
+    });
+
+    // demo QR pattern
+    const N = 25; const cells = []; let seed = 7;
+    const finder = (r, c) => { const box = (r0, c0) => { const y = r - r0, x = c - c0; if (y < 0 || x < 0 || y > 6 || x > 6) return null; return (y === 0 || y === 6 || x === 0 || x === 6 || (y >= 2 && y <= 4 && x >= 2 && x <= 4)); }; const a = box(0, 0), b = box(0, N - 7), d = box(N - 7, 0); return a !== null ? a : b !== null ? b : d; };
+    for (let r = 0; r < N; r++) for (let c = 0; c < N; c++) { const f = finder(r, c); seed = (seed * 9301 + 49297) % 233280; const on = f !== null ? f : (r === 7 || c === 7 || r === N - 8 || c === N - 8) ? false : seed / 233280 > 0.52; cells.push('display:block;width:8px;height:8px;background:' + (on ? '#0F1733' : 'transparent')); }
+
+    const toneMap = { info: ['#0F1733', '#fff'], warn: ['#7A4E00', '#FFF4D6'], bad: ['#B80F2F', '#fff'] }[s.toastTone];
+    const pr = s.pr;
+    return {
+      query: s.query, cats, products, noResults: products.length === 0, resultLabel: products.length + ' medicines' + (s.cat !== 'All' ? ' in ' + s.cat : ''),
+      onQuery: e => this.setState({ query: e.target.value }),
+      onScanKey: e => { if (e.key !== 'Enter') return; const v = s.query.trim(); const hit = CATALOG.find(p => p.bc === v || p.sku.toLowerCase() === v.toLowerCase()) || (list.length === 1 ? list[0] : null); if (hit) { this.add(hit); this.setState({ query: '' }); } else this.say('No exact match for “' + v + '”.', 'warn'); },
+      heldCount: s.held.length, noHeld: s.held.length === 0,
+      hold: () => { if (!s.cart.length) return; this.setState({ held: s.held.concat([{ cart: s.cart, disc: s.disc, scId: s.scId }]), cart: [], disc: 'none', scId: '', rxKey: null }); this.say('Sale held. Resume it from “Held sales”.', 'info'); },
+      resumeHeld: () => { if (!s.held.length) return; const h = s.held[s.held.length - 1]; const rest = s.held.slice(0, -1); if (s.cart.length) rest.push({ cart: s.cart, disc: s.disc, scId: s.scId }); this.setState({ cart: h.cart, disc: h.disc, scId: h.scId, held: rest, rxKey: null }); this.say('Held sale resumed.', 'info'); },
+      cancelSale: () => { this.setState({ cart: [], disc: 'none', scId: '', rxKey: null }); this.say('Sale canceled · recorded in the audit log.', 'info'); },
+      nextRef: 'RX-' + String(s.seq).padStart(6, '0'), itemCount: s.cart.reduce((a, l) => a + l.qty, 0), cartEmpty, lines,
+      needsRx, rxOk: rxLines.length > 0 && !needsRx, rxCount: rxLines.length,
+      rxItems: rxLines.map(l => { const p = CATALOG.find(x => x.id === l.id); return { name: p.brand + ' ' + p.str + ' (' + p.gen + ')', qty: '× ' + l.qty }; }),
+      openRx: () => this.setState({ stage: 'rx', pin: '' }), pin: s.pin, onPin: e => this.setState({ pin: e.target.value }), pinShort: s.pin.length < 4,
+      authorizeRx: () => { this.setState({ rxKey, stage: 'browse' }); this.say('Dispensing authorized by Jose Reyes, RPh.', 'info'); },
+      discOpts, showId: s.disc === 'sc' || s.disc === 'pwd', manualNote: s.disc === 'manualNote', idLabel: (s.disc === 'sc' ? 'OSCA / Senior Citizen ID no.' : 'PWD ID no.') + ' — eligibility checked by cashier', scId: s.scId, onScId: e => this.setState({ scId: e.target.value }),
+      t: { subtotal: peso(T.sub), l2: T.rows[0][0], v2: T.rows[0][1], l3: T.rows[1][0], v3: T.rows[1][1], c3: T.disc ? '#0E6B4C' : '#3A4160', total: peso(T.total) },
+      blockReason, cantCharge: cartEmpty || needsRx || idNeeded,
+      openPay: () => this.setState({ stage: 'pay', cash: '', qr: 'pending', card: 'idle' }),
+      closeModal: () => this.setState({ stage: 'browse' }),
+      stageRx: s.stage === 'rx', stagePay: s.stage === 'pay', stageDone: s.stage === 'done',
+      selCash: s.method === 'cash' ? 'true' : 'false', selQr: s.method === 'qr' ? 'true' : 'false', selCard: s.method === 'card' ? 'true' : 'false',
+      selCashB: s.method === 'cash', selQrB: s.method === 'qr', selCardB: s.method === 'card',
+      tabCash: tab(s.method === 'cash'), tabQr: tab(s.method === 'qr'), tabCard: tab(s.method === 'card'),
+      pickCash: () => this.setState({ method: 'cash' }), pickQr: () => this.setState({ method: 'qr' }), pickCard: () => this.setState({ method: 'card' }),
+      cash: s.cash, onCash: e => this.setState({ cash: e.target.value.replace(/[^0-9.]/g, '') }), quickCash,
+      cashShort: cash + 0.0001 < T.total,
+      changeLabel: !s.cash ? 'Change due' : change < 0 ? 'Short by' : 'Change due',
+      changeValue: !s.cash ? '₱0.00' : peso(Math.abs(change)),
+      changeBox: 'display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-radius:14px;transition:background 200ms;' + (s.cash && change < 0 ? 'background:#FDECEF;color:#B80F2F' : s.cash ? 'background:#E3F5EC;color:#0E6B4C' : 'background:#F6F7FB;color:#3A4160'),
+      qrCells: cells, qrPending: s.qr === 'pending', qrStatusText: qrMap[0], qrRef: s.qr === 'success' ? 'DEMO-QR-' + s.seq : '',
+      qrStatusBox: 'display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;font:600 14px Inter,sans-serif;background:' + qrMap[1] + ';color:' + qrMap[2],
+      qrSimOk: () => this.setState({ qr: 'success' }), qrSimFail: () => this.setState({ qr: 'failed' }), qrNotOk: s.qr !== 'success',
+      cardSteps, cardTitle: cardMap[0], cardSub: cardMap[1], cardIconClass: cardMap[4],
+      cardBox: 'display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;background:' + cardMap[2] + ';color:' + cardMap[3],
+      cardIdle: s.card === 'idle', cardWaiting: s.card === 'waiting', cardDeclined: s.card === 'declined', cardNotOk: s.card !== 'approved',
+      cardSend: () => this.setState({ card: 'waiting' }),
+      cardSimOk: () => { this.setState({ card: 'processing' }); this.later(() => this.setState({ card: 'approved' }), 1200); },
+      cardSimFail: () => { this.setState({ card: 'processing' }); this.later(() => this.setState({ card: 'declined' }), 1200); },
+      finalize: () => this.finalize(),
+      done: s.done || { ref: '', method: '', total: '', l2: '', v2: '', key: '', lines: [] }, receipt: s.done ? s.done.lines : [],
+      prIdle: pr === 'idle', prPreparing: pr === 'preparing', prPrinting: pr === 'printing', prDone: pr === 'printed', prFailed: pr === 'failed',
+      printBusy: pr === 'preparing' || pr === 'printing', printLabel: pr === 'failed' ? 'Retry print' : s.printedOnce ? 'Reprint receipt' : 'Print receipt',
+      print: () => this.print(), newSale: () => this.newSale(),
+      simFail: s.simFail, toggleFail: () => this.setState({ simFail: !s.simFail }),
+      toast: s.toast, toastStyle: 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:30;max-width:min(560px,calc(100% - 32px));padding:12px 18px;border-radius:12px;font:600 14px Inter,sans-serif;box-shadow:0 12px 30px rgba(5,10,40,.25);background:' + toneMap[0] + ';color:' + toneMap[1],
+    };
+  }
+}
+</script>
+</body>
+</html>

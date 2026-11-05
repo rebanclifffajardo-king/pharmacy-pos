@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Purchase Orders and Suppliers — YasMar Pharmacy</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1A2FCC}a:hover{color:#0F1E99}
+.side{flex:0 0 auto;align-self:stretch}
+@media (max-width:760px){.side{display:none}}
+.card{background:#fff;border:1px solid #E4E7F0;border-radius:16px;box-sizing:border-box}
+.sub{font:400 12px Inter,sans-serif;color:#555C78}
+.chip{display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 8px;border-radius:999px;font:600 11px Inter,sans-serif;white-space:nowrap}
+table{border-collapse:collapse;width:100%}
+th{font:600 11px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#555C78;text-align:left;padding:10px 12px;border-bottom:1px solid #E4E7F0;white-space:nowrap;background:#FBFBFE}
+td{font:500 13px Inter,sans-serif;padding:10px 12px;border-bottom:1px solid #F0F1F6;white-space:nowrap}
+.btn{height:42px;padding:0 14px;border-radius:12px;font:600 13px Inter,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;box-sizing:border-box}
+.btn[disabled]{cursor:not-allowed;background:#E4E7F0 !important;color:#6B7189 !important;box-shadow:none !important}
+.cell{height:34px;border:1px solid #D5D9E6;border-radius:8px;padding:0 8px;font:500 12px 'JetBrains Mono',monospace;width:120px;box-sizing:border-box;background:#fff}
+.cell.bad{border-color:#DE1339;background:#FFF7F8}
+.po{all:unset;box-sizing:border-box;display:flex;flex-direction:column;gap:6px;padding:14px;border-radius:12px;cursor:pointer;width:100%}
+.po:focus-visible{outline:2px solid #223CFF}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; background: #F6F7FB; font-family: Inter, sans-serif; color: #0F1733">
+  <div class="side"><dc-import name="Sidebar" active="{{navKey}}" hint-size="248px,100%"></dc-import></div>
+  <main style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <dc-import name="Topbar" title="Purchasing" subtitle="Purchase orders, receiving and suppliers" role="Inventory Staff" hint-size="100%,72px"></dc-import>
+    <div style="padding: 24px; display: flex; flex-direction: column; gap: 16px; box-sizing: border-box; width: 100%; max-width: 1440px">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+        <div role="tablist" style="display: flex; padding: 4px; gap: 4px; border-radius: 12px; background: #fff; border: 1px solid #E4E7F0">
+          <button type="button" role="tab" aria-selected="{{tabPo}}" onClick="{{showPo}}" style="{{tabPoStyle}}">Purchase orders</button>
+          <button type="button" role="tab" aria-selected="{{tabSup}}" onClick="{{showSup}}" style="{{tabSupStyle}}">Suppliers · 8</button>
+        </div>
+        <button type="button" class="btn" style="border: 0; background: #223CFF; color: #fff; box-shadow: 0 6px 16px rgba(34,60,255,.25)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>{{newLabel}}</button>
+      </div>
+
+      <sc-if value="{{isPo}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; gap: 8px; flex-wrap: wrap">
+            <sc-for list="{{statuses}}" as="f" hint-placeholder-count="6">
+              <button type="button" onClick="{{f.pick}}" aria-pressed="{{f.pressed}}" style="{{f.style}}">{{f.label}} <span style="opacity: .7">{{f.count}}</span></button>
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+            <div class="card" style="flex: 1 1 320px; max-width: 400px; padding: 8px; display: flex; flex-direction: column; gap: 4px">
+              <sc-for list="{{pos}}" as="p" hint-placeholder-count="6">
+                <button type="button" class="po" onClick="{{p.pick}}" aria-current="{{p.cur}}" style="{{p.style}}">
+                  <span style="display: flex; justify-content: space-between; gap: 8px"><span style="font: 700 13px 'JetBrains Mono', monospace">{{p.no}}</span><span class="chip" style="{{p.stStyle}}">{{p.status}}</span></span>
+                  <span style="font: 600 14px Inter, sans-serif">{{p.sup}}</span>
+                  <span class="sub">{{p.lines}} lines · {{p.date}} · <b style="color: #0F1733">{{p.total}}</b></span>
+                </button>
+              </sc-for>
+              <sc-if value="{{noPos}}" hint-placeholder-val="{{ false }}"><span class="sub" style="padding: 24px; text-align: center">No purchase orders with this status.</span></sc-if>
+            </div>
+
+            <section class="card" style="flex: 999 1 560px; min-width: 0; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-start">
+                <div style="display: flex; flex-direction: column; gap: 4px">
+                  <span style="display: flex; gap: 10px; align-items: center"><span style="font: 700 20px 'JetBrains Mono', monospace">{{po.no}}</span><span class="chip" style="{{po.stStyle}}">{{po.status}}</span></span>
+                  <span class="sub" style="font-size: 13px">{{po.sup}} · ordered {{po.date}} · expected {{po.eta}}</span>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap">
+                  <button type="button" class="btn" style="border: 1px solid #D5D9E6; background: #fff; color: #0F1733">Print PO</button>
+                  <button type="button" class="btn" style="border: 1px solid #F5C2CC; background: #FDECEF; color: #B80F2F">Cancel PO</button>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0; border-radius: 12px; overflow: hidden; border: 1px solid #E4E7F0">
+                <sc-for list="{{po.steps}}" as="s" hint-placeholder-count="4">
+                  <div style="{{s.style}}"><span style="font: 700 11px Inter, sans-serif; letter-spacing: .06em; text-transform: uppercase">{{s.n}}</span><span style="font: 500 12px Inter, sans-serif">{{s.d}}</span></div>
+                </sc-for>
+              </div>
+              <div style="overflow-x: auto; border: 1px solid #E4E7F0; border-radius: 12px">
+                <table>
+                  <thead><tr><th>Medicine</th><th style="text-align: right">Ordered</th><th style="text-align: right">Unit cost</th><th style="text-align: right">Line total</th><th>Received</th><th>Batch no.</th><th>Expiry</th><th>Check</th></tr></thead>
+                  <tbody>
+                    <sc-for list="{{po.items}}" as="i" hint-placeholder-count="5">
+                      <tr>
+                        <td style="font-weight: 600">{{i.name}}</td>
+                        <td style="text-align: right">{{i.qty}}</td>
+                        <td style="text-align: right">{{i.cost}}</td>
+                        <td style="text-align: right; font-weight: 600">{{i.total}}</td>
+                        <td><input class="cell" type="text" value="{{i.rcv}}" aria-label="Received quantity" style="width: 70px"></td>
+                        <td><input class="{{i.batchCls}}" type="text" value="{{i.batch}}" aria-label="Batch number" placeholder="Required"></td>
+                        <td><input class="{{i.expCls}}" type="text" value="{{i.exp}}" aria-label="Expiry date" placeholder="MM/YYYY"></td>
+                        <td><span class="chip" style="{{i.chkStyle}}">{{i.chk}}</span></td>
+                      </tr>
+                    </sc-for>
+                  </tbody>
+                </table>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px">
+                <div style="display: flex; flex-direction: column; gap: 2px">
+                  <span style="font: 700 18px Poppins, sans-serif">{{po.total}}</span>
+                  <span class="sub">{{po.note}}</span>
+                </div>
+                <button type="button" class="btn" disabled="{{po.blocked}}" style="height: 48px; border: 0; background: #12805C; color: #fff; font-size: 14px">Post received stock to inventory</button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{isSup}}" hint-placeholder-val="{{ false }}">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px">
+          <sc-for list="{{suppliers}}" as="s" hint-placeholder-count="8">
+            <div class="card" style="padding: 18px; display: flex; flex-direction: column; gap: 12px">
+              <div style="display: flex; gap: 12px; align-items: center">
+                <span style="width: 44px; height: 44px; border-radius: 12px; background: #EEF1FF; color: #1A2FCC; display: grid; place-items: center; font: 700 14px Poppins, sans-serif; flex: none">{{s.ab}}</span>
+                <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0"><span style="font: 600 15px Inter, sans-serif">{{s.name}}</span><span class="sub">{{s.city}}</span></div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 4px; font: 500 13px Inter, sans-serif; color: #3A4160">
+                <span>{{s.contact}}</span><span>{{s.phone}} · {{s.email}}</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding-top: 10px; border-top: 1px solid #F0F1F6; font: 500 12px Inter, sans-serif; color: #555C78"><span>{{s.skus}} SKUs supplied</span><span>{{s.ytd}} YTD</span><span>{{s.open}} open POs</span></div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1150}}'>
+const peso = n => '₱' + n.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const STC = { Draft: 'background:#EEF0F4;color:#4A5068', Ordered: 'background:#EEF1FF;color:#1A2FCC', 'Partially received': 'background:#FFF4D6;color:#7A4E00', Received: 'background:#E3F5EC;color:#0E6B4C', Canceled: 'background:#FDECEF;color:#B80F2F' };
+// no, supplier, status, date, eta, items[name, qty, cost, rcv, batch, exp]
+const POS = [
+  ['PO-2026-0152','Metro Rx Wholesale','Partially received','Nov 2','Nov 6',[['Norvasc Amlodipine 5 mg (box 30)',10,1086,6,'NV25-0918','09/2028'],['Augmentin 625 mg (box 14)',8,994,8,'AG25-1002','10/2027'],['Amoxil 500 mg (box 100)',4,1030,0,'',''],['Cozaar Losartan 50 mg (box 30)',6,1185,6,'CZ25-0902','']]],
+  ['PO-2026-0153','Pacific Generics Inc.','Ordered','Nov 4','Nov 7',[['Claritin Loratadine 10 mg (box 10)',20,284,0,'',''],['Ventolin Inhaler',12,352,0,'',''],['Glucophage 500 mg (box 100)',5,640,0,'','']]],
+  ['PO-2026-0154','Luzon MedSupply Co.','Draft','Nov 5','—',[['Bioflu (box 100)',6,610,0,'',''],['Ceelin Syrup 120 mL',24,121,0,'','']]],
+  ['PO-2026-0148','Luzon MedSupply Co.','Received','Oct 28','Nov 5',[['Biogesic 500 mg (box 100)',6,390,6,'BG25-1012','10/2028'],['Diatabs 2 mg (box 100)',2,520,2,'DT25-0920','09/2028'],['Neozep (box 100)',4,495,4,'NZ25-0915','09/2028']]],
+  ['PO-2026-0146','Mindanao Health Trading','Received','Oct 21','Oct 27',[['Betadine 60 mL',24,94,24,'BT25-0811','08/2029']]],
+  ['PO-2026-0141','Visayas Pharma Distributors','Canceled','Oct 14','—',[['Lagundi syrup 60 mL',24,44,0,'','']]],
+];
+const SUP = [['Luzon MedSupply Co.','Quezon City','Ramon Cruz','(02) 8000-0101','orders@luzonmed.example','LM',34,'₱412,300',1],['Metro Rx Wholesale','Pasig City','Liza Tan','(02) 8000-0202','po@metrorx.example','MR',28,'₱386,950',1],['Pacific Generics Inc.','Makati City','Dennis Uy','(02) 8000-0303','sales@pacgen.example','PG',41,'₱298,410',1],['Visayas Pharma Distributors','Cebu City','Grace Lim','(032) 800-0404','cebu@vpd.example','VP',12,'₱88,200',0],['Mindanao Health Trading','Davao City','Noel Garcia','(082) 800-0505','hello@mht.example','MH',9,'₱64,780',0],['Northpoint Medical Supply','Baguio City','Ana Reyes','(074) 800-0606','np@northpoint.example','NP',7,'₱41,300',0],['Bayside OTC Distributors','Parañaque City','Mark Santos','(02) 8000-0707','otc@bayside.example','BO',18,'₱120,450',0],['Southern Tagalog Pharma','Calamba, Laguna','Rina Flores','(049) 800-0808','po@stpharma.example','ST',11,'₱72,640',0]];
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { tab: 'po', f: 'all', sel: 'PO-2026-0152' }; }
+  renderVals() {
+    const s = this.state;
+    const tabStyle = on => 'height:38px;padding:0 14px;border-radius:9px;border:0;font:600 13px Inter,sans-serif;cursor:pointer;' + (on ? 'background:#0F1733;color:#fff' : 'background:transparent;color:#3A4160');
+    const list = POS.filter(p => s.f === 'all' || p[2] === s.f);
+    const p = POS.find(x => x[0] === s.sel) || POS[0];
+    const tot = x => x[5].reduce((a, i) => a + i[1] * i[2], 0);
+    const editable = p[2] === 'Ordered' || p[2] === 'Partially received';
+    const items = p[5].map(i => {
+      const rcv = i[3]; const missing = rcv > 0 && (!i[4] || !i[5]);
+      const chk = p[2] === 'Received' ? ['Posted', 'background:#E3F5EC;color:#0E6B4C'] : p[2] === 'Draft' || p[2] === 'Canceled' ? ['—', 'background:#F1F3F8;color:#6B7189'] : rcv === 0 ? ['Awaiting', 'background:#F1F3F8;color:#555C78'] : missing ? [!i[4] ? 'Batch missing' : 'Expiry missing', 'background:#FDECEF;color:#B80F2F'] : ['Validated', 'background:#E3F5EC;color:#0E6B4C'];
+      return { name: i[0], qty: i[1], cost: peso(i[2]), total: peso(i[1] * i[2]), rcv: rcv, batch: i[4], exp: i[5], batchCls: 'cell' + (rcv > 0 && !i[4] ? ' bad' : ''), expCls: 'cell' + (rcv > 0 && !i[5] ? ' bad' : ''), chk: chk[0], chkStyle: chk[1] };
+    });
+    const bad = items.filter(i => i.chk.includes('missing')).length;
+    const order = ['Draft', 'Ordered', 'Partially received', 'Received'];
+    const idx = p[2] === 'Canceled' ? -1 : order.indexOf(p[2]);
+    return {
+      navKey: s.tab === 'po' ? 'po' : 'suppliers',
+      tabPo: s.tab === 'po' ? 'true' : 'false', tabSup: s.tab === 'sup' ? 'true' : 'false', isPo: s.tab === 'po', isSup: s.tab === 'sup',
+      tabPoStyle: tabStyle(s.tab === 'po'), tabSupStyle: tabStyle(s.tab === 'sup'),
+      showPo: () => this.setState({ tab: 'po' }), showSup: () => this.setState({ tab: 'sup' }),
+      newLabel: s.tab === 'po' ? 'New purchase order' : 'Add supplier',
+      statuses: ['all', 'Draft', 'Ordered', 'Partially received', 'Received', 'Canceled'].map(k => ({ label: k === 'all' ? 'All' : k, count: k === 'all' ? POS.length : POS.filter(x => x[2] === k).length, pressed: s.f === k ? 'true' : 'false', pick: () => this.setState({ f: k }),
+        style: 'height:36px;padding:0 12px;border-radius:999px;font:600 13px Inter,sans-serif;cursor:pointer;' + (s.f === k ? 'background:#0F1733;color:#fff;border:1px solid #0F1733' : 'background:#fff;color:#3A4160;border:1px solid #E4E7F0') })),
+      pos: list.map(x => ({ no: x[0], sup: x[1], status: x[2], stStyle: STC[x[2]], date: x[3], lines: x[5].length, total: peso(tot(x)), cur: x[0] === p[0] ? 'true' : 'false', pick: () => this.setState({ sel: x[0] }),
+        style: x[0] === p[0] ? 'background:#EEF1FF;box-shadow:inset 3px 0 0 #223CFF' : 'background:#fff' })),
+      noPos: list.length === 0,
+      po: { no: p[0], sup: p[1], status: p[2], stStyle: STC[p[2]], date: p[3], eta: p[4], total: peso(tot(p)), items,
+        steps: order.map((n, i) => ({ n, d: i <= idx ? (i === idx ? 'Current' : 'Done') : p[2] === 'Canceled' && i === 0 ? 'Canceled' : 'Pending',
+          style: 'flex:1;min-width:0;padding:10px 12px;display:flex;flex-direction:column;gap:2px;' + (i ? 'border-left:1px solid #E4E7F0;' : '') + (i < idx ? 'background:#E3F5EC;color:#0E6B4C' : i === idx ? 'background:#EEF1FF;color:#1A2FCC' : 'background:#fff;color:#6B7189') })),
+        blocked: !editable || bad > 0 || items.every(i => i.rcv === 0),
+        note: p[2] === 'Received' ? 'Posted to inventory · batches created with expiry dates' : p[2] === 'Canceled' ? 'Canceled — no stock movement' : p[2] === 'Draft' ? 'Draft — send to supplier to start receiving' : bad ? bad + ' line(s) need batch number and expiry before stock can be posted' : 'Enter received quantities as goods arrive' },
+      suppliers: SUP.map(x => ({ name: x[0], city: x[1], contact: x[2], phone: x[3], email: x[4], ab: x[5], skus: x[6], ytd: x[7], open: x[8] })),
+    };
+  }
+}
+</script>
+</body>
+</html>

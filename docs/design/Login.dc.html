@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Sign in — YasMar Pharmacy</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1A2FCC}a:hover{color:#0F1E99}
+.inp{height:48px;border:1px solid #D5D9E6;border-radius:12px;padding:0 14px;font:400 15px Inter,sans-serif;color:#0F1733;background:#fff;outline:0;width:100%;box-sizing:border-box}
+.inp:focus{border-color:#223CFF;box-shadow:0 0 0 4px rgba(34,60,255,.12)}
+.role{min-height:44px;border-radius:12px;padding:10px 12px;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:2px;transition:all 160ms}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #F6F7FB; font-family: Inter, sans-serif; color: #0F1733">
+  <section style="flex: 1 1 480px; min-height: 420px; background: #223CFF; color: #fff; padding: 48px clamp(24px, 5vw, 72px); box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; position: relative; overflow: hidden">
+    <div aria-hidden="true" style="position: absolute; right: -160px; bottom: -160px; width: 520px; height: 520px; border-radius: 50%; border: 56px solid rgba(255,255,255,.07)"></div>
+    <div aria-hidden="true" style="position: absolute; right: 120px; top: -90px; width: 220px; height: 220px; border-radius: 50%; border: 28px solid rgba(222,19,57,.35)"></div>
+    <div style="display: flex; align-items: center; gap: 12px; position: relative">
+      <span style="display: inline-flex; height: 28px; align-items: center; padding: 0 12px; border-radius: 999px; background: rgba(255,255,255,.14); font: 600 12px Inter, sans-serif; letter-spacing: .04em">Pharmacy POS &amp; Inventory</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 28px; position: relative; max-width: 520px">
+      <div style="width: 168px; height: 168px; border-radius: 50%; background: #fff; display: grid; place-items: center; box-shadow: 0 20px 50px rgba(5,12,80,.35)">
+        <img src="/_blob/9c938db2c9d796a705b4f7740e130485" alt="YasMar Pharmacy seal" style="width: 150px; height: 150px; display: block">
+      </div>
+      <h2 style="margin: 0; font: 600 40px/1.15 Poppins, sans-serif; letter-spacing: -0.02em">Affordable medicine,<br>right next door.</h2>
+      <p style="margin: 0; font: 400 16px/1.6 Inter, sans-serif; color: rgba(255,255,255,.86)">Fast checkout for cashiers, batch-level expiry control for pharmacists, and clear numbers for owners — in one system built for Philippine pharmacies.</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; position: relative; font: 500 13px Inter, sans-serif; color: rgba(255,255,255,.86)">
+      <span>FEFO batch dispensing</span><span>SC / PWD discounts</span><span>Cash · QR Ph · Card</span><span>58mm receipts</span>
+    </div>
+  </section>
+
+  <section style="flex: 1 1 480px; display: flex; align-items: center; justify-content: center; padding: 48px 24px; box-sizing: border-box">
+    <div style="width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 28px">
+      <img src="/_blob/e52fd4a1bd56b3f116f07d7d8c2f45be" alt="YasMar Pharmacy — Affordable Medicine, Right Nextdoor" style="width: 280px; max-width: 100%; height: auto; display: block">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <h1 style="margin: 0; font: 600 28px Poppins, sans-serif; letter-spacing: -0.01em">Sign in</h1>
+        <p style="margin: 0; font: 400 15px Inter, sans-serif; color: #555C78">Use your staff account for the Poblacion Branch.</p>
+      </div>
+
+      <form style="display: flex; flex-direction: column; gap: 16px">
+        <label style="display: flex; flex-direction: column; gap: 6px; font: 600 13px Inter, sans-serif; color: #3A4160">Email
+          <input class="inp" type="email" value="{{email}}" autocomplete="username">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 6px; font: 600 13px Inter, sans-serif; color: #3A4160">Password
+          <input class="inp" type="password" value="demo-password" autocomplete="current-password">
+        </label>
+        <div style="display: flex; justify-content: space-between; align-items: center; font: 500 13px Inter, sans-serif">
+          <label style="display: flex; align-items: center; gap: 8px; color: #3A4160; min-height: 44px"><input type="checkbox" checked style="width: 18px; height: 18px; accent-color: #223CFF">Keep me signed in on this terminal</label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <a href="Dashboard.dc.html" style="height: 52px; border-radius: 12px; background: #223CFF; color: #fff; display: flex; align-items: center; justify-content: center; font: 600 16px Inter, sans-serif; text-decoration: none; box-shadow: 0 8px 20px rgba(34,60,255,.28)">Sign in</a>
+      </form>
+
+      <div style="display: flex; align-items: center; gap: 12px; color: #6B7189; font: 500 12px Inter, sans-serif"><span style="flex: 1; height: 1px; background: #E4E7F0"></span>OR TRY THE DEMO<span style="flex: 1; height: 1px; background: #E4E7F0"></span></div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+          <sc-for list="{{roles}}" as="r" hint-placeholder-count="4">
+            <button type="button" class="role" onClick="{{r.pick}}" aria-pressed="{{r.pressed}}" style="{{r.style}}">
+              <span style="font: 600 14px Inter, sans-serif">{{r.name}}</span>
+              <span style="font: 400 12px Inter, sans-serif; color: #555C78">{{r.who}}</span>
+            </button>
+          </sc-for>
+        </div>
+        <a href="{{demoHref}}" style="height: 52px; border-radius: 12px; border: 1px solid #D5D9E6; background: #fff; color: #0F1733; display: flex; align-items: center; justify-content: center; gap: 10px; font: 600 15px Inter, sans-serif; text-decoration: none">
+          <span style="width: 8px; height: 8px; border-radius: 50%; background: #D18A00"></span>Enter Demo Mode as {{roleName}}
+        </a>
+        <p style="margin: 0; font: 400 12px/1.5 Inter, sans-serif; color: #555C78; text-align: center">Demo Mode runs on fictional sample data in this browser. No Supabase account, payment provider or printer needed.</p>
+      </div>
+    </div>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { role: 'Cashier' }; }
+  renderVals() {
+    const list = [
+      { name: 'Administrator', who: 'Yasmin Marquez', email: 'admin@yasmar.demo', href: 'Dashboard.dc.html' },
+      { name: 'Pharmacist', who: 'Jose Reyes, RPh', email: 'pharmacist@yasmar.demo', href: 'Inventory.dc.html' },
+      { name: 'Cashier', who: 'Maria Santos', email: 'cashier@yasmar.demo', href: 'POS.dc.html' },
+      { name: 'Inventory Staff', who: 'Paolo Lim', email: 'stock@yasmar.demo', href: 'PurchaseOrders.dc.html' },
+    ];
+    const cur = list.find(r => r.name === this.state.role);
+    return {
+      roles: list.map(r => ({
+        ...r,
+        pressed: r.name === this.state.role ? 'true' : 'false',
+        style: r.name === this.state.role ? 'border: 1.5px solid #223CFF; background: #EEF1FF; color: #1A2FCC' : 'border: 1px solid #E4E7F0; background: #fff; color: #0F1733',
+        pick: () => this.setState({ role: r.name }),
+      })),
+      roleName: cur.name,
+      email: cur.email,
+      demoHref: cur.href,
+    };
+  }
+}
+</script>
+</body>
+</html>

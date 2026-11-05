@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reports and Analytics — YasMar Pharmacy</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#1A2FCC}a:hover{color:#0F1E99}
+.side{flex:0 0 auto;align-self:stretch}
+@media (max-width:760px){.side{display:none}}
+.card{background:#fff;border:1px solid #E4E7F0;border-radius:16px;box-sizing:border-box}
+.sub{font:400 12px Inter,sans-serif;color:#555C78}
+table{border-collapse:collapse;width:100%}
+th{font:600 11px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#555C78;text-align:left;padding:10px 12px;border-bottom:1px solid #E4E7F0;white-space:nowrap}
+td{font:500 13px Inter,sans-serif;padding:11px 12px;border-bottom:1px solid #F0F1F6;white-space:nowrap}
+.btn{height:42px;padding:0 14px;border-radius:12px;font:600 13px Inter,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;box-sizing:border-box}
+.btn[disabled]{cursor:not-allowed;color:#6B7189 !important;background:#F1F3F8 !important}
+.bar{transition:width 420ms cubic-bezier(.2,.8,.2,1)}
+@media print{.side,.noprint{display:none !important}}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</helmet>
+<div style="min-height: 100vh; display: flex; background: #F6F7FB; font-family: Inter, sans-serif; color: #0F1733">
+  <div class="side"><dc-import name="Sidebar" active="reports" hint-size="248px,100%"></dc-import></div>
+  <main style="flex: 1 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <div class="noprint"><dc-import name="Topbar" title="Reports &amp; Analytics" subtitle="Print-friendly, exportable reports for owners and auditors" role="Administrator" hint-size="100%,72px"></dc-import></div>
+    <div style="padding: 24px; display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; box-sizing: border-box; width: 100%; max-width: 1400px">
+      <nav class="card noprint" aria-label="Report catalog" style="flex: 1 1 260px; max-width: 320px; padding: 12px; display: flex; flex-direction: column; gap: 2px">
+        <sc-for list="{{groups}}" as="g" hint-placeholder-count="3">
+          <p style="margin: 12px 10px 6px; font: 700 11px Inter, sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #6B7189">{{g.name}}</p>
+          <sc-for list="{{g.items}}" as="r" hint-placeholder-count="4">
+            <button type="button" onClick="{{r.pick}}" aria-current="{{r.cur}}" style="{{r.style}}">{{r.name}}</button>
+          </sc-for>
+        </sc-for>
+      </nav>
+
+      <section class="card" style="flex: 999 1 560px; min-width: 0; padding: 24px; display: flex; flex-direction: column; gap: 20px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 style="margin: 0; font: 600 22px Poppins, sans-serif">{{rep.name}}</h2>
+            <span class="sub" style="font-size: 13px">{{rep.desc}}</span>
+          </div>
+          <div class="noprint" style="display: flex; gap: 8px; flex-wrap: wrap">
+            <button type="button" class="btn" style="border: 1px solid #D5D9E6; background: #fff; color: #0F1733"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-1.5M16 2v4M8 2v4M3 10h18"/></svg>{{rep.range}}</button>
+            <button type="button" class="btn" style="border: 1px solid #D5D9E6; background: #fff; color: #0F1733"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5M12 15V3"/></svg>CSV</button>
+            <button type="button" class="btn" style="border: 0; background: #EEF1FF; color: #1A2FCC"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8"/></svg>Print</button>
+            <button type="button" class="btn" disabled title="Available once PDF export is implemented">PDF · soon</button>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px">
+          <sc-for list="{{rep.kpis}}" as="k" hint-placeholder-count="3">
+            <div style="padding: 16px; border-radius: 14px; background: #F6F7FB; display: flex; flex-direction: column; gap: 4px">
+              <span class="sub">{{k.l}}</span><span style="font: 600 22px Poppins, sans-serif">{{k.v}}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font: 600 14px Poppins, sans-serif">{{rep.chartTitle}}</span>
+          <sc-for list="{{rep.bars}}" as="b" hint-placeholder-count="8">
+            <div style="display: grid; grid-template-columns: minmax(120px, 200px) minmax(0, 1fr) 110px; gap: 12px; align-items: center">
+              <span style="font: 500 13px Inter, sans-serif; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{b.label}}</span>
+              <div style="height: 16px; border-radius: 4px; background: #F1F3F8"><div class="bar" style="{{b.style}}"></div></div>
+              <span style="font: 600 13px Inter, sans-serif; text-align: right; font-variant-numeric: tabular-nums">{{b.value}}</span>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="overflow-x: auto; border: 1px solid #E4E7F0; border-radius: 12px">
+          <table>
+            <thead><tr><sc-for list="{{rep.cols}}" as="c" hint-placeholder-count="4"><th>{{c}}</th></sc-for></tr></thead>
+            <tbody>
+              <sc-for list="{{rep.rows}}" as="r" hint-placeholder-count="8">
+                <tr><sc-for list="{{r}}" as="c" hint-placeholder-count="4"><td>{{c}}</td></sc-for></tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+        <span class="sub">Generated {{stamp}} · Poblacion Branch · Demo Mode sample data</span>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1400}}'>
+const peso = n => '₱' + n.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const R = {
+  daily: { g: 'Sales', name: 'Daily Sales Report', desc: 'Hour-by-hour sales for Thursday, Nov 5, 2026.', range: 'Nov 5, 2026', chartTitle: 'Sales by hour', fmt: peso, color: '#223CFF',
+    kpis: [['Gross sales', '₱48,215.50'], ['Transactions', '186'], ['Avg basket', '₱259.22']],
+    data: [['8–9 AM', 2140.5, 11], ['9–10 AM', 4380.25, 19], ['10–11 AM', 5890, 24], ['11 AM–12 PM', 6210.75, 22], ['12–1 PM', 3920, 14], ['1–2 PM', 5130.5, 20], ['2–3 PM', 6840.25, 27], ['3–4 PM', 7455.75, 26], ['4–5 PM', 6247.5, 23]], cols: ['Hour', 'Transactions', 'Sales'], row: d => [d[0], d[2], peso(d[1])] },
+  weekly: { g: 'Sales', name: 'Weekly Sales Report', desc: 'Week 45 (Nov 2 – Nov 8), day by day.', range: 'Week 45, 2026', chartTitle: 'Sales by day', fmt: peso, color: '#223CFF',
+    kpis: [['Week to date', '₱164,255.70'], ['Transactions', '638'], ['vs last week', '▲ 4.8%']],
+    data: [['Mon, Nov 2', 33290, 128], ['Tue, Nov 3', 39840, 152], ['Wed, Nov 4', 42910, 172], ['Thu, Nov 5', 48215.5, 186]], cols: ['Day', 'Transactions', 'Sales'], row: d => [d[0], d[2], peso(d[1])] },
+  monthly: { g: 'Sales', name: 'Monthly Sales Report', desc: 'Calendar-month totals for the last 6 months.', range: 'Jun – Nov 2026', chartTitle: 'Sales by month', fmt: peso, color: '#223CFF',
+    kpis: [['6-month total', '₱6,971,440.00'], ['Best month', 'July'], ['Nov to date', '₱1,182,640.00']],
+    data: [['June', 1188900, 4610], ['July', 1214600, 4702], ['August', 1172300, 4544], ['September', 1098500, 4280], ['October', 1114500, 4391], ['November', 1182640, 4562]], cols: ['Month', 'Transactions', 'Sales'], row: d => [d[0], d[2].toLocaleString(), peso(d[1])] },
+  medicine: { g: 'Sales', name: 'Sales by Medicine', desc: 'Top medicines by revenue, last 30 days.', range: 'Last 30 days', chartTitle: 'Revenue by medicine', fmt: peso, color: '#223CFF',
+    kpis: [['Medicines sold', '87 SKUs'], ['Top seller', 'Cozaar 50 mg'], ['Units sold', '18,412']],
+    data: [['Cozaar Losartan 50 mg', 38688, 744], ['Lipitor Atorvastatin 20 mg', 31280, 460], ['Ventolin Inhaler', 27300, 60], ['Norvasc Amlodipine 5 mg', 24960, 520], ['Augmentin 625 mg', 22080, 240], ['Neurobion tablet', 18240, 570], ['Biogesic 500 mg', 10560, 1920], ['Bioflu tablet', 10873.5, 1318]], cols: ['Medicine', 'Units', 'Revenue'], row: d => [d[0], d[2].toLocaleString(), peso(d[1])] },
+  category: { g: 'Sales', name: 'Sales by Category', desc: 'Revenue share by medicine category, this month.', range: 'November 2026', chartTitle: 'Revenue by category', fmt: peso, color: '#14A38B',
+    kpis: [['Categories', '12'], ['Largest', 'Hypertension'], ['Share of top 3', '51%']],
+    data: [['Hypertension', 238400], ['Pain & Fever', 196700], ['Antibiotics', 168900], ['Vitamins', 121300], ['Diabetes', 112800], ['Cold & Flu', 98200], ['Respiratory', 91400], ['Cholesterol', 84300]], cols: ['Category', 'Share', 'Revenue'], row: d => [d[0], (d[1] / 1182640 * 100).toFixed(1) + '%', peso(d[1])] },
+  cashier: { g: 'Sales', name: 'Sales by Cashier', desc: 'Per-cashier totals with voids and refunds, this month.', range: 'November 2026', chartTitle: 'Revenue by cashier', fmt: peso, color: '#223CFF',
+    kpis: [['Active cashiers', '3'], ['Voids', '4'], ['Refunds', '11']],
+    data: [['Maria Santos', 512300, 1988, 1], ['Carlo Dizon', 438140, 1702, 2], ['Joy Bautista', 232200, 872, 1]], cols: ['Cashier', 'Transactions', 'Voids', 'Revenue'], row: d => [d[0], d[2].toLocaleString(), d[3], peso(d[1])] },
+  payment: { g: 'Sales', name: 'Sales by Payment Method', desc: 'Cash, QR Ph and card totals, this month.', range: 'November 2026', chartTitle: 'Revenue by payment method', fmt: peso, color: '#F2A93B',
+    kpis: [['Cash', '58%'], ['QR Ph', '29%'], ['Card', '13%']],
+    data: [['Cash', 685931.2, 2840], ['QR Ph', 342965.6, 1264], ['Card', 153743.2, 458]], cols: ['Method', 'Transactions', 'Revenue'], row: d => [d[0], d[2].toLocaleString(), peso(d[1])] },
+  valuation: { g: 'Inventory', name: 'Inventory Valuation', desc: 'Saleable stock at acquisition cost (FEFO batches).', range: 'As of today', chartTitle: 'Stock value by category', fmt: peso, color: '#14A38B',
+    kpis: [['Stock at cost', '₱612,480.00'], ['At retail', '₱824,960.00'], ['Units', '38,420']],
+    data: [['Pain & Fever', 98400], ['Hypertension', 92300], ['Antibiotics', 81200], ['Vitamins', 64900], ['Diabetes', 58100], ['Cold & Flu', 52700], ['Respiratory', 48300], ['Cholesterol', 44600]], cols: ['Category', 'Share', 'Value at cost'], row: d => [d[0], (d[1] / 612480 * 100).toFixed(1) + '%', peso(d[1])] },
+  low: { g: 'Inventory', name: 'Low-Stock Report', desc: 'Medicines at or below reorder level.', range: 'As of today', chartTitle: 'Units on hand vs reorder level', fmt: v => v + ' units', color: '#D18A00',
+    kpis: [['Low stock', '25'], ['Out of stock', '10'], ['On open POs', '6']],
+    data: [['Ventolin Inhaler', 9, 6], ['Norvasc 5 mg', 12, 60], ['Bioflu tablet', 18, 60], ['Ceelin Syrup 120 mL', 22, 30], ['Generic Losartan 100 mg', 28, 80], ['Amoxil 500 mg', 42, 100]], cols: ['Medicine', 'Reorder level', 'On hand'], row: d => [d[0], d[2], d[1]] },
+  expiry: { g: 'Inventory', name: 'Expiry Report', desc: 'Batches expiring within 90 days, or already expired.', range: 'Next 90 days', chartTitle: 'Days to expiry', fmt: v => v < 0 ? 'Expired' : v + ' days', color: '#EA580C',
+    kpis: [['Expired', '4 batches'], ['≤ 30 days', '6 batches'], ['Value at risk', '₱18,240.00']],
+    data: [['Ascof Lagundi · AL24-0611', -12], ['Generic Mefenamic 250 · MF24-0821', 9], ['Generic Cefalexin · CF24-0918', 16], ['Diatabs · DT24-1201', 24], ['Cozaar · CZ24-1015', 41], ['Bactroban · BC24-1107', 63]], cols: ['Batch', 'Status', 'Days left'], row: d => [d[0], d[1] < 0 ? 'Quarantined' : 'Saleable (FEFO first)', d[1] < 0 ? 'Expired' : d[1]] },
+  purchase: { g: 'Inventory', name: 'Purchase Report', desc: 'Received purchase orders by supplier, this month.', range: 'November 2026', chartTitle: 'Received value by supplier', fmt: peso, color: '#223CFF',
+    kpis: [['POs received', '9'], ['Received value', '₱286,450.00'], ['Open POs', '5']],
+    data: [['Luzon MedSupply Co.', 98200, 3], ['Metro Rx Wholesale', 74500, 2], ['Pacific Generics Inc.', 58300, 2], ['Visayas Pharma Distributors', 33150, 1], ['Mindanao Health Trading', 22300, 1]], cols: ['Supplier', 'POs', 'Received value'], row: d => [d[0], d[2], peso(d[1])] },
+  profit: { g: 'Finance', name: 'Gross Profit Estimate', desc: 'Revenue minus FEFO batch cost. An estimate — not an accounting statement.', range: 'November 2026', chartTitle: 'Gross profit by category', fmt: peso, color: '#12805C',
+    kpis: [['Revenue', '₱1,182,640.00'], ['Cost of goods', '₱881,066.80'], ['Gross profit', '₱301,573.20']],
+    data: [['Pain & Fever', 61200], ['Vitamins', 44800], ['Hypertension', 42100], ['Cold & Flu', 33600], ['Antibiotics', 29700], ['Diabetes', 24100], ['Respiratory', 19800], ['First Aid', 16300]], cols: ['Category', 'Margin', 'Gross profit'], row: d => [d[0], (18 + (d[1] % 17)) + '%', peso(d[1])] },
+};
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { cur: 'monthly' }; }
+  renderVals() {
+    const cur = this.state.cur; const rep = R[cur];
+    const groups = ['Sales', 'Inventory', 'Finance'].map(g => ({ name: g, items: Object.keys(R).filter(k => R[k].g === g).map(k => ({ name: R[k].name, cur: k === cur ? 'page' : 'false', pick: () => this.setState({ cur: k }),
+      style: 'all:unset;box-sizing:border-box;min-height:42px;padding:10px 12px;border-radius:10px;cursor:pointer;font:' + (k === cur ? '600' : '500') + ' 14px Inter,sans-serif;' + (k === cur ? 'background:#EEF1FF;color:#1A2FCC' : 'color:#3A4160') })) }));
+    const max = Math.max(...rep.data.map(d => Math.abs(d[1]))) || 1;
+    return {
+      groups,
+      rep: { name: rep.name, desc: rep.desc, range: rep.range, chartTitle: rep.chartTitle,
+        kpis: rep.kpis.map(k => ({ l: k[0], v: k[1] })),
+        bars: rep.data.map(d => ({ label: d[0], value: rep.fmt(d[1]), style: 'height:16px;border-radius:4px;background:' + (d[1] < 0 ? '#B80F2F' : rep.color) + ';width:' + Math.max(2, Math.abs(d[1]) / max * 100) + '%' })),
+        cols: rep.cols, rows: rep.data.map(rep.row) },
+      stamp: new Date().toLocaleString('en-PH', { timeZone: 'Asia/Manila', dateStyle: 'medium', timeStyle: 'short' }),
+    };
+  }
+}
+</script>
+</body>
+</html>

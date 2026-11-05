@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>58mm Receipt and Print States</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.lbl{font:600 11px Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#555C78;margin:0}
+.card{background:#fff;border:1px solid #E4E7F0;border-radius:16px;padding:20px;box-sizing:border-box}
+.st{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;min-height:250px}
+@keyframes feed{0%{transform:translateY(-100%)}70%,100%{transform:translateY(0)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes grow{0%{width:0}70%,100%{width:100%}}
+.feed{animation:feed 3.2s linear infinite}
+.grow{animation:grow 3.2s linear infinite}
+.spin{animation:spin 900ms linear infinite}
+.pulse{animation:pulse 1.2s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1000px; box-sizing: border-box; background: #F6F7FB; font-family: Inter, sans-serif; color: #0F1733; padding: 48px 56px; display: flex; gap: 32px">
+  <div style="flex: none; width: 420px; display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <p class="lbl">XPrinter 58mm · preview at 1.4× · text auto-fits</p>
+      <h1 style="margin: 0; font: 600 26px Poppins, sans-serif">Thermal receipt</h1>
+    </div>
+    <div style="flex: 1; border-radius: 18px; background: #E4E7F0; display: flex; justify-content: center; align-items: flex-start; padding: 24px 0; overflow: hidden">
+      <div style="width: {{paperW}}; background: #fff; padding: 14px {{marginPx}} 22px; box-sizing: border-box; box-shadow: 0 10px 30px rgba(15,23,51,.14); display: flex; flex-direction: column; align-items: center; gap: 8px; position: relative">
+        <sc-if value="{{logo}}" hint-placeholder-val="{{ true }}">
+          <img src="/_blob/9c938db2c9d796a705b4f7740e130485" alt="YasMar Pharmacy logo, printed monochrome" style="width: 72px; height: 72px; filter: grayscale(1) contrast(1.6)">
+        </sc-if>
+        <div style="font: {{fontCss}} 'JetBrains Mono', monospace; color: #111; width: {{chars}}ch">
+          <sc-for list="{{lines}}" as="l" hint-placeholder-count="30"><div style="{{l.style}}">{{l.t}}</div></sc-for>
+        </div>
+        <span aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: -8px; height: 8px; background: linear-gradient(-45deg, transparent 6px, #fff 0) 0 0/12px 8px repeat-x, linear-gradient(45deg, transparent 6px, #fff 0) 0 0/12px 8px repeat-x"></span>
+      </div>
+    </div>
+  </div>
+
+  <div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <p class="lbl">Print flow</p>
+      <h2 style="margin: 0; font: 600 22px Poppins, sans-serif">Four honest states</h2>
+      <p style="margin: 0; font: 400 14px/1.55 Inter, sans-serif; color: #555C78; max-width: 760px">The animation reports only what the print integration can confirm. Browser print reports “Sent to print dialog”; the ESC/POS bridge (Android WebView or local print service) can report printed or failed. Printing reads a saved receipt record — it can never create a second sale.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
+      <div class="card st">
+        <svg class="pulse" width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#223CFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V2h12v7"/><rect x="6" y="14" width="12" height="8"/></svg>
+        <span style="font: 600 15px Inter, sans-serif">Preparing receipt…</span>
+        <span style="font: 400 12px Inter, sans-serif; color: #555C78">Rendering 32-col ESC/POS bytes</span>
+        <span class="lbl" style="margin-top: 6px">1 · Preparing</span>
+      </div>
+      <div class="card st">
+        <div style="display: flex; flex-direction: column; align-items: center; width: 150px">
+          <div style="width: 150px; height: 46px; border-radius: 12px 12px 8px 8px; background: #1B2140; position: relative; box-shadow: inset 0 -5px 0 #0F1430">
+            <span class="pulse" style="position: absolute; left: 12px; top: 10px; width: 7px; height: 7px; border-radius: 50%; background: #3BD38A"></span>
+            <span style="position: absolute; left: 18px; right: 18px; bottom: 8px; height: 3px; border-radius: 2px; background: #05081A"></span>
+          </div>
+          <div style="width: 112px; height: 96px; overflow: hidden">
+            <div class="feed" style="width: 112px; height: 96px; background: #fff; border: 1px solid #E4E7F0; border-top: 0; padding: 8px; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px">
+              <span style="height: 5px; width: 60%; align-self: center; background: #0F1733; border-radius: 2px"></span>
+              <span style="height: 3px; width: 80%; background: #9AA0B8; border-radius: 2px"></span>
+              <span style="height: 3px; width: 70%; background: #9AA0B8; border-radius: 2px"></span>
+              <span style="height: 3px; width: 85%; background: #9AA0B8; border-radius: 2px"></span>
+              <span style="height: 5px; width: 45%; align-self: flex-end; background: #0F1733; border-radius: 2px"></span>
+            </div>
+          </div>
+          <div style="width: 100%; height: 5px; border-radius: 3px; background: #EEF1FF; overflow: hidden; margin-top: 8px"><div class="grow" style="height: 100%; background: #223CFF"></div></div>
+        </div>
+        <span style="font: 600 15px Inter, sans-serif">Printing…</span>
+        <span class="lbl" style="margin-top: 6px">2 · Printing</span>
+      </div>
+      <div class="card st">
+        <span style="width: 56px; height: 56px; border-radius: 50%; background: #E3F5EC; display: grid; place-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#12805C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+        <span style="font: 600 15px Inter, sans-serif">Receipt printed successfully</span>
+        <span style="font: 400 12px Inter, sans-serif; color: #555C78">Only when the bridge confirms</span>
+        <span class="lbl" style="margin-top: 6px">3 · Completed</span>
+      </div>
+      <div class="card st">
+        <span style="width: 56px; height: 56px; border-radius: 50%; background: #FDECEF; display: grid; place-items: center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B80F2F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+        <span style="font: 600 15px Inter, sans-serif; color: #B80F2F">Printer not responding</span>
+        <span style="font: 400 12px Inter, sans-serif; color: #555C78">Check paper, cover and USB cable</span>
+        <button type="button" style="height: 40px; padding: 0 16px; border-radius: 10px; border: 0; background: #EEF1FF; color: #1A2FCC; font: 600 13px Inter, sans-serif">Retry</button>
+        <span class="lbl">4 · Failed</span>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; flex: 1">
+      <div class="card" style="display: flex; flex-direction: column; gap: 16px">
+        <p class="lbl">Settings › Receipt printer</p>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font: 600 14px Inter, sans-serif">Connection</span><span style="font: 400 12px Inter, sans-serif; color: #555C78">Browser print dialog (fallback)</span></div>
+          <span style="display: inline-flex; align-items: center; height: 26px; padding: 0 10px; border-radius: 999px; background: #FFF4D6; color: #7A4E00; font: 600 12px Inter, sans-serif">ESC/POS bridge not detected</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 600 13px Inter, sans-serif; color: #3A4160">Characters per line</span>
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px">
+            <button type="button" onClick="{{pick32}}" aria-pressed="{{p32}}" style="{{s32}}">32 · Font A (default)</button>
+            <button type="button" onClick="{{pick42}}" aria-pressed="{{p42}}" style="{{s42}}">42 · Font B (condensed)</button>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 600 13px Inter, sans-serif; color: #3A4160">Side margin · {{marginLabel}}</span>
+          <input type="range" min="0" max="4" step="1" value="{{margin}}" onChange="{{onMargin}}" aria-label="Side margin in millimetres" style="accent-color: #223CFF; height: 28px">
+        </div>
+        <label style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; font: 600 13px Inter, sans-serif; color: #3A4160">Print logo on receipt
+          <input type="checkbox" checked="{{logo}}" onChange="{{toggleLogo}}" style="width: 20px; height: 20px; accent-color: #223CFF">
+        </label>
+        <button type="button" style="height: 48px; border-radius: 12px; border: 0; background: #223CFF; color: #fff; font: 600 15px Inter, sans-serif; margin-top: auto">Print test receipt</button>
+      </div>
+      <div class="card" style="display: flex; flex-direction: column; gap: 12px">
+        <p class="lbl">Receipt rules</p>
+        <ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font: 400 13px/1.5 Inter, sans-serif; color: #3A4160">
+          <li>58mm paper, 48mm printable — {{chars}} monospace columns, amounts right-aligned, item names wrap instead of overflowing.</li>
+          <li>Monochrome only; the logo is dithered to 1-bit at print time.</li>
+          <li>Print CSS hides the sidebar, header, buttons and modals — only the receipt node prints.</li>
+          <li>Reprints carry a “REPRINT” line and the original receipt number.</li>
+          <li>TIN, permit and serial fields are placeholders. Configure them for the pharmacy’s BIR registration; a generic template is not automatically compliant.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  constructor(p) { super(p); this.state = { w: 32, margin: 2, logo: true }; }
+  renderVals() {
+    const W = this.state.w;
+    const c = s => { s = s.slice(0, W); return ' '.repeat(Math.floor((W - s.length) / 2)) + s; };
+    const lr = (a, b) => a + ' '.repeat(Math.max(1, W - a.length - b.length)) + b;
+    const D = '-'.repeat(W);
+    const B = 'font-weight:700;white-space:pre';
+    const raw = [
+      [c('YASMAR PHARMACY'), B], [c('Poblacion Branch')], [c('[Branch address]')], [c('Tel: [contact no.]')], [c('TIN: [YOUR TIN]')],
+      [D], [c('SALES RECEIPT'), B], [D],
+      ['Receipt No: RX-000001'], [lr('Date: 11/05/2026', '03:45 PM')], ['Cashier: Maria Santos'],
+      [D], [lr('ITEM', 'AMOUNT'), B], [D],
+      ['Biogesic 500mg'], [lr('  2 x 8.00', '16.00')],
+      ['Cetirizine 10mg'], [lr('  3 x 15.00', '45.00')],
+      ['Vitamin C 500mg'], [lr('  1 x 12.00', '12.00')],
+      [D], [lr('SUBTOTAL', '73.00')], [lr('DISCOUNT', '0.00')], [lr('VAT', '0.00')], [lr('TOTAL', '73.00'), B],
+      [D], ['PAYMENT: CASH'], [lr('CASH', '100.00')], [lr('CHANGE', '27.00')],
+      [D], [c('THANK YOU!'), B], [c('GET WELL SOON!')], [D], [c('Demo values - not an OR')],
+    ];
+    const mm = this.state.margin;
+    return {
+      lines: raw.map(r => ({ t: r[0], style: r[1] || 'white-space:pre' })),
+      chars: W,
+      fontCss: '400 ' + ((306 - 2 * (8 + mm * 5.3)) / (W * 0.602)).toFixed(2) + 'px/1.45',
+      paperW: '306px',
+      marginPx: (8 + mm * 5.3).toFixed(1) + 'px',
+      margin: mm, marginLabel: mm + ' mm',
+      onMargin: e => this.setState({ margin: +e.target.value }),
+      logo: this.state.logo, toggleLogo: () => this.setState({ logo: !this.state.logo }),
+      p32: W === 32 ? 'true' : 'false', p42: W === 42 ? 'true' : 'false',
+      s32: 'height:44px;border-radius:10px;font:600 13px Inter,sans-serif;cursor:pointer;' + (W === 32 ? 'background:#EEF1FF;color:#1A2FCC;border:1.5px solid #223CFF' : 'background:#fff;color:#3A4160;border:1px solid #E4E7F0'),
+      s42: 'height:44px;border-radius:10px;font:600 13px Inter,sans-serif;cursor:pointer;' + (W === 42 ? 'background:#EEF1FF;color:#1A2FCC;border:1.5px solid #223CFF' : 'background:#fff;color:#3A4160;border:1px solid #E4E7F0'),
+      pick32: () => this.setState({ w: 32 }), pick42: () => this.setState({ w: 42 }),
+    };
+  }
+}
+</script>
+</body>
+</html>
