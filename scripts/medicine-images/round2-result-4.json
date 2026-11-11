@@ -1,0 +1,57 @@
+[
+ {
+  "sku": "YM-1017",
+  "file": "/medicines/YM-1017.jpg",
+  "match": "generic",
+  "owner": "The Generics Pharmacy (TGP)",
+  "sourceName": "TGP",
+  "sourceUrl": "https://tgp.com.ph/product/coldzep-paracetamol-phenylpropanolamine-chlorphenamine-tablet-500mg-25mg-2mg/",
+  "imageUrl": "https://tgp.com.ph/wp-content/uploads/2026/07/100443_3.png",
+  "packLabel": "TGP Coldzep Paracetamol + Phenylephrine HCl + Chlorphenamine Maleate 500 mg/25 mg/2 mg Tablet",
+  "note": "TGP generic pack; retailer badge cropped. Catalog entry corrected to the strength printed on the pack."
+ },
+ {
+  "sku": "YM-1024",
+  "file": "/medicines/YM-1024.jpg",
+  "match": "exact",
+  "owner": "Westmont Pharmaceuticals, Inc. (Unilab group); manufactured by Amherst Laboratories, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/solmux-pdtr200mg-syrup-60ml/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/37467.png",
+  "packLabel": "Carbocisteine Solmux 200 mg/ 5 mL Pediatric Syrup, 60 mL",
+  "note": "Rose listing title: 'SOLMUX Susp Pedia 200Mg 60Ml'. The carton prints 'Pediatric Syrup' (not 'suspension'); strength and 60 mL volume match. Transparent PNG flattened onto white and squared; no retailer branding in image. Children printed on the carton are part of the pack."
+ },
+ {
+  "sku": "YM-1032",
+  "file": "/medicines/YM-1032.jpg",
+  "match": "generic",
+  "owner": "RiteMED Phils., Inc. (manufactured by Ind-Swift Limited, India)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/rm-levocetirizine-tab-5mg-50/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2025/08/68870-1.jpg",
+  "packLabel": "RiteMED Levocetirizine Dihydrochloride 5 mg Film-coated Tablet (50 Tablets)",
+  "note": "FALLBACK USED: this is Levocetirizine 5 mg, NOT hydroxyzine. No accessible image of Iterax 25 mg or any PH hydroxyzine 25 mg pack: MedGlobal (Iterax 25mg) and Watsons (Sedazine 25) are bot-blocked; TGP stocks only TGP Hydroxyzine 10 mg; Rose, MedsGo, Bambang Pharma and philgenericmed have no hydroxyzine 25 mg. Catalog entry for YM-1032 must be changed to Levocetirizine 5 mg tablet to match this photo. Image cropped and squared."
+ },
+ {
+  "sku": "YM-1052",
+  "file": "/medicines/YM-1052.jpg",
+  "match": "generic",
+  "owner": "RiteMED Phils., Inc.",
+  "sourceName": "RiteMED (official site)",
+  "sourceUrl": "https://www.ritemed.com.ph/products/rm-ferrous-sulfate-folic-acid-300-mg-250-mcg-tablet",
+  "imageUrl": "https://www.ritemed.com.ph/storage/app/uploads/public/6a7/2c9/7b3/6a72c97b3b6e1428032567.png",
+  "packLabel": "RiteMED Iron + Folic Acid 60 mg / 250 mcg Tablet, Hematinic, 100 Tablets",
+  "note": "FALLBACK USED: no accessible 300 mg/250 mcg printed pack (Watsons Generics is bot-blocked; Ferolitab listing on hati.health is 403). The RiteMED carton prints 60 mg / 250 mcg (elemental iron); RiteMED's page URL describes it as ferrous sulfate 300 mg / folic acid 250 mcg, i.e. 300 mg ferrous sulfate = 60 mg elemental iron, but the pack itself does NOT print 300 mg. Catalog strength should read 60 mg/250 mcg if it must match the printed pack. Transparent PNG flattened onto white and squared."
+ },
+ {
+  "sku": "YM-1099",
+  "file": "/medicines/YM-1099.jpg",
+  "match": "generic",
+  "owner": "TGP Pharma, Inc. (manufactured by Centurion Laboratories Pvt. Ltd.; imported by Philgen Pharmaceuticals Inc.)",
+  "sourceName": "TGP (The Generics Pharmacy)",
+  "sourceUrl": "https://tgp.com.ph/product/rx-ibupro-ibuprofen-tab-400mg/",
+  "imageUrl": "https://tgp.com.ph/wp-content/uploads/2026/07/100302_3-scaled.jpg",
+  "packLabel": "TGP Ibuprofen IBUPRO 400, 400 mg Film-Coated Tablet, 100 Film-Coated Tablets",
+  "note": "Generic ibuprofen 400 mg film-coated tablet (TGP house generic 'Ibupro 400'); photo shows carton plus blister. Retailer's red TGP badge at the top of the photo was cropped off; the TGP logo printed on the carton remains (it is the pack's own branding)."
+ }
+]

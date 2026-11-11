@@ -55,7 +55,7 @@ const ROWS: Row[] = [
   ["Sinutab", "Phenylephrine + Paracetamol", "5/500 mg", "Tablet", "cat_cold", 12.5, 9.1, 100, 10, 60, 0, "sup_bo", "J&J", "low"],
   ["Tuseran Forte", "Dextromethorphan + Phenylpropanolamine + Paracetamol", "15/25/325 mg", "Capsule", "cat_cold", 9.5, 6.9, 100, 10, 80, 0, "sup_lm", "Unilab", "ok"],
   ["Disudrin", "Phenylephrine + Chlorphenamine", "5/1 mg per 5 mL · 60 mL", "Syrup", "cat_cold", 125, 92, 12, 0, 10, 0, "sup_lm", "Unilab", "ok"],
-  ["Generic", "Phenylephrine + Chlorphenamine + Paracetamol", "10/2/500 mg", "Tablet", "cat_cold", 3, 1.8, 100, 10, 100, 0, "sup_pg", "Pacific Generics", "ok"],
+  ["Generic", "Paracetamol + Phenylephrine + Chlorphenamine", "500/25/2 mg", "Tablet", "cat_cold", 3, 1.8, 100, 10, 100, 0, "sup_pg", "Pacific Generics", "ok"],
 
   // Cough
   ["Solmux", "Carbocisteine", "500 mg", "Capsule", "cat_cough", 11.5, 8.4, 100, 10, 100, 0, "sup_lm", "Unilab", "ok"],
@@ -64,7 +64,7 @@ const ROWS: Row[] = [
   ["Ascof Lagundi", "Vitex negundo L. leaf", "300 mg/5 mL · 60 mL", "Syrup", "cat_cough", 112, 82, 12, 0, 8, 0, "sup_vp", "Pascual Lab", "exp:47"],
   ["Generic", "Carbocisteine", "500 mg", "Capsule", "cat_cough", 3.25, 2, 100, 10, 120, 0, "sup_pg", "Pacific Generics", "ok"],
   ["Generic", "Ambroxol", "30 mg", "Tablet", "cat_cough", 2, 1.2, 100, 10, 120, 0, "sup_pg", "Pacific Generics", "low"],
-  ["Solmux Pediatric", "Carbocisteine", "200 mg/5 mL · 60 mL", "Suspension", "cat_cough", 145, 106, 12, 0, 10, 0, "sup_lm", "Unilab", "ok"],
+  ["Solmux Pediatric", "Carbocisteine", "200 mg/5 mL · 60 mL", "Syrup", "cat_cough", 145, 106, 12, 0, 10, 0, "sup_lm", "Unilab", "ok"],
   ["Strepsils", "Amylmetacresol + Dichlorobenzyl Alcohol", "Honey & Lemon", "Lozenge", "cat_cough", 10, 7.2, 96, 8, 64, 0, "sup_bo", "Reckitt", "exp:82"],
 
   // Allergy
@@ -74,7 +74,7 @@ const ROWS: Row[] = [
   ["Generic", "Cetirizine", "10 mg", "Tablet", "cat_allergy", 3.5, 2.1, 100, 10, 150, 0, "sup_pg", "Pacific Generics", "ok"],
   ["Generic", "Loratadine", "10 mg", "Tablet", "cat_allergy", 4, 2.4, 100, 10, 120, 0, "sup_pg", "Pacific Generics", "low"],
   ["Benadryl", "Diphenhydramine", "12.5 mg/5 mL · 60 mL", "Syrup", "cat_allergy", 165, 120, 12, 0, 8, 0, "sup_bo", "J&J", "ok"],
-  ["Iterax", "Hydroxyzine", "25 mg", "Tablet", "cat_allergy", 24, 17.5, 100, 10, 40, 1, "sup_mr", "UCB", "low"],
+  ["Generic", "Levocetirizine", "5 mg", "Tablet", "cat_allergy", 9.5, 6.4, 50, 10, 40, 1, "sup_pg", "Pacific Generics", "low"],
   ["Generic", "Cetirizine", "5 mg/5 mL · 60 mL", "Syrup", "cat_allergy", 68, 48, 12, 0, 10, 0, "sup_pg", "Pacific Generics", "exp:76"],
 
   // Digestive
@@ -98,7 +98,7 @@ const ROWS: Row[] = [
   ["Myra E", "Vitamin E", "400 IU", "Softgel", "cat_vitamins", 12, 8.7, 100, 10, 60, 0, "sup_lm", "Unilab", "ok"],
   ["Conzace", "Multivitamins + Zinc", "1 capsule", "Capsule", "cat_vitamins", 11, 8, 100, 10, 60, 0, "sup_lm", "Unilab", "ok"],
   ["Ceelin", "Ascorbic Acid", "100 mg/mL · 15 mL", "Drops", "cat_vitamins", 118, 86, 12, 0, 8, 0, "sup_lm", "Unilab", "exp:27"],
-  ["Generic", "Ferrous Sulfate + Folic Acid", "325/1 mg", "Tablet", "cat_vitamins", 2.25, 1.4, 100, 10, 100, 0, "sup_pg", "Pacific Generics", "ok"],
+  ["Generic", "Iron + Folic Acid", "60 mg/250 mcg", "Tablet", "cat_vitamins", 2.25, 1.4, 100, 10, 100, 0, "sup_pg", "Pacific Generics", "ok"],
 
   // Hypertension
   ["Norvasc", "Amlodipine", "5 mg", "Tablet", "cat_hypertension", 48, 36.2, 30, 10, 60, 1, "sup_mr", "Viatris", "low"],

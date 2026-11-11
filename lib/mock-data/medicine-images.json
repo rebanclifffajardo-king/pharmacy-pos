@@ -217,6 +217,20 @@
   "owner": "Unilab, Inc.",
   "sourceName": "MedsGo"
  },
+ "YM-1017": {
+  "kind": "retail",
+  "sku": "YM-1017",
+  "file": "/medicines/YM-1017.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "The Generics Pharmacy (TGP)",
+  "license": "© The Generics Pharmacy (TGP)",
+  "licenseUrl": null,
+  "sourceUrl": "https://tgp.com.ph/product/coldzep-paracetamol-phenylpropanolamine-chlorphenamine-tablet-500mg-25mg-2mg/",
+  "note": "TGP generic pack; retailer badge cropped. Catalog entry corrected to the strength printed on the pack.",
+  "owner": "The Generics Pharmacy (TGP)",
+  "sourceName": "TGP"
+ },
  "YM-1018": {
   "kind": "retail",
   "sku": "YM-1018",
@@ -299,6 +313,20 @@
   "sourceUrl": "https://www.rosepharmacy.com/product/mucolytic-ambroxol-hci-30mg-tab-1-pc/",
   "note": "RiteMed ambroxol HCl 30 mg tablet, box of 100. Cropped to remove the Rose Pharmacy logo at the top.",
   "owner": "RiteMED Phils., Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1024": {
+  "kind": "retail",
+  "sku": "YM-1024",
+  "file": "/medicines/YM-1024.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Westmont Pharmaceuticals, Inc. (Unilab group); manufactured by Amherst Laboratories, Inc.",
+  "license": "© Westmont Pharmaceuticals, Inc. (Unilab group); manufactured by Amherst Laboratories, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/solmux-pdtr200mg-syrup-60ml/",
+  "note": "Rose listing title: 'SOLMUX Susp Pedia 200Mg 60Ml'. The carton prints 'Pediatric Syrup' (not 'suspension'); strength and 60 mL volume match. Transparent PNG flattened onto white and squared; no retailer branding in image. Children printed on the carton are part of the pack.",
+  "owner": "Westmont Pharmaceuticals, Inc. (Unilab group); manufactured by Amherst Laboratories, Inc.",
   "sourceName": "Rose Pharmacy"
  },
  "YM-1025": {
@@ -388,6 +416,20 @@
   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bottle_of_Liquid_Children%27s_Benadryl.JPG",
   "note": "US Children's Benadryl Allergy diphenhydramine HCl oral solution (12.5 mg/5 mL), 118 mL bottle; same concentration but a different pack size and market."
+ },
+ "YM-1032": {
+  "kind": "retail",
+  "sku": "YM-1032",
+  "file": "/medicines/YM-1032.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMED Phils., Inc. (manufactured by Ind-Swift Limited, India)",
+  "license": "© RiteMED Phils., Inc. (manufactured by Ind-Swift Limited, India)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/rm-levocetirizine-tab-5mg-50/",
+  "note": "FALLBACK USED: this is Levocetirizine 5 mg, NOT hydroxyzine. No accessible image of Iterax 25 mg or any PH hydroxyzine 25 mg pack: MedGlobal (Iterax 25mg) and Watsons (Sedazine 25) are bot-blocked; TGP stocks only TGP Hydroxyzine 10 mg; Rose, MedsGo, Bambang Pharma and philgenericmed have no hydroxyzine 25 mg. Catalog entry for YM-1032 must be changed to Levocetirizine 5 mg tablet to match this photo. Image cropped and squared.",
+  "owner": "RiteMED Phils., Inc. (manufactured by Ind-Swift Limited, India)",
+  "sourceName": "Rose Pharmacy"
  },
  "YM-1033": {
   "kind": "retail",
@@ -644,6 +686,20 @@
   "note": "Ceelin ascorbic acid 100 mg/mL oral drops, 15 mL box. The pack strength (100 mg/mL) matches the SKU, though Rose's page title says 100mg/5ml. The baby photo is part of the pack design.",
   "owner": "Unilab, Inc.",
   "sourceName": "Rose Pharmacy"
+ },
+ "YM-1052": {
+  "kind": "retail",
+  "sku": "YM-1052",
+  "file": "/medicines/YM-1052.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMED Phils., Inc.",
+  "license": "© RiteMED Phils., Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.ritemed.com.ph/products/rm-ferrous-sulfate-folic-acid-300-mg-250-mcg-tablet",
+  "note": "FALLBACK USED: no accessible 300 mg/250 mcg printed pack (Watsons Generics is bot-blocked; Ferolitab listing on hati.health is 403). The RiteMED carton prints 60 mg / 250 mcg (elemental iron); RiteMED's page URL describes it as ferrous sulfate 300 mg / folic acid 250 mcg, i.e. 300 mg ferrous sulfate = 60 mg elemental iron, but the pack itself does NOT print 300 mg. Catalog strength should read 60 mg/250 mcg if it must match the printed pack. Transparent PNG flattened onto white and squared.",
+  "owner": "RiteMED Phils., Inc.",
+  "sourceName": "RiteMED (official site)"
  },
  "YM-1053": {
   "kind": "commons",
@@ -1235,6 +1291,20 @@
   "sourceUrl": "https://tgp.com.ph/product/katinko-10g-medium-ointment/",
   "note": "Katinko ointment jar and box (methyl salicylate, menthol and camphor); the listing is the 10 g size. The listing's bottom category banner was cropped off. The source image is fairly low resolution.",
   "owner": "Greenstone Pharmaceutical (HK), Inc.",
+  "sourceName": "TGP (The Generics Pharmacy)"
+ },
+ "YM-1099": {
+  "kind": "retail",
+  "sku": "YM-1099",
+  "file": "/medicines/YM-1099.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "TGP Pharma, Inc. (manufactured by Centurion Laboratories Pvt. Ltd.; imported by Philgen Pharmaceuticals Inc.)",
+  "license": "© TGP Pharma, Inc. (manufactured by Centurion Laboratories Pvt. Ltd.; imported by Philgen Pharmaceuticals Inc.)",
+  "licenseUrl": null,
+  "sourceUrl": "https://tgp.com.ph/product/rx-ibupro-ibuprofen-tab-400mg/",
+  "note": "Generic ibuprofen 400 mg film-coated tablet (TGP house generic 'Ibupro 400'); photo shows carton plus blister. Retailer's red TGP badge at the top of the photo was cropped off; the TGP logo printed on the carton remains (it is the pack's own branding).",
+  "owner": "TGP Pharma, Inc. (manufactured by Centurion Laboratories Pvt. Ltd.; imported by Philgen Pharmaceuticals Inc.)",
   "sourceName": "TGP (The Generics Pharmacy)"
  },
  "YM-1100": {
