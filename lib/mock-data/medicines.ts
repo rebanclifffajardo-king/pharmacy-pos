@@ -50,12 +50,12 @@ const ROWS: Row[] = [
 
   // Cold & Flu
   ["Bioflu", "Phenylephrine + Chlorphenamine + Paracetamol", "10/2/500 mg", "Tablet", "cat_cold", 8.25, 6.1, 100, 10, 60, 0, "sup_lm", "Unilab", "low"],
-  ["Neozep Forte", "Phenylephrine + Chlorphenamine + Paracetamol", "10/2/500 mg", "Tablet", "cat_cold", 6.75, 4.9, 100, 10, 100, 0, "sup_lm", "Unilab", "ok"],
-  ["Decolgen Forte", "Phenylephrine + Chlorphenamine + Paracetamol", "10/2/500 mg", "Tablet", "cat_cold", 7, 5, 100, 10, 100, 0, "sup_lm", "Unilab", "ok"],
+  ["Neozep Z+ Forte", "Phenylephrine + Chlorphenamine + Paracetamol + Zinc", "10/2/325/10 mg", "Tablet", "cat_cold", 6.75, 4.9, 100, 10, 100, 0, "sup_lm", "Unilab", "ok"],
+  ["Decolgen Forte", "Phenylpropanolamine + Chlorphenamine + Paracetamol", "25/2/500 mg", "Tablet", "cat_cold", 7, 5, 100, 10, 100, 0, "sup_lm", "Unilab", "ok"],
   ["Sinutab", "Phenylephrine + Paracetamol", "5/500 mg", "Tablet", "cat_cold", 12.5, 9.1, 100, 10, 60, 0, "sup_bo", "J&J", "low"],
-  ["Tuseran Forte", "Dextromethorphan + Phenylephrine + Paracetamol", "15/10/325 mg", "Capsule", "cat_cold", 9.5, 6.9, 100, 10, 80, 0, "sup_lm", "Unilab", "ok"],
-  ["Disudrin", "Phenylephrine", "5 mg/5 mL · 60 mL", "Syrup", "cat_cold", 125, 92, 12, 0, 10, 0, "sup_lm", "Unilab", "ok"],
-  ["Generic", "Phenylephrine + Chlorphenamine", "10/2 mg", "Tablet", "cat_cold", 3, 1.8, 100, 10, 100, 0, "sup_pg", "Pacific Generics", "ok"],
+  ["Tuseran Forte", "Dextromethorphan + Phenylpropanolamine + Paracetamol", "15/25/325 mg", "Capsule", "cat_cold", 9.5, 6.9, 100, 10, 80, 0, "sup_lm", "Unilab", "ok"],
+  ["Disudrin", "Phenylephrine + Chlorphenamine", "5/1 mg per 5 mL · 60 mL", "Syrup", "cat_cold", 125, 92, 12, 0, 10, 0, "sup_lm", "Unilab", "ok"],
+  ["Generic", "Phenylephrine + Chlorphenamine + Paracetamol", "10/2/500 mg", "Tablet", "cat_cold", 3, 1.8, 100, 10, 100, 0, "sup_pg", "Pacific Generics", "ok"],
 
   // Cough
   ["Solmux", "Carbocisteine", "500 mg", "Capsule", "cat_cough", 11.5, 8.4, 100, 10, 100, 0, "sup_lm", "Unilab", "ok"],
@@ -64,11 +64,11 @@ const ROWS: Row[] = [
   ["Ascof Lagundi", "Vitex negundo L. leaf", "300 mg/5 mL · 60 mL", "Syrup", "cat_cough", 112, 82, 12, 0, 8, 0, "sup_vp", "Pascual Lab", "exp:47"],
   ["Generic", "Carbocisteine", "500 mg", "Capsule", "cat_cough", 3.25, 2, 100, 10, 120, 0, "sup_pg", "Pacific Generics", "ok"],
   ["Generic", "Ambroxol", "30 mg", "Tablet", "cat_cough", 2, 1.2, 100, 10, 120, 0, "sup_pg", "Pacific Generics", "low"],
-  ["Solmux", "Carbocisteine", "250 mg/5 mL · 60 mL", "Suspension", "cat_cough", 145, 106, 12, 0, 10, 0, "sup_lm", "Unilab", "ok"],
+  ["Solmux Pediatric", "Carbocisteine", "200 mg/5 mL · 60 mL", "Suspension", "cat_cough", 145, 106, 12, 0, 10, 0, "sup_lm", "Unilab", "ok"],
   ["Strepsils", "Amylmetacresol + Dichlorobenzyl Alcohol", "Honey & Lemon", "Lozenge", "cat_cough", 10, 7.2, 96, 8, 64, 0, "sup_bo", "Reckitt", "exp:82"],
 
   // Allergy
-  ["Allerta", "Cetirizine", "10 mg", "Tablet", "cat_allergy", 15, 10.9, 100, 10, 80, 0, "sup_lm", "Unilab", "ok"],
+  ["Allerta", "Loratadine", "10 mg", "Tablet", "cat_allergy", 15, 10.9, 100, 10, 80, 0, "sup_lm", "Unilab", "ok"],
   ["Claritin", "Loratadine", "10 mg", "Tablet", "cat_allergy", 38, 28.4, 100, 10, 40, 0, "sup_pg", "Bayer", "out"],
   ["Zyrtec", "Cetirizine", "10 mg", "Tablet", "cat_allergy", 42, 31, 100, 10, 40, 0, "sup_mr", "UCB", "out"],
   ["Generic", "Cetirizine", "10 mg", "Tablet", "cat_allergy", 3.5, 2.1, 100, 10, 150, 0, "sup_pg", "Pacific Generics", "ok"],
@@ -157,7 +157,7 @@ const ROWS: Row[] = [
   ["Band-Aid", "Adhesive Bandages", "Pack of 10", "Device", "cat_firstaid", 45, 32, 24, 0, 24, 0, "sup_mh", "J&J", "ok"],
   ["Generic", "Hydrogen Peroxide", "3% · 120 mL", "Solution", "cat_firstaid", 35, 24, 12, 0, 12, 0, "sup_mh", "Mindanao Health Trading", "ok"],
   ["Katinko", "Menthol + Camphor + Methyl Salicylate", "10 g", "Ointment", "cat_firstaid", 42, 30, 12, 0, 24, 0, "sup_vp", "Greenstone", "ok"],
-  ["Dolo-Gen", "Ibuprofen", "400 mg", "Tablet", "cat_pain", 4.25, 3, 100, 10, 100, 0, "sup_pg", "Sample Labs", "inactive"],
+  ["Generic", "Ibuprofen", "400 mg", "Tablet", "cat_pain", 4.25, 3, 100, 10, 100, 0, "sup_pg", "Pacific Generics", "inactive"],
   ["Generic", "Silver Sulfadiazine", "1% · 20 g", "Cream", "cat_firstaid", 165, 118, 6, 0, 6, 1, "sup_mh", "Mindanao Health Trading", "low"],
 ];
 

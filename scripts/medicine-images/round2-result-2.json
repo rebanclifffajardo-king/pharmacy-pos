@@ -1,0 +1,202 @@
+[
+ {
+  "sku": "YM-1024",
+  "file": null,
+  "match": null,
+  "owner": "Unilab, Inc. (Westmont Pharmaceuticals)",
+  "sourceName": null,
+  "sourceUrl": null,
+  "imageUrl": null,
+  "note": "No Solmux 250 mg/5 mL product exists, so no image was used. The Philippine Solmux suspensions are Pediatric 100 mg/5 mL, Pediatric 200 mg/5 mL (60/120 mL), Forte/adult 500 mg/5 mL, and Advance (carbocisteine 500 mg + zinc 10 mg/5 mL, 60 mL). Every pack found shows a visibly different strength. Closest options, if the SKU is corrected: Solmux Pediatric 200 mg/5 mL 60 mL (https://www.rosepharmacy.com/product/solmux-pdtr200mg-syrup-60ml/, but its pack art has photos of children) or Solmux Advance 60 mL suspension (https://www.rosepharmacy.com/product/solmux-advance-60ml-sus/, clean pack shot)."
+ },
+ {
+  "sku": "YM-1026",
+  "file": "/medicines/YM-1026.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc. (manufactured by Amherst Laboratories)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/allerta-10mg-tablet/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/37511.png",
+  "note": "Allerta 10 mg tablet box (50 tablets) with blister. NOTE: the pack says LORATADINE. In the Philippines, Allerta is Unilab's loratadine brand, not cetirizine, so the SKU's generic name looks wrong and should probably read Loratadine. The brand, strength and form match. [Catalog entry corrected to match this pack.]"
+ },
+ {
+  "sku": "YM-1028",
+  "file": "/medicines/YM-1028.jpg",
+  "match": "exact",
+  "owner": "UCB (pack shown is GSK-marketed)",
+  "sourceName": "Nahdi Online Pharmacy (Saudi Arabia)",
+  "sourceUrl": "https://www.nahdionline.com/en-sa/zyrtec-10-mg-tablet-10pcs/pdp/100016085",
+  "imageUrl": "https://ecombe.nahdionline.com/media/catalog/product/z/y/zyrtec-10-mg-tablet-10pcs-1-_1.jpg",
+  "note": "Zyrtec cetirizine dihydrochloride 10 mg, 10 film-coated tablets box, clean pack shot. No Philippine retailer listing for Zyrtec was found (Rose and Southstar don't carry it), so this is a non-PH market pack (GSK logo, Arabic side text)."
+ },
+ {
+  "sku": "YM-1032",
+  "file": null,
+  "match": null,
+  "owner": "UCB",
+  "sourceName": null,
+  "sourceUrl": null,
+  "imageUrl": null,
+  "note": "No product image found. Iterax (hydroxyzine) doesn't appear on Rose Pharmacy, Southstar Drug or any other retailer found by web search. Only drug-reference mentions exist."
+ },
+ {
+  "sku": "YM-1033",
+  "file": "/medicines/YM-1033.jpg",
+  "match": "generic",
+  "owner": "Rose Pharmacy (Rose Pharmacy Generics private label)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/rose-pharmacy-cetirizine-syrup-60ml/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2025/08/76095-1.jpg",
+  "note": "Rose Pharmacy Generics Cetirizine Dihydrochloride 5 mg/5 mL syrup, 60 mL box (strawberry-menthol). Strength, form and volume match. A RiteMed 5 mg/5 mL 60 mL syrup was also available, but its box art shows a child, so it was skipped."
+ },
+ {
+  "sku": "YM-1034",
+  "file": "/medicines/YM-1034.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/diatabs-capsule-2mg-4x1/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2025/08/71154-1.jpg",
+  "note": "Diatabs Loperamide 2 mg capsule retail pack (4 capsules), Unilab. Clean pack shot."
+ },
+ {
+  "sku": "YM-1035",
+  "file": "/medicines/YM-1035.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc. (for Therapharma, Inc.)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/kremil-s-tablet/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/12959.png",
+  "note": "Kremil-S aluminum hydroxide + magnesium hydroxide + simeticone 178 mg/233 mg/30 mg chewable tablet box (500 tablets). Strength is visible on the pack. The image is slightly soft."
+ },
+ {
+  "sku": "YM-1036",
+  "file": "/medicines/YM-1036.jpg",
+  "match": "exact",
+  "owner": "Reckitt (Reckitt Benckiser Healthcare UK; imported by Zuellig Pharma PH)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/gaviscon-double-action-oral-suspension-10ml/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/11/70657.jpg",
+  "note": "Gaviscon sodium alginate + sodium bicarbonate + calcium carbonate 500 mg/213 mg/325 mg per 10 mL oral suspension: a box of 24 x 10 mL sachets with two sachets in front. That formula is the Double Action one. The words 'Double Action' aren't readable in this shot, but the Rose listing names it Double Action."
+ },
+ {
+  "sku": "YM-1037",
+  "file": "/medicines/YM-1037.jpg",
+  "match": "exact",
+  "owner": "Westmont Pharmaceuticals, Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/hydrite-granules-original-sachet-4-1g/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2026/07/33978-1.jpg",
+  "note": "Hydrite Oral Rehydration Salts granules for solution, 4.1 g sachets (two sachets), Westmont. Clean pack shot."
+ },
+ {
+  "sku": "YM-1038",
+  "file": "/medicines/YM-1038.jpg",
+  "match": "exact",
+  "owner": "Boehringer Ingelheim / Opella (Sanofi Consumer Healthcare)",
+  "sourceName": "Southstar Drug",
+  "sourceUrl": "https://southstardrug.com.ph/products/buscopan-tablet-pack-4s",
+  "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1884/9583/files/12532_96873b17-cc86-439f-8ab7-cadd3852b890.jpg?v=1791169285",
+  "note": "Buscopan Hyoscine N-butylbromide 10 mg tablet, 4-tablet retail pack. The Southstar logo was cropped off. A faint small Southstar watermark remains on the pack."
+ },
+ {
+  "sku": "YM-1041",
+  "file": "/medicines/YM-1041.jpg",
+  "match": "exact",
+  "owner": "Opella (Sanofi Consumer Healthcare)",
+  "sourceName": "Southstar Drug",
+  "sourceUrl": "https://southstardrug.com.ph/products/dulcolax-5-mg-suki-sulit-pack-tablet-12s-600-in-house-trade-account",
+  "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1884/9583/products/12198_b1a52a76-13c4-479c-8692-f33d959fd085.jpg?v=1683797274",
+  "note": "Dulcolax Bisacodyl 5 mg enteric-coated tablet box (120 tablets, 10 packs x 12), Sanofi. The Southstar logo was cropped off. A faint small watermark remains at the lower right."
+ },
+ {
+  "sku": "YM-1043",
+  "file": "/medicines/YM-1043.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/ceelin-syrup-120ml/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/10/12799.png",
+  "note": "Ceelin ascorbic acid 100 mg/5 mL syrup, 120 mL box. The child photo is part of Ceelin's own pack design; it isn't a lifestyle image."
+ },
+ {
+  "sku": "YM-1045",
+  "file": "/medicines/YM-1045.jpg",
+  "match": "brand",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/enervon-z-fc-tab-100/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2025/02/78883.jpg",
+  "note": "Enervon Z+ 'Multivitamins + Zinc' film-coated tablet box (100 tablets). This is the current Enervon tablet; its pack sub-label reads vitamins/minerals. Marked 'brand' because the variant name (Z+) and the 'Multivitamins + Zinc' label differ slightly from the SKU's 'Multivitamins + Minerals'. The older 'Multivitamins Enervon Tablet' bottle was rejected because its label shows photos of people."
+ },
+ {
+  "sku": "YM-1046",
+  "file": "/medicines/YM-1046.jpg",
+  "match": "exact",
+  "owner": "P&G Health (Procter & Gamble Philippines)",
+  "sourceName": "Southstar Drug",
+  "sourceUrl": "https://southstardrug.com.ph/products/neurobion-100-mg-200-mg-200-mcg-tablet-10s-600-in-house-trade-account",
+  "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1884/9583/files/34373_1.jpg?v=1751955403",
+  "note": "Neurobion Vitamins B1+B6+B12 100 mg/200 mg/200 mcg tablet box (10 tablets). The Southstar logo was cropped off. A faint small watermark remains."
+ },
+ {
+  "sku": "YM-1048",
+  "file": "/medicines/YM-1048.jpg",
+  "match": "brand",
+  "owner": "Fern, Inc. (manufactured by Northfield Laboratories)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/fern-c-568-18mg/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/08/66756.png",
+  "note": "Fern-C Sodium Ascorbate 568.18 mg capsule box (30 capsules). Strength is visible. The SKU's '+ Zinc' isn't on the classic Fern-C pack; Fern-C Plus has zinc but is labelled 500 mg/10 mg. Brand, strength and form match, but the pack has no zinc, so it is marked brand."
+ },
+ {
+  "sku": "YM-1049",
+  "file": "/medicines/YM-1049.jpg",
+  "match": "exact",
+  "owner": "UL Skin Sciences, Inc. (Unilab group)",
+  "sourceName": "Southstar Drug",
+  "sourceUrl": "https://southstardrug.com.ph/products/myra-e-400-iu-capsule-20s-600-in-house-trade-account",
+  "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1884/9583/products/21296.jpg?v=1754027580",
+  "note": "Myra E d-Alpha Tocopherol (Vitamin E) 400 I.U. capsule box (100 capsules). The Southstar logo was cropped off. A Rose Pharmacy Myra E image was rejected because it's a promo with a model's face."
+ },
+ {
+  "sku": "YM-1050",
+  "file": "/medicines/YM-1050.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc. (manufactured by Belmont Softgel Pharma)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/conzace-soft-gel/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/10/35729-2.jpg",
+  "note": "Conzace Multivitamins + Mineral softgel capsule box (100 softgel capsules). The pack lists zinc and vitamins A, C and E."
+ },
+ {
+  "sku": "YM-1051",
+  "file": "/medicines/YM-1051.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/ceelin-drops-15ml/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/10/12795.png",
+  "note": "Ceelin ascorbic acid 100 mg/mL oral drops, 15 mL box. The pack strength (100 mg/mL) matches the SKU, though Rose's page title says 100mg/5ml. The baby photo is part of the pack design."
+ },
+ {
+  "sku": "YM-1052",
+  "file": null,
+  "match": null,
+  "owner": null,
+  "sourceName": null,
+  "sourceUrl": null,
+  "imageUrl": null,
+  "note": "No Philippine generic with ferrous sulfate 325 mg + folic acid 1 mg was found. The PH iron + folic acid generics found all show visibly different strengths, e.g. RiteMed Iron + Folic Acid 60 mg/250 mcg and Watsons Generics ferrous sulfate 300 mg + folic acid 250 mcg. UHP Ferrous Sulfate 325 mg has no folic acid, and its image carries a promo banner. Rejected under the strength rule."
+ },
+ {
+  "sku": "YM-1056",
+  "file": "/medicines/YM-1056.jpg",
+  "match": "generic",
+  "owner": "RiteMed Phils., Inc. (manufactured by PT Darya-Varia Laboratoria)",
+  "sourceName": "Southstar Drug",
+  "sourceUrl": "https://southstardrug.com.ph/products/rx-ritemed-amlodipine-10-mg-tablet-600-in-house-trade-account",
+  "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1884/9583/files/22177_b381fa08-6ff2-4b5f-bee1-4ca2d491a573.jpg?v=1786026992",
+  "note": "RiteMed Amlodipine Besilate 10 mg tablet box (100 tablets). The Southstar logo was cropped off. A small faint watermark remains near the strength text."
+ }
+]

@@ -1,0 +1,202 @@
+[
+ {
+  "sku": "YM-1003",
+  "file": "/medicines/YM-1003.jpg",
+  "match": "exact",
+  "owner": "Westmont Pharmaceuticals, Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/dolfenal-500mg-tablet/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/12844.png",
+  "note": "Dolfenal (mefenamic acid) 500 mg film-coated tablet box, 100 tablets, Westmont. Clean pack shot on white."
+ },
+ {
+  "sku": "YM-1004",
+  "file": "/medicines/YM-1004.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/alaxan-fr-cap-ss-ph-10x1/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2018/05/71153-1.jpg",
+  "note": "Alaxan FR ibuprofen + paracetamol 200 mg/325 mg capsule, 10-capsule box. Clean pack shot."
+ },
+ {
+  "sku": "YM-1005",
+  "file": "/medicines/YM-1005.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc. (Myra Pharmaceuticals)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/medicol-adv-400mg-cap100s-ssph/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2018/05/66968.png",
+  "note": "Medicol Advance 400 ibuprofen 400 mg softgel capsule, box of 100 with blister in front."
+ },
+ {
+  "sku": "YM-1006",
+  "file": "/medicines/YM-1006.jpg",
+  "match": "exact",
+  "owner": "Taisho Pharmaceutical (Philippines), Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/tempra-120mg5ml-orange-60ml/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/16331-1.png",
+  "note": "Tempra paracetamol 120 mg/5 mL syrup, 60 mL box (orange flavor). The box artwork itself shows a mother and child."
+ },
+ {
+  "sku": "YM-1008",
+  "file": "/medicines/YM-1008.jpg",
+  "match": "generic",
+  "owner": "Rose Pharmacy, Inc. (house brand)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/mefenamic-500mg-capsules-rose-phar/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2019/07/72948.png",
+  "note": "Rose Pharmacy generic mefenamic acid 500 mg capsule, box of 100 (rendered pack shot). Cropped to remove a retailer side-banner that wrongly read '1 TABLET'. No RiteMed/Generika 500 mg capsule image could be found (RiteMed only lists tablets)."
+ },
+ {
+  "sku": "YM-1009",
+  "file": "/medicines/YM-1009.jpg",
+  "match": "exact",
+  "owner": "Taisho Pharmaceutical (Philippines), Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/flanax-forte-550-mg-tablet/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/12/18062.jpg",
+  "note": "Flanax Forte naproxen sodium 550 mg tablet, box of 250. 'Flanax Forte' is the name of the 550 mg Flanax product."
+ },
+ {
+  "sku": "YM-1010",
+  "file": "/medicines/YM-1010.jpg",
+  "match": "exact",
+  "owner": "United American Pharmaceuticals, Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/rexidol-forte-500-mg-65mg/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/65268.png",
+  "note": "Rexidol Forte paracetamol + caffeine 500 mg/65 mg tablet, box of 100 with blister. 'Rexidol Forte' is the name of the 500/65 mg product."
+ },
+ {
+  "sku": "YM-1011",
+  "file": "/medicines/YM-1011.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/bioflu-tablet/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/37219.png",
+  "note": "Bioflu phenylephrine/chlorphenamine/paracetamol 10 mg/2 mg/500 mg tablet, box of 100 with blister."
+ },
+ {
+  "sku": "YM-1012",
+  "file": "/medicines/YM-1012.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/neozep-forte-ztab10mg-2mg-325mg-10mg500/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2025/02/78764.jpg",
+  "note": "Current Neozep Z+ Forte box (500 tablets). The pack reads 10 mg/2 mg/325 mg + 10 mg zinc, not the SKU's 10/2/500 mg. The older 500 mg Neozep Forte pack could not be found at any accessible retailer, and Z+ Forte has replaced it in stores. Strength on the pack differs from the SKU. [Catalog entry corrected to match this pack.]"
+ },
+ {
+  "sku": "YM-1013",
+  "file": "/medicines/YM-1013.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/decolgen-forte-ppa-tablet/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/66593-1-1.png",
+  "note": "Decolgen Forte tablet box of 100 with blister. The pack reads phenylpropanolamine/chlorphenamine/paracetamol 25 mg/2 mg/500 mg, which is the current Philippine Decolgen Forte formula (per Unilab and MedsGo). The SKU lists phenylephrine 10 mg instead. [Catalog entry corrected to match this pack.]"
+ },
+ {
+  "sku": "YM-1014",
+  "file": "/medicines/YM-1014.jpg",
+  "match": "exact",
+  "owner": "Kenvue (formerly Johnson & Johnson Consumer Health)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/sinutab-cold-tab-500mg-5mg-200/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2023/12/75117.png",
+  "note": "Sinutab Cold paracetamol + phenylephrine 500 mg/5 mg film-coated tablet, 10 x 20 box. The box artwork itself shows a woman's face."
+ },
+ {
+  "sku": "YM-1015",
+  "file": "/medicines/YM-1015.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/tuseran-forte-capsule-4x1s/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2019/07/72408.png",
+  "note": "Tuseran Forte capsule pack. The pack reads dextromethorphan/phenylpropanolamine/paracetamol 15 mg/25 mg/325 mg, which is the current PH formula. The SKU lists phenylephrine 10 mg as the decongestant. Every Tuseran Forte image found shows the phenylpropanolamine formula. [Catalog entry corrected to match this pack.]"
+ },
+ {
+  "sku": "YM-1016",
+  "file": "/medicines/YM-1016.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc.",
+  "sourceName": "MedsGo",
+  "sourceUrl": "https://medsgo.ph/over-the-counter-medicines/cough-cold-and-flu/disudrin-phenylephrine-hcl-chlorphenamine-maleate-5mg-1mg-5ml-syrup-60ml/",
+  "imageUrl": "https://medsgo.ph/images/detailed/40/Disudrin_60ml.png",
+  "note": "Disudrin syrup, 60 mL box, phenylephrine 5 mg per 5 mL. The actual product also contains chlorphenamine 1 mg/5 mL, which the SKU's generic name leaves out. There is a faint small MedsGo watermark near the bottom left, and the box artwork shows a child with a teddy bear. [Catalog entry corrected to match this pack.]"
+ },
+ {
+  "sku": "YM-1017",
+  "file": null,
+  "match": null,
+  "owner": null,
+  "sourceName": null,
+  "sourceUrl": null,
+  "imageUrl": null,
+  "note": "Not found. Every Philippine 10 mg/2 mg phenylephrine + chlorphenamine tablet we found also contains paracetamol 500 mg (Bioflu, Neozep, Watsons Generics), so none is a valid generic match. Rose, MedsGo and RiteMed list no PE+CPM-only tablet."
+ },
+ {
+  "sku": "YM-1018",
+  "file": "/medicines/YM-1018.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/solmux-500-mg-capsule/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/36878.jpg",
+  "note": "Solmux carbocisteine 500 mg capsule box with blister."
+ },
+ {
+  "sku": "YM-1019",
+  "file": "/medicines/YM-1019.jpg",
+  "match": "exact",
+  "owner": "Sanofi (Opella Healthcare)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/mucosolvan-30mg-tablet/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2021/03/9293-1.png",
+  "note": "Mucosolvan ambroxol HCl 30 mg tablet, box of 100 (Sanofi). The image has a light grey backdrop behind the box."
+ },
+ {
+  "sku": "YM-1020",
+  "file": "/medicines/YM-1020.jpg",
+  "match": "exact",
+  "owner": "Pascual Laboratories, Inc.",
+  "sourceName": "MedsGo",
+  "sourceUrl": "https://medsgo.ph/over-the-counter-medicines/cough-cold-and-flu/ascof-forte-vitex-negundo-l-600mg-tablet-1s/",
+  "imageUrl": "https://medsgo.ph/images/detailed/37/Ascof_Forte_ezc6-zk.png",
+  "note": "Ascof Forte lagundi leaf 600 mg tablet, box of 60. There is a light 'MedsGo.ph' watermark on the box face. The Pascual Lab official image is only 200 px."
+ },
+ {
+  "sku": "YM-1021",
+  "file": "/medicines/YM-1021.jpg",
+  "match": "exact",
+  "owner": "Pascual Laboratories, Inc.",
+  "sourceName": "Pascual Laboratories (official site)",
+  "sourceUrl": "https://www.pascuallab.com/products/ascof-lagundi",
+  "imageUrl": "https://www.pascuallab.com/uploads/optimized/products/99/ascof_grape_60ml.png",
+  "note": "Ascof lagundi leaf 300 mg/5 mL syrup, 60 mL, grape flavor, shown as a bottle plus box. Manufacturer image."
+ },
+ {
+  "sku": "YM-1022",
+  "file": "/medicines/YM-1022.jpg",
+  "match": "generic",
+  "owner": "RiteMED Phils., Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/carbocisteine-ritmed-500mg-capsule/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2025/08/72835-1.jpg",
+  "note": "RiteMed carbocisteine 500 mg capsule, box of 100. Clean pack shot."
+ },
+ {
+  "sku": "YM-1023",
+  "file": "/medicines/YM-1023.jpg",
+  "match": "generic",
+  "owner": "RiteMED Phils., Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/mucolytic-ambroxol-hci-30mg-tab-1-pc/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2026/07/79681-1.jpg",
+  "note": "RiteMed ambroxol HCl 30 mg tablet, box of 100. Cropped to remove the Rose Pharmacy logo at the top."
+ }
+]

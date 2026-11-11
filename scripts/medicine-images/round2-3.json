@@ -1,0 +1,142 @@
+[
+ {
+  "sku": "YM-1057",
+  "brand": "Generic",
+  "generic": "Losartan",
+  "strength": "50 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1058",
+  "brand": "Generic",
+  "generic": "Losartan",
+  "strength": "100 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1061",
+  "brand": "Generic",
+  "generic": "Hydrochlorothiazide",
+  "strength": "25 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1062",
+  "brand": "Generic",
+  "generic": "Captopril",
+  "strength": "25 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1065",
+  "brand": "Generic",
+  "generic": "Gliclazide",
+  "strength": "80 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1066",
+  "brand": "Diamicron MR",
+  "generic": "Gliclazide",
+  "strength": "60 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1067",
+  "brand": "Galvus",
+  "generic": "Vildagliptin",
+  "strength": "50 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1069",
+  "brand": "Accu-Chek Instant",
+  "generic": "Blood Glucose Test Strips",
+  "strength": "50 strips",
+  "form": "Device"
+ },
+ {
+  "sku": "YM-1074",
+  "brand": "Generic",
+  "generic": "Rosuvastatin",
+  "strength": "10 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1076",
+  "brand": "Generic",
+  "generic": "Fenofibrate",
+  "strength": "200 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1077",
+  "brand": "Amoxil",
+  "generic": "Amoxicillin",
+  "strength": "500 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1083",
+  "brand": "Generic",
+  "generic": "Cefuroxime",
+  "strength": "500 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1084",
+  "brand": "Generic",
+  "generic": "Amoxicillin",
+  "strength": "250 mg/5 mL \u00b7 60 mL",
+  "form": "Suspension"
+ },
+ {
+  "sku": "YM-1087",
+  "brand": "Generic",
+  "generic": "Salbutamol",
+  "strength": "2 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1088",
+  "brand": "Ventolin Nebules",
+  "generic": "Salbutamol",
+  "strength": "2.5 mg/2.5 mL",
+  "form": "Nebule"
+ },
+ {
+  "sku": "YM-1089",
+  "brand": "Seretide",
+  "generic": "Salmeterol + Fluticasone",
+  "strength": "25/250 mcg \u00b7 120 doses",
+  "form": "Inhaler"
+ },
+ {
+  "sku": "YM-1091",
+  "brand": "Duavent",
+  "generic": "Ipratropium + Salbutamol",
+  "strength": "0.5/2.5 mg",
+  "form": "Nebule"
+ },
+ {
+  "sku": "YM-1092",
+  "brand": "Generic",
+  "generic": "Salbutamol",
+  "strength": "2 mg/5 mL \u00b7 60 mL",
+  "form": "Syrup"
+ },
+ {
+  "sku": "YM-1098",
+  "brand": "Katinko",
+  "generic": "Menthol + Camphor + Methyl Salicylate",
+  "strength": "10 g",
+  "form": "Ointment"
+ },
+ {
+  "sku": "YM-1099",
+  "brand": "Dolo-Gen",
+  "generic": "Ibuprofen",
+  "strength": "400 mg",
+  "form": "Tablet"
+ }
+]

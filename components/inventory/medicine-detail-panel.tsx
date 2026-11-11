@@ -82,7 +82,7 @@ export function MedicineDetailPanel({
           </div>
         </div>
 
-        <PhotoCredit sku={medicine.sku} />
+        <PhotoCredit sku={medicine.sku} uploaded={!!medicine.imageDataUrl} />
 
         <div className="grid grid-cols-3 gap-2">
           <div className="flex flex-col gap-0.5 rounded-xl bg-canvas p-3">

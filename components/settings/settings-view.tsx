@@ -442,7 +442,7 @@ function DemoSection({ canManage }: { canManage: boolean }) {
             <li>QR Ph and card payments are simulated and labeled; no payment provider is connected.</li>
             <li>Seed data is deterministic: a reset restores the same records, re-dated to today.</li>
             <li>
-              Medicine photos are free-licensed images from Wikimedia Commons —{" "}
+              Medicine photos are free-licensed Wikimedia Commons images or manufacturer product images (© their owners) —{" "}
               <Link href="/image-credits" className="font-medium text-brand-700 hover:underline">
                 see Image Credits
               </Link>

@@ -143,7 +143,7 @@ export function buildSeedDatabase(now: Date = new Date()): DemoDatabase {
   const popularity = new Map<string, number>();
   const boost: Record<string, number> = {
     "Biogesic 500 mg": 10,
-    "Neozep Forte 10/2/500 mg": 7,
+    "Neozep Z+ Forte 10/2/325/10 mg": 7,
     "Bioflu 10/2/500 mg": 6,
     "Generic Ascorbic Acid 500 mg": 6,
     "Generic Paracetamol 500 mg": 6,
@@ -158,7 +158,7 @@ export function buildSeedDatabase(now: Date = new Date()): DemoDatabase {
     "Alaxan FR 200/325 mg": 4,
     "Generic Metformin 500 mg": 3,
     "Enervon 1 tablet": 3,
-    "Decolgen Forte 10/2/500 mg": 3,
+    "Decolgen Forte 25/2/500 mg": 3,
     "Advil 200 mg": 3,
     "Generic Amoxicillin 500 mg": 3,
     "Generic Atorvastatin 20 mg": 3,

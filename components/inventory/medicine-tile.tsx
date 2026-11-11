@@ -18,8 +18,8 @@ export function abbrOf(m: Pick<Medicine, "brandName" | "genericName">) {
 }
 
 /** Product photo, or the two-letter tile tinted by stock status when no photo exists (design: Inventory table). */
-export function MedicineTile({ medicine, status, big }: { medicine: Pick<Medicine, "sku" | "brandName" | "genericName" | "strength" | "dosageForm">; status: StockStatus; big?: boolean }) {
-  if (getMedicineImage(medicine.sku)) {
+export function MedicineTile({ medicine, status, big }: { medicine: Pick<Medicine, "sku" | "brandName" | "genericName" | "strength" | "dosageForm" | "imageDataUrl">; status: StockStatus; big?: boolean }) {
+  if (medicine.imageDataUrl || getMedicineImage(medicine.sku)) {
     return <MedicineImage medicine={medicine} size={big ? 96 : 40} fit={big ? "contain" : "cover"} dim={status === "inactive"} />;
   }
   return (

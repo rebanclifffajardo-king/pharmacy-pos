@@ -1,5 +1,6 @@
 {
  "YM-1001": {
+  "kind": "commons",
   "sku": "YM-1001",
   "file": "/medicines/YM-1001.jpg",
   "match": "exact",
@@ -11,6 +12,7 @@
   "note": "Close-up of a single Biogesic 500 mg paracetamol tablet (orange caplet) showing the embossed BIOGESIC imprint."
  },
  "YM-1002": {
+  "kind": "commons",
   "sku": "YM-1002",
   "file": "/medicines/YM-1002.jpg",
   "match": "exact",
@@ -21,7 +23,64 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:ADVIL.jpg",
   "note": "Bottle of Advil Liqui-Gels, ibuprofen 200 mg liquid-filled capsules (Canadian bilingual pack). Low-resolution source (320x480)."
  },
+ "YM-1003": {
+  "kind": "retail",
+  "sku": "YM-1003",
+  "file": "/medicines/YM-1003.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Westmont Pharmaceuticals, Inc. (Unilab group)",
+  "license": "© Westmont Pharmaceuticals, Inc. (Unilab group)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/dolfenal-500mg-tablet/",
+  "note": "Dolfenal (mefenamic acid) 500 mg film-coated tablet box, 100 tablets, Westmont. Clean pack shot on white.",
+  "owner": "Westmont Pharmaceuticals, Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1004": {
+  "kind": "retail",
+  "sku": "YM-1004",
+  "file": "/medicines/YM-1004.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/alaxan-fr-cap-ss-ph-10x1/",
+  "note": "Alaxan FR ibuprofen + paracetamol 200 mg/325 mg capsule, 10-capsule box. Clean pack shot.",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1005": {
+  "kind": "retail",
+  "sku": "YM-1005",
+  "file": "/medicines/YM-1005.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc. (Myra Pharmaceuticals)",
+  "license": "© Unilab, Inc. (Myra Pharmaceuticals)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/medicol-adv-400mg-cap100s-ssph/",
+  "note": "Medicol Advance 400 ibuprofen 400 mg softgel capsule, box of 100 with blister in front.",
+  "owner": "Unilab, Inc. (Myra Pharmaceuticals)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1006": {
+  "kind": "retail",
+  "sku": "YM-1006",
+  "file": "/medicines/YM-1006.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Taisho Pharmaceutical (Philippines), Inc.",
+  "license": "© Taisho Pharmaceutical (Philippines), Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/tempra-120mg5ml-orange-60ml/",
+  "note": "Tempra paracetamol 120 mg/5 mL syrup, 60 mL box (orange flavor). The box artwork itself shows a mother and child.",
+  "owner": "Taisho Pharmaceutical (Philippines), Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
  "YM-1007": {
+  "kind": "commons",
   "sku": "YM-1007",
   "file": "/medicines/YM-1007.jpg",
   "match": "generic",
@@ -32,7 +91,218 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Paracetamol_acetaminophen_500_mg_pills.jpg",
   "note": "Close-up of plain white paracetamol 500 mg tablets embossed '500'; no brand name visible."
  },
+ "YM-1008": {
+  "kind": "retail",
+  "sku": "YM-1008",
+  "file": "/medicines/YM-1008.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "Rose Pharmacy, Inc. (house brand)",
+  "license": "© Rose Pharmacy, Inc. (house brand)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/mefenamic-500mg-capsules-rose-phar/",
+  "note": "Rose Pharmacy generic mefenamic acid 500 mg capsule, box of 100 (rendered pack shot). Cropped to remove a retailer side-banner that wrongly read '1 TABLET'. No RiteMed/Generika 500 mg capsule image could be found (RiteMed only lists tablets).",
+  "owner": "Rose Pharmacy, Inc. (house brand)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1009": {
+  "kind": "retail",
+  "sku": "YM-1009",
+  "file": "/medicines/YM-1009.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Taisho Pharmaceutical (Philippines), Inc.",
+  "license": "© Taisho Pharmaceutical (Philippines), Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/flanax-forte-550-mg-tablet/",
+  "note": "Flanax Forte naproxen sodium 550 mg tablet, box of 250. 'Flanax Forte' is the name of the 550 mg Flanax product.",
+  "owner": "Taisho Pharmaceutical (Philippines), Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1010": {
+  "kind": "retail",
+  "sku": "YM-1010",
+  "file": "/medicines/YM-1010.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "United American Pharmaceuticals, Inc. (Unilab group)",
+  "license": "© United American Pharmaceuticals, Inc. (Unilab group)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/rexidol-forte-500-mg-65mg/",
+  "note": "Rexidol Forte paracetamol + caffeine 500 mg/65 mg tablet, box of 100 with blister. 'Rexidol Forte' is the name of the 500/65 mg product.",
+  "owner": "United American Pharmaceuticals, Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1011": {
+  "kind": "retail",
+  "sku": "YM-1011",
+  "file": "/medicines/YM-1011.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/bioflu-tablet/",
+  "note": "Bioflu phenylephrine/chlorphenamine/paracetamol 10 mg/2 mg/500 mg tablet, box of 100 with blister.",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1012": {
+  "kind": "retail",
+  "sku": "YM-1012",
+  "file": "/medicines/YM-1012.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/neozep-forte-ztab10mg-2mg-325mg-10mg500/",
+  "note": "Current Neozep Z+ Forte box (500 tablets). The pack reads 10 mg/2 mg/325 mg + 10 mg zinc, not the SKU's 10/2/500 mg. The older 500 mg Neozep Forte pack could not be found at any accessible retailer, and Z+ Forte has replaced it in stores. Strength on the pack differs from the SKU. [Catalog entry corrected to match this pack.]",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1013": {
+  "kind": "retail",
+  "sku": "YM-1013",
+  "file": "/medicines/YM-1013.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/decolgen-forte-ppa-tablet/",
+  "note": "Decolgen Forte tablet box of 100 with blister. The pack reads phenylpropanolamine/chlorphenamine/paracetamol 25 mg/2 mg/500 mg, which is the current Philippine Decolgen Forte formula (per Unilab and MedsGo). The SKU lists phenylephrine 10 mg instead. [Catalog entry corrected to match this pack.]",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1014": {
+  "kind": "retail",
+  "sku": "YM-1014",
+  "file": "/medicines/YM-1014.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Kenvue (formerly Johnson & Johnson Consumer Health)",
+  "license": "© Kenvue (formerly Johnson & Johnson Consumer Health)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/sinutab-cold-tab-500mg-5mg-200/",
+  "note": "Sinutab Cold paracetamol + phenylephrine 500 mg/5 mg film-coated tablet, 10 x 20 box. The box artwork itself shows a woman's face.",
+  "owner": "Kenvue (formerly Johnson & Johnson Consumer Health)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1015": {
+  "kind": "retail",
+  "sku": "YM-1015",
+  "file": "/medicines/YM-1015.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/tuseran-forte-capsule-4x1s/",
+  "note": "Tuseran Forte capsule pack. The pack reads dextromethorphan/phenylpropanolamine/paracetamol 15 mg/25 mg/325 mg, which is the current PH formula. The SKU lists phenylephrine 10 mg as the decongestant. Every Tuseran Forte image found shows the phenylpropanolamine formula. [Catalog entry corrected to match this pack.]",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1016": {
+  "kind": "retail",
+  "sku": "YM-1016",
+  "file": "/medicines/YM-1016.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://medsgo.ph/over-the-counter-medicines/cough-cold-and-flu/disudrin-phenylephrine-hcl-chlorphenamine-maleate-5mg-1mg-5ml-syrup-60ml/",
+  "note": "Disudrin syrup, 60 mL box, phenylephrine 5 mg per 5 mL. The actual product also contains chlorphenamine 1 mg/5 mL, which the SKU's generic name leaves out. There is a faint small MedsGo watermark near the bottom left, and the box artwork shows a child with a teddy bear. [Catalog entry corrected to match this pack.]",
+  "owner": "Unilab, Inc.",
+  "sourceName": "MedsGo"
+ },
+ "YM-1018": {
+  "kind": "retail",
+  "sku": "YM-1018",
+  "file": "/medicines/YM-1018.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/solmux-500-mg-capsule/",
+  "note": "Solmux carbocisteine 500 mg capsule box with blister.",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1019": {
+  "kind": "retail",
+  "sku": "YM-1019",
+  "file": "/medicines/YM-1019.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Sanofi (Opella Healthcare)",
+  "license": "© Sanofi (Opella Healthcare)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/mucosolvan-30mg-tablet/",
+  "note": "Mucosolvan ambroxol HCl 30 mg tablet, box of 100 (Sanofi). The image has a light grey backdrop behind the box.",
+  "owner": "Sanofi (Opella Healthcare)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1020": {
+  "kind": "retail",
+  "sku": "YM-1020",
+  "file": "/medicines/YM-1020.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Pascual Laboratories, Inc.",
+  "license": "© Pascual Laboratories, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://medsgo.ph/over-the-counter-medicines/cough-cold-and-flu/ascof-forte-vitex-negundo-l-600mg-tablet-1s/",
+  "note": "Ascof Forte lagundi leaf 600 mg tablet, box of 60. There is a light 'MedsGo.ph' watermark on the box face. The Pascual Lab official image is only 200 px.",
+  "owner": "Pascual Laboratories, Inc.",
+  "sourceName": "MedsGo"
+ },
+ "YM-1021": {
+  "kind": "retail",
+  "sku": "YM-1021",
+  "file": "/medicines/YM-1021.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Pascual Laboratories, Inc.",
+  "license": "© Pascual Laboratories, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.pascuallab.com/products/ascof-lagundi",
+  "note": "Ascof lagundi leaf 300 mg/5 mL syrup, 60 mL, grape flavor, shown as a bottle plus box. Manufacturer image.",
+  "owner": "Pascual Laboratories, Inc.",
+  "sourceName": "Pascual Laboratories (official site)"
+ },
+ "YM-1022": {
+  "kind": "retail",
+  "sku": "YM-1022",
+  "file": "/medicines/YM-1022.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMED Phils., Inc.",
+  "license": "© RiteMED Phils., Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/carbocisteine-ritmed-500mg-capsule/",
+  "note": "RiteMed carbocisteine 500 mg capsule, box of 100. Clean pack shot.",
+  "owner": "RiteMED Phils., Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1023": {
+  "kind": "retail",
+  "sku": "YM-1023",
+  "file": "/medicines/YM-1023.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMED Phils., Inc.",
+  "license": "© RiteMED Phils., Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/mucolytic-ambroxol-hci-30mg-tab-1-pc/",
+  "note": "RiteMed ambroxol HCl 30 mg tablet, box of 100. Cropped to remove the Rose Pharmacy logo at the top.",
+  "owner": "RiteMED Phils., Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
  "YM-1025": {
+  "kind": "commons",
   "sku": "YM-1025",
   "file": "/medicines/YM-1025.jpg",
   "match": "exact",
@@ -43,7 +313,22 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Israeli_Strepsils_Package.jpg",
   "note": "Strepsils Honey & Lemon lozenges, opened box with blister packs. Israeli pack: box text is mostly Hebrew, with 'Strepsils Honey & Lemon' in Latin script."
  },
+ "YM-1026": {
+  "kind": "retail",
+  "sku": "YM-1026",
+  "file": "/medicines/YM-1026.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc. (manufactured by Amherst Laboratories)",
+  "license": "© Unilab, Inc. (manufactured by Amherst Laboratories)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/allerta-10mg-tablet/",
+  "note": "Allerta 10 mg tablet box (50 tablets) with blister. NOTE: the pack says LORATADINE. In the Philippines, Allerta is Unilab's loratadine brand, not cetirizine, so the SKU's generic name looks wrong and should probably read Loratadine. The brand, strength and form match. [Catalog entry corrected to match this pack.]",
+  "owner": "Unilab, Inc. (manufactured by Amherst Laboratories)",
+  "sourceName": "Rose Pharmacy"
+ },
  "YM-1027": {
+  "kind": "commons",
   "sku": "YM-1027",
   "file": "/medicines/YM-1027.jpg",
   "match": "exact",
@@ -54,7 +339,22 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:%E3%82%AF%E3%83%A9%E3%83%AA%E3%83%81%E3%83%B3.jpg",
   "note": "Japanese Claritin 10 mg (loratadine) tablet blister pack showing the brand name and strength."
  },
+ "YM-1028": {
+  "kind": "retail",
+  "sku": "YM-1028",
+  "file": "/medicines/YM-1028.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "UCB (pack shown is GSK-marketed)",
+  "license": "© UCB (pack shown is GSK-marketed)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.nahdionline.com/en-sa/zyrtec-10-mg-tablet-10pcs/pdp/100016085",
+  "note": "Zyrtec cetirizine dihydrochloride 10 mg, 10 film-coated tablets box, clean pack shot. No Philippine retailer listing for Zyrtec was found (Rose and Southstar don't carry it), so this is a non-PH market pack (GSK logo, Arabic side text).",
+  "owner": "UCB (pack shown is GSK-marketed)",
+  "sourceName": "Nahdi Online Pharmacy (Saudi Arabia)"
+ },
  "YM-1029": {
+  "kind": "commons",
   "sku": "YM-1029",
   "file": "/medicines/YM-1029.jpg",
   "match": "generic",
@@ -66,6 +366,7 @@
   "note": "Close-up of white cetirizine tablets in a blister; German pack in background reads cetirizine dihydrochloride 10 mg; no brand name visible."
  },
  "YM-1030": {
+  "kind": "commons",
   "sku": "YM-1030",
   "file": "/medicines/YM-1030.jpg",
   "match": "generic",
@@ -77,6 +378,7 @@
   "note": "Unlabelled blister of six white loratadine 10 mg tablets (per file description) held by fingertips; no brand name visible."
  },
  "YM-1031": {
+  "kind": "commons",
   "sku": "YM-1031",
   "file": "/medicines/YM-1031.jpg",
   "match": "brand",
@@ -87,7 +389,92 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bottle_of_Liquid_Children%27s_Benadryl.JPG",
   "note": "US Children's Benadryl Allergy diphenhydramine HCl oral solution (12.5 mg/5 mL), 118 mL bottle; same concentration but a different pack size and market."
  },
+ "YM-1033": {
+  "kind": "retail",
+  "sku": "YM-1033",
+  "file": "/medicines/YM-1033.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "Rose Pharmacy (Rose Pharmacy Generics private label)",
+  "license": "© Rose Pharmacy (Rose Pharmacy Generics private label)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/rose-pharmacy-cetirizine-syrup-60ml/",
+  "note": "Rose Pharmacy Generics Cetirizine Dihydrochloride 5 mg/5 mL syrup, 60 mL box (strawberry-menthol). Strength, form and volume match. A RiteMed 5 mg/5 mL 60 mL syrup was also available, but its box art shows a child, so it was skipped.",
+  "owner": "Rose Pharmacy (Rose Pharmacy Generics private label)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1034": {
+  "kind": "retail",
+  "sku": "YM-1034",
+  "file": "/medicines/YM-1034.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/diatabs-capsule-2mg-4x1/",
+  "note": "Diatabs Loperamide 2 mg capsule retail pack (4 capsules), Unilab. Clean pack shot.",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1035": {
+  "kind": "retail",
+  "sku": "YM-1035",
+  "file": "/medicines/YM-1035.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc. (for Therapharma, Inc.)",
+  "license": "© Unilab, Inc. (for Therapharma, Inc.)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/kremil-s-tablet/",
+  "note": "Kremil-S aluminum hydroxide + magnesium hydroxide + simeticone 178 mg/233 mg/30 mg chewable tablet box (500 tablets). Strength is visible on the pack. The image is slightly soft.",
+  "owner": "Unilab, Inc. (for Therapharma, Inc.)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1036": {
+  "kind": "retail",
+  "sku": "YM-1036",
+  "file": "/medicines/YM-1036.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Reckitt (Reckitt Benckiser Healthcare UK; imported by Zuellig Pharma PH)",
+  "license": "© Reckitt (Reckitt Benckiser Healthcare UK; imported by Zuellig Pharma PH)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/gaviscon-double-action-oral-suspension-10ml/",
+  "note": "Gaviscon sodium alginate + sodium bicarbonate + calcium carbonate 500 mg/213 mg/325 mg per 10 mL oral suspension: a box of 24 x 10 mL sachets with two sachets in front. That formula is the Double Action one. The words 'Double Action' aren't readable in this shot, but the Rose listing names it Double Action.",
+  "owner": "Reckitt (Reckitt Benckiser Healthcare UK; imported by Zuellig Pharma PH)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1037": {
+  "kind": "retail",
+  "sku": "YM-1037",
+  "file": "/medicines/YM-1037.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Westmont Pharmaceuticals, Inc. (Unilab group)",
+  "license": "© Westmont Pharmaceuticals, Inc. (Unilab group)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/hydrite-granules-original-sachet-4-1g/",
+  "note": "Hydrite Oral Rehydration Salts granules for solution, 4.1 g sachets (two sachets), Westmont. Clean pack shot.",
+  "owner": "Westmont Pharmaceuticals, Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1038": {
+  "kind": "retail",
+  "sku": "YM-1038",
+  "file": "/medicines/YM-1038.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Boehringer Ingelheim / Opella (Sanofi Consumer Healthcare)",
+  "license": "© Boehringer Ingelheim / Opella (Sanofi Consumer Healthcare)",
+  "licenseUrl": null,
+  "sourceUrl": "https://southstardrug.com.ph/products/buscopan-tablet-pack-4s",
+  "note": "Buscopan Hyoscine N-butylbromide 10 mg tablet, 4-tablet retail pack. The Southstar logo was cropped off. A faint small Southstar watermark remains on the pack.",
+  "owner": "Boehringer Ingelheim / Opella (Sanofi Consumer Healthcare)",
+  "sourceName": "Southstar Drug"
+ },
  "YM-1039": {
+  "kind": "commons",
   "sku": "YM-1039",
   "file": "/medicines/YM-1039.jpg",
   "match": "generic",
@@ -99,6 +486,7 @@
   "note": "UK generic Omeprazole 20 mg capsules box and blister (Generics [UK] Limited)."
  },
  "YM-1040": {
+  "kind": "commons",
   "sku": "YM-1040",
   "file": "/medicines/YM-1040.jpg",
   "match": "exact",
@@ -109,7 +497,22 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:07475jfBacillus_clausii_Erceflorafvf_01.jpg",
   "note": "Philippine Erceflora (Bacillus clausii) 2 billion/5 mL oral suspension mini-bottle."
  },
+ "YM-1041": {
+  "kind": "retail",
+  "sku": "YM-1041",
+  "file": "/medicines/YM-1041.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Opella (Sanofi Consumer Healthcare)",
+  "license": "© Opella (Sanofi Consumer Healthcare)",
+  "licenseUrl": null,
+  "sourceUrl": "https://southstardrug.com.ph/products/dulcolax-5-mg-suki-sulit-pack-tablet-12s-600-in-house-trade-account",
+  "note": "Dulcolax Bisacodyl 5 mg enteric-coated tablet box (120 tablets, 10 packs x 12), Sanofi. The Southstar logo was cropped off. A faint small watermark remains at the lower right.",
+  "owner": "Opella (Sanofi Consumer Healthcare)",
+  "sourceName": "Southstar Drug"
+ },
  "YM-1042": {
+  "kind": "commons",
   "sku": "YM-1042",
   "file": "/medicines/YM-1042.jpg",
   "match": "generic",
@@ -120,7 +523,22 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Famotidine_20mg_generic.jpg",
   "note": "Loose generic famotidine 20 mg tablets in a clear plastic bag (Hong Kong); no brand name visible."
  },
+ "YM-1043": {
+  "kind": "retail",
+  "sku": "YM-1043",
+  "file": "/medicines/YM-1043.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/ceelin-syrup-120ml/",
+  "note": "Ceelin ascorbic acid 100 mg/5 mL syrup, 120 mL box. The child photo is part of Ceelin's own pack design; it isn't a lifestyle image.",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
  "YM-1044": {
+  "kind": "commons",
   "sku": "YM-1044",
   "file": "/medicines/YM-1044.jpg",
   "match": "generic",
@@ -131,7 +549,36 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vitamin_C_supplements_2.jpg",
   "note": "Loose vitamin C (ascorbic acid) 500 mg tablets; no packaging or brand visible (source product also contains 25 mg citrus bioflavonoids)."
  },
+ "YM-1045": {
+  "kind": "retail",
+  "sku": "YM-1045",
+  "file": "/medicines/YM-1045.jpg",
+  "match": "brand",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/enervon-z-fc-tab-100/",
+  "note": "Enervon Z+ 'Multivitamins + Zinc' film-coated tablet box (100 tablets). This is the current Enervon tablet; its pack sub-label reads vitamins/minerals. Marked 'brand' because the variant name (Z+) and the 'Multivitamins + Zinc' label differ slightly from the SKU's 'Multivitamins + Minerals'. The older 'Multivitamins Enervon Tablet' bottle was rejected because its label shows photos of people.",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1046": {
+  "kind": "retail",
+  "sku": "YM-1046",
+  "file": "/medicines/YM-1046.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "P&G Health (Procter & Gamble Philippines)",
+  "license": "© P&G Health (Procter & Gamble Philippines)",
+  "licenseUrl": null,
+  "sourceUrl": "https://southstardrug.com.ph/products/neurobion-100-mg-200-mg-200-mcg-tablet-10s-600-in-house-trade-account",
+  "note": "Neurobion Vitamins B1+B6+B12 100 mg/200 mg/200 mcg tablet box (10 tablets). The Southstar logo was cropped off. A faint small watermark remains.",
+  "owner": "P&G Health (Procter & Gamble Philippines)",
+  "sourceName": "Southstar Drug"
+ },
  "YM-1047": {
+  "kind": "commons",
   "sku": "YM-1047",
   "file": "/medicines/YM-1047.jpg",
   "match": "brand",
@@ -142,7 +589,64 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Wyeth_Centrum.jpg",
   "note": "Centrum multivitamin & mineral box, bottles and tablets (older Australasian Wyeth 'Complete from A to Zinc' pack), not the Philippine 'Centrum Advance' pack."
  },
+ "YM-1048": {
+  "kind": "retail",
+  "sku": "YM-1048",
+  "file": "/medicines/YM-1048.jpg",
+  "match": "brand",
+  "commonsTitle": "",
+  "author": "Fern, Inc. (manufactured by Northfield Laboratories)",
+  "license": "© Fern, Inc. (manufactured by Northfield Laboratories)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/fern-c-568-18mg/",
+  "note": "Fern-C Sodium Ascorbate 568.18 mg capsule box (30 capsules). Strength is visible. The SKU's '+ Zinc' isn't on the classic Fern-C pack; Fern-C Plus has zinc but is labelled 500 mg/10 mg. Brand, strength and form match, but the pack has no zinc, so it is marked brand.",
+  "owner": "Fern, Inc. (manufactured by Northfield Laboratories)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1049": {
+  "kind": "retail",
+  "sku": "YM-1049",
+  "file": "/medicines/YM-1049.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "UL Skin Sciences, Inc. (Unilab group)",
+  "license": "© UL Skin Sciences, Inc. (Unilab group)",
+  "licenseUrl": null,
+  "sourceUrl": "https://southstardrug.com.ph/products/myra-e-400-iu-capsule-20s-600-in-house-trade-account",
+  "note": "Myra E d-Alpha Tocopherol (Vitamin E) 400 I.U. capsule box (100 capsules). The Southstar logo was cropped off. A Rose Pharmacy Myra E image was rejected because it's a promo with a model's face.",
+  "owner": "UL Skin Sciences, Inc. (Unilab group)",
+  "sourceName": "Southstar Drug"
+ },
+ "YM-1050": {
+  "kind": "retail",
+  "sku": "YM-1050",
+  "file": "/medicines/YM-1050.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc. (manufactured by Belmont Softgel Pharma)",
+  "license": "© Unilab, Inc. (manufactured by Belmont Softgel Pharma)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/conzace-soft-gel/",
+  "note": "Conzace Multivitamins + Mineral softgel capsule box (100 softgel capsules). The pack lists zinc and vitamins A, C and E.",
+  "owner": "Unilab, Inc. (manufactured by Belmont Softgel Pharma)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1051": {
+  "kind": "retail",
+  "sku": "YM-1051",
+  "file": "/medicines/YM-1051.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/ceelin-drops-15ml/",
+  "note": "Ceelin ascorbic acid 100 mg/mL oral drops, 15 mL box. The pack strength (100 mg/mL) matches the SKU, though Rose's page title says 100mg/5ml. The baby photo is part of the pack design.",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
  "YM-1053": {
+  "kind": "commons",
   "sku": "YM-1053",
   "file": "/medicines/YM-1053.jpg",
   "match": "exact",
@@ -154,6 +658,7 @@
   "note": "Two Pfizer Norvasc boxes (5 mg and 10 mg tablets, 20-tablet packs, Israeli market); the 5 mg box matches this SKU."
  },
  "YM-1054": {
+  "kind": "commons",
   "sku": "YM-1054",
   "file": "/medicines/YM-1054.jpg",
   "match": "brand",
@@ -165,6 +670,7 @@
   "note": "Two green teardrop Cozaar tablets with the COZAAR imprint on a black background (NLM Pillbox photo). Commons lists them as Cozaar 100 mg, not 50 mg."
  },
  "YM-1055": {
+  "kind": "commons",
   "sku": "YM-1055",
   "file": "/medicines/YM-1055.jpg",
   "match": "generic",
@@ -175,7 +681,50 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Amlodipin_Sandoz_bottle.jpg",
   "note": "White bottle of Amlodipin Sandoz 5 mg tablets (Nordic label) with loose white tablets. The label shows the generic name and the manufacturer, Sandoz; there is no other brand."
  },
+ "YM-1056": {
+  "kind": "retail",
+  "sku": "YM-1056",
+  "file": "/medicines/YM-1056.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMed Phils., Inc. (manufactured by PT Darya-Varia Laboratoria)",
+  "license": "© RiteMed Phils., Inc. (manufactured by PT Darya-Varia Laboratoria)",
+  "licenseUrl": null,
+  "sourceUrl": "https://southstardrug.com.ph/products/rx-ritemed-amlodipine-10-mg-tablet-600-in-house-trade-account",
+  "note": "RiteMed Amlodipine Besilate 10 mg tablet box (100 tablets). The Southstar logo was cropped off. A small faint watermark remains near the strength text.",
+  "owner": "RiteMed Phils., Inc. (manufactured by PT Darya-Varia Laboratoria)",
+  "sourceName": "Southstar Drug"
+ },
+ "YM-1057": {
+  "kind": "retail",
+  "sku": "YM-1057",
+  "file": "/medicines/YM-1057.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMED Phils., Inc. (Unilab group); made by Sandoz",
+  "license": "© RiteMED Phils., Inc. (Unilab group); made by Sandoz",
+  "licenseUrl": null,
+  "sourceUrl": "https://tgp.com.ph/product/rx-ritemed-losartan-50mg-fctablet-4806033305480/",
+  "note": "RiteMed Losartan Potassium 50 mg film-coated tablet box (30 tablets). TGP logo header cropped off; trimmed and centered on white.",
+  "owner": "RiteMED Phils., Inc. (Unilab group); made by Sandoz",
+  "sourceName": "TGP (The Generics Pharmacy)"
+ },
+ "YM-1058": {
+  "kind": "retail",
+  "sku": "YM-1058",
+  "file": "/medicines/YM-1058.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMED Phils., Inc. (Unilab group); made by Sandoz",
+  "license": "© RiteMED Phils., Inc. (Unilab group); made by Sandoz",
+  "licenseUrl": null,
+  "sourceUrl": "https://tgp.com.ph/product/rx-ritemed-losartan-100mg-fctablet-4806033305497/",
+  "note": "RiteMed Losartan Potassium 100 mg film-coated tablet box (30 tablets). TGP logo header cropped off; trimmed and centered on white.",
+  "owner": "RiteMED Phils., Inc. (Unilab group); made by Sandoz",
+  "sourceName": "TGP (The Generics Pharmacy)"
+ },
  "YM-1059": {
+  "kind": "commons",
   "sku": "YM-1059",
   "file": "/medicines/YM-1059.jpg",
   "match": "generic",
@@ -187,6 +736,7 @@
   "note": "Box and blisters of Metoprolol-ratiopharm 50 mg tablets (metoprolol tartrate), sold in the Baltic market. The name is the generic name plus the manufacturer, ratiopharm."
  },
  "YM-1060": {
+  "kind": "commons",
   "sku": "YM-1060",
   "file": "/medicines/YM-1060.jpg",
   "match": "exact",
@@ -197,7 +747,36 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Concor_(bisoprolol)_made_by_Nanolek,_Russia_with_Merck_branding,_Aug_2025_01.jpg",
   "note": "Merck Concor 5 mg box (Cyrillic 'Конкор', with 'Bisoprolol' in Latin script), Russian market, 50 tablets."
  },
+ "YM-1061": {
+  "kind": "retail",
+  "sku": "YM-1061",
+  "file": "/medicines/YM-1061.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "TGP Pharma, Inc. (exclusive distributor)",
+  "license": "© TGP Pharma, Inc. (exclusive distributor)",
+  "licenseUrl": null,
+  "sourceUrl": "https://tgp.com.ph/product/rx-urilzid-hydrochlorothiazide-tab-25mg/",
+  "note": "TGP Hydrochlorothiazide (Urilzid) 25 mg film-coated tablet box, 100 tablets. Generic name is the headline; Urilzid is TGP's sub-label. TGP logo header cropped off; trimmed and centered on white.",
+  "owner": "TGP Pharma, Inc. (exclusive distributor)",
+  "sourceName": "TGP (The Generics Pharmacy)"
+ },
+ "YM-1062": {
+  "kind": "retail",
+  "sku": "YM-1062",
+  "file": "/medicines/YM-1062.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMED Phils., Inc. (Unilab group)",
+  "license": "© RiteMED Phils., Inc. (Unilab group)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/captopril-25mg-tablet-ritemed/",
+  "note": "RiteMed Captopril 25 mg tablet box (100 tablets) with blister strip.",
+  "owner": "RiteMED Phils., Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy"
+ },
  "YM-1063": {
+  "kind": "commons",
   "sku": "YM-1063",
   "file": "/medicines/YM-1063.jpg",
   "match": "brand",
@@ -209,6 +788,7 @@
   "note": "Merck Glucophage 1000 mg film-coated tablets: an open box with a blister. It is the same brand at a different strength; the Commons description wrongly says 100 mg. Did not use a Chinese Glucophage 500 mg photo because the brand appears only in Chinese characters."
  },
  "YM-1064": {
+  "kind": "commons",
   "sku": "YM-1064",
   "file": "/medicines/YM-1064.jpg",
   "match": "generic",
@@ -219,7 +799,50 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Metformin_500mg_Tablets.jpg",
   "note": "Box of Metformin 500 mg film-coated tablets (Zanza Healthcare, UK) with white tablets in blisters."
  },
+ "YM-1065": {
+  "kind": "retail",
+  "sku": "YM-1065",
+  "file": "/medicines/YM-1065.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMED Phils., Inc. (Unilab group)",
+  "license": "© RiteMED Phils., Inc. (Unilab group)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/gliclazide-80mg-tablet-ritemed/",
+  "note": "RiteMed Gliclazide 80 mg tablet box (60 tablets) with blister.",
+  "owner": "RiteMED Phils., Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1066": {
+  "kind": "retail",
+  "sku": "YM-1066",
+  "file": "/medicines/YM-1066.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Servier",
+  "license": "© Servier",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.doctoroncall.com.my/medicine/diamicron-mr-60mg-tablet-60s",
+  "note": "Diamicron MR 60 mg modified-release tablets box (60 scored tablets) with blister. Non-PH (Malaysian) listing; PH pharmacy sites only had a text placeholder.",
+  "owner": "Servier",
+  "sourceName": "DoctorOnCall (Malaysia)"
+ },
+ "YM-1067": {
+  "kind": "retail",
+  "sku": "YM-1067",
+  "file": "/medicines/YM-1067.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Novartis (imported by Novartis Healthcare Philippines, Inc.)",
+  "license": "© Novartis (imported by Novartis Healthcare Philippines, Inc.)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/galvus-50-mg-tablet/",
+  "note": "Galvus (vildagliptin) 50 mg tablet box, 28 tablets, Philippine pack.",
+  "owner": "Novartis (imported by Novartis Healthcare Philippines, Inc.)",
+  "sourceName": "Rose Pharmacy"
+ },
  "YM-1068": {
+  "kind": "commons",
   "sku": "YM-1068",
   "file": "/medicines/YM-1068.jpg",
   "match": "generic",
@@ -230,7 +853,22 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Glimepiride_2_MG_Oral_Tablet.jpg",
   "note": "Two white glimepiride 2 mg tablets with the imprint 'RB 49' on a black background (NLM Pillbox photo of a generic product)."
  },
+ "YM-1069": {
+  "kind": "retail",
+  "sku": "YM-1069",
+  "file": "/medicines/YM-1069.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Roche Diabetes Care",
+  "license": "© Roche Diabetes Care",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/accu-chek-instant-strips-50x1s/",
+  "note": "Accu-Chek Instant test strips box, 50 strips.",
+  "owner": "Roche Diabetes Care",
+  "sourceName": "Rose Pharmacy"
+ },
  "YM-1070": {
+  "kind": "commons",
   "sku": "YM-1070",
   "file": "/medicines/YM-1070.jpg",
   "match": "brand",
@@ -242,6 +880,7 @@
   "note": "Pfizer Lipitor 40 mg tablets box (UK, 28 tablets) with one tablet; it is the same brand at a different strength."
  },
  "YM-1071": {
+  "kind": "commons",
   "sku": "YM-1071",
   "file": "/medicines/YM-1071.jpg",
   "match": "generic",
@@ -253,6 +892,7 @@
   "note": "Several UK generic atorvastatin film-coated tablet boxes (Teva, Northstar, Ranbaxy) in 10, 20 and 40 mg, including 20 mg packs."
  },
  "YM-1072": {
+  "kind": "commons",
   "sku": "YM-1072",
   "file": "/medicines/YM-1072.jpg",
   "match": "generic",
@@ -264,6 +904,7 @@
   "note": "Same photo as YM-1071: UK generic atorvastatin boxes in 10, 20 and 40 mg, including 40 mg packs."
  },
  "YM-1073": {
+  "kind": "commons",
   "sku": "YM-1073",
   "file": "/medicines/YM-1073.jpg",
   "match": "exact",
@@ -274,7 +915,22 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Crestor_Tablets_(rosuvastatin).jpg",
   "note": "Loose Crestor 10 mg tablets with the AstraZeneca imprint 'ZD4522 10'. The photo shows no box."
  },
+ "YM-1074": {
+  "kind": "retail",
+  "sku": "YM-1074",
+  "file": "/medicines/YM-1074.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMED Phils., Inc. (Unilab group)",
+  "license": "© RiteMED Phils., Inc. (Unilab group)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/rosuvastatin-10mg-fc-tb-ritemed/",
+  "note": "RiteMed Rosuvastatin 10 mg film-coated tablet box (30 tablets) with blister.",
+  "owner": "RiteMED Phils., Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy"
+ },
  "YM-1075": {
+  "kind": "commons",
   "sku": "YM-1075",
   "file": "/medicines/YM-1075.jpg",
   "match": "generic",
@@ -285,7 +941,36 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Simvastatin_varieties.jpg",
   "note": "Several UK generic simvastatin tablet boxes (Accord 20 mg, plus 10 mg and 40 mg packs from other makers)."
  },
+ "YM-1076": {
+  "kind": "retail",
+  "sku": "YM-1076",
+  "file": "/medicines/YM-1076.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "TGP Pharma, Inc. (exclusive distributor)",
+  "license": "© TGP Pharma, Inc. (exclusive distributor)",
+  "licenseUrl": null,
+  "sourceUrl": "https://tgp.com.ph/product/cholefen-fenofibrate-cap-200mg/",
+  "note": "TGP Fenofibrate (Cholefen) 200 mg capsule box, 30 capsules. TGP logo header cropped off; trimmed and centered on white.",
+  "owner": "TGP Pharma, Inc. (exclusive distributor)",
+  "sourceName": "TGP (The Generics Pharmacy)"
+ },
+ "YM-1077": {
+  "kind": "retail",
+  "sku": "YM-1077",
+  "file": "/medicines/YM-1077.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "GlaxoSmithKline (GSK)",
+  "license": "© GlaxoSmithKline (GSK)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/amoxil-500mg-capsule/",
+  "note": "Amoxil 500 mg capsules box (100 capsules). The pack has a Thai-language sticker, so it is probably an export or Thai-market pack, not the Philippine carton.",
+  "owner": "GlaxoSmithKline (GSK)",
+  "sourceName": "Rose Pharmacy"
+ },
  "YM-1078": {
+  "kind": "commons",
   "sku": "YM-1078",
   "file": "/medicines/YM-1078.jpg",
   "match": "generic",
@@ -297,6 +982,7 @@
   "note": "Box of Amoxicillin Capsules BP 500 mg (21 capsules, Bristol Laboratories, UK) with a capsule shown on the pack."
  },
  "YM-1079": {
+  "kind": "commons",
   "sku": "YM-1079",
   "file": "/medicines/YM-1079.jpg",
   "match": "brand",
@@ -308,6 +994,7 @@
   "note": "Augmentin 1 g (875/125 mg) film-coated tablets by GSK, Czech pack with blister; different strength from 625 mg."
  },
  "YM-1080": {
+  "kind": "commons",
   "sku": "YM-1080",
   "file": "/medicines/YM-1080.jpg",
   "match": "generic",
@@ -319,6 +1006,7 @@
   "note": "Pile of green cefalexin 500 mg capsules, no packaging or brand shown."
  },
  "YM-1081": {
+  "kind": "commons",
   "sku": "YM-1081",
   "file": "/medicines/YM-1081.jpg",
   "match": "generic",
@@ -330,6 +1018,7 @@
   "note": "Box and blister of Azitromycin Sandoz 500 mg film-coated tablets (Czech pack; Sandoz is the generic manufacturer)."
  },
  "YM-1082": {
+  "kind": "commons",
   "sku": "YM-1082",
   "file": "/medicines/YM-1082.jpg",
   "match": "generic",
@@ -340,7 +1029,36 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sepapan_Ciprofloxacin_HCl_500_mg_Generik.jpg",
   "note": "Blister strip of generic Ciprofloxacin HCl 500 mg film-coated tablets (Indonesian generic, Hexpharm Jaya)."
  },
+ "YM-1083": {
+  "kind": "retail",
+  "sku": "YM-1083",
+  "file": "/medicines/YM-1083.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMED Phils., Inc. (Unilab group)",
+  "license": "© RiteMED Phils., Inc. (Unilab group)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/cefuroxime-500mg-tablet-ritemed-2/",
+  "note": "RiteMed Cefuroxime Axetil 500 mg tablet box (60 tablets).",
+  "owner": "RiteMED Phils., Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1084": {
+  "kind": "retail",
+  "sku": "YM-1084",
+  "file": "/medicines/YM-1084.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "TGP Pharma, Inc. (exclusive distributor)",
+  "license": "© TGP Pharma, Inc. (exclusive distributor)",
+  "licenseUrl": null,
+  "sourceUrl": "https://tgp.com.ph/product/rx-benedex-amoxicillin-trihyd-powsusp-250mg-60ml/",
+  "note": "TGP Amoxicillin (Benedex) 250 mg/5 mL powder for suspension, 60 mL box. TGP logo header cropped off; trimmed and centered on white.",
+  "owner": "TGP Pharma, Inc. (exclusive distributor)",
+  "sourceName": "TGP (The Generics Pharmacy)"
+ },
  "YM-1085": {
+  "kind": "commons",
   "sku": "YM-1085",
   "file": "/medicines/YM-1085.jpg",
   "match": "generic",
@@ -352,6 +1070,7 @@
   "note": "Five light-blue doxycycline 100 mg capsules (imprint DAN 5440) in a dish."
  },
  "YM-1086": {
+  "kind": "commons",
   "sku": "YM-1086",
   "file": "/medicines/YM-1086.jpg",
   "match": "exact",
@@ -362,7 +1081,50 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ventolin_Inhaler_N_100_ug_inh.jpg",
   "note": "Ventolin Inhaler N (GSK) box, 100 micrograms/dose salbutamol, 200 doses, with the blue inhaler (Czech pack)."
  },
+ "YM-1087": {
+  "kind": "retail",
+  "sku": "YM-1087",
+  "file": "/medicines/YM-1087.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "RiteMED Phils., Inc. (Unilab group)",
+  "license": "© RiteMED Phils., Inc. (Unilab group)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/rm-salbutamol-2mg-tablet/",
+  "note": "RiteMed Salbutamol 2 mg tablet box (100 tablets) with blister strips.",
+  "owner": "RiteMED Phils., Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1088": {
+  "kind": "retail",
+  "sku": "YM-1088",
+  "file": "/medicines/YM-1088.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "GlaxoSmithKline (GSK)",
+  "license": "© GlaxoSmithKline (GSK)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.myaster.com/en/online-pharmacy/p/ventolin-2.5mg2.5ml-nebules-pack-of-40s/1011102",
+  "note": "Ventolin Nebules salbutamol 2.5 mg/2.5 mL box, 40 nebules, front face. This is a UAE listing because the PH sources were a placeholder (Rose) or blocked (Watsons), and the Malaysian image was watermarked.",
+  "owner": "GlaxoSmithKline (GSK)",
+  "sourceName": "Aster Online Pharmacy (UAE)"
+ },
+ "YM-1089": {
+  "kind": "retail",
+  "sku": "YM-1089",
+  "file": "/medicines/YM-1089.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "GlaxoSmithKline (GSK)",
+  "license": "© GlaxoSmithKline (GSK)",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/seretide-25250mcg/",
+  "note": "Seretide 25 mcg/250 mcg metered-dose inhaler box, 120 actuations, with dose counter.",
+  "owner": "GlaxoSmithKline (GSK)",
+  "sourceName": "Rose Pharmacy"
+ },
  "YM-1090": {
+  "kind": "commons",
   "sku": "YM-1090",
   "file": "/medicines/YM-1090.jpg",
   "match": "generic",
@@ -373,7 +1135,36 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Montelukast_Teva_10_mg.jpg",
   "note": "Box of Montelukast Teva 10 mg film-coated tablets (Czech pack; Teva is the generic manufacturer)."
  },
+ "YM-1091": {
+  "kind": "retail",
+  "sku": "YM-1091",
+  "file": "/medicines/YM-1091.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Unilab, Inc.",
+  "license": "© Unilab, Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://www.rosepharmacy.com/product/duavent-p-neb-500mcg/",
+  "note": "Duavent (ipratropium 500 mcg + salbutamol 2.5 mg per 2.5 mL) nebule solution box, Unilab.",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy"
+ },
+ "YM-1092": {
+  "kind": "retail",
+  "sku": "YM-1092",
+  "file": "/medicines/YM-1092.jpg",
+  "match": "generic",
+  "commonsTitle": "",
+  "author": "TGP Pharma, Inc. (distributor); made by Drugmaker's Laboratories",
+  "license": "© TGP Pharma, Inc. (distributor); made by Drugmaker's Laboratories",
+  "licenseUrl": null,
+  "sourceUrl": "https://tgp.com.ph/product/rx-tgp-salbutamol-syr-2mg/",
+  "note": "TGP Salbutamol Sulfate 2 mg/5 mL syrup, 60 mL box. TGP logo header cropped off; trimmed and centered on white.",
+  "owner": "TGP Pharma, Inc. (distributor); made by Drugmaker's Laboratories",
+  "sourceName": "TGP (The Generics Pharmacy)"
+ },
  "YM-1093": {
+  "kind": "commons",
   "sku": "YM-1093",
   "file": "/medicines/YM-1093.jpg",
   "match": "brand",
@@ -385,6 +1176,7 @@
   "note": "Green Betadine povidone-iodine skin solution bottle, 30 ml (Czech pack), held by a hand (no face)."
  },
  "YM-1094": {
+  "kind": "commons",
   "sku": "YM-1094",
   "file": "/medicines/YM-1094.jpg",
   "match": "exact",
@@ -396,6 +1188,7 @@
   "note": "Bactroban 20 mg/g (2%) mupirocin ointment, box and tube (Spanish pack, 30 g instead of 15 g)."
  },
  "YM-1095": {
+  "kind": "commons",
   "sku": "YM-1095",
   "file": "/medicines/YM-1095.jpg",
   "match": "generic",
@@ -407,6 +1200,7 @@
   "note": "Bottle of 70% Isopropyl Rubbing Alcohol, 473 mL (US store-brand label, no prominent brand)."
  },
  "YM-1096": {
+  "kind": "commons",
   "sku": "YM-1096",
   "file": "/medicines/YM-1096.jpg",
   "match": "brand",
@@ -418,6 +1212,7 @@
   "note": "Single wrapped Band-Aid brand adhesive bandage (Johnson & Johnson) on blue fabric; not the 10-pack box."
  },
  "YM-1097": {
+  "kind": "commons",
   "sku": "YM-1097",
   "file": "/medicines/YM-1097.jpg",
   "match": "generic",
@@ -428,7 +1223,22 @@
   "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hydrogen_peroxyde_uk.jpg",
   "note": "Brown glass bottle of 3% hydrogen peroxide solution, 100 ml (Ukrainian label, also reads HYDROGEN PEROXIDE in English)."
  },
+ "YM-1098": {
+  "kind": "retail",
+  "sku": "YM-1098",
+  "file": "/medicines/YM-1098.jpg",
+  "match": "exact",
+  "commonsTitle": "",
+  "author": "Greenstone Pharmaceutical (HK), Inc.",
+  "license": "© Greenstone Pharmaceutical (HK), Inc.",
+  "licenseUrl": null,
+  "sourceUrl": "https://tgp.com.ph/product/katinko-10g-medium-ointment/",
+  "note": "Katinko ointment jar and box (methyl salicylate, menthol and camphor); the listing is the 10 g size. The listing's bottom category banner was cropped off. The source image is fairly low resolution.",
+  "owner": "Greenstone Pharmaceutical (HK), Inc.",
+  "sourceName": "TGP (The Generics Pharmacy)"
+ },
  "YM-1100": {
+  "kind": "commons",
   "sku": "YM-1100",
   "file": "/medicines/YM-1100.jpg",
   "match": "generic",

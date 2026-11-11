@@ -1,0 +1,142 @@
+[
+ {
+  "sku": "YM-1024",
+  "brand": "Solmux",
+  "generic": "Carbocisteine",
+  "strength": "250 mg/5 mL \u00b7 60 mL",
+  "form": "Suspension"
+ },
+ {
+  "sku": "YM-1026",
+  "brand": "Allerta",
+  "generic": "Cetirizine",
+  "strength": "10 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1028",
+  "brand": "Zyrtec",
+  "generic": "Cetirizine",
+  "strength": "10 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1032",
+  "brand": "Iterax",
+  "generic": "Hydroxyzine",
+  "strength": "25 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1033",
+  "brand": "Generic",
+  "generic": "Cetirizine",
+  "strength": "5 mg/5 mL \u00b7 60 mL",
+  "form": "Syrup"
+ },
+ {
+  "sku": "YM-1034",
+  "brand": "Diatabs",
+  "generic": "Loperamide",
+  "strength": "2 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1035",
+  "brand": "Kremil-S",
+  "generic": "Aluminum Hydroxide + Magnesium Hydroxide + Simeticone",
+  "strength": "178/233/30 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1036",
+  "brand": "Gaviscon Double Action",
+  "generic": "Sodium Alginate + Sodium Bicarbonate + Calcium Carbonate",
+  "strength": "10 mL",
+  "form": "Sachet"
+ },
+ {
+  "sku": "YM-1037",
+  "brand": "Hydrite",
+  "generic": "Oral Rehydration Salts",
+  "strength": "4.1 g",
+  "form": "Sachet"
+ },
+ {
+  "sku": "YM-1038",
+  "brand": "Buscopan",
+  "generic": "Hyoscine N-butylbromide",
+  "strength": "10 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1041",
+  "brand": "Dulcolax",
+  "generic": "Bisacodyl",
+  "strength": "5 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1043",
+  "brand": "Ceelin",
+  "generic": "Ascorbic Acid",
+  "strength": "100 mg/5 mL \u00b7 120 mL",
+  "form": "Syrup"
+ },
+ {
+  "sku": "YM-1045",
+  "brand": "Enervon",
+  "generic": "Multivitamins + Minerals",
+  "strength": "1 tablet",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1046",
+  "brand": "Neurobion",
+  "generic": "Vitamin B1 + B6 + B12",
+  "strength": "100/200/0.2 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1048",
+  "brand": "Fern-C",
+  "generic": "Sodium Ascorbate + Zinc",
+  "strength": "568.18 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1049",
+  "brand": "Myra E",
+  "generic": "Vitamin E",
+  "strength": "400 IU",
+  "form": "Softgel"
+ },
+ {
+  "sku": "YM-1050",
+  "brand": "Conzace",
+  "generic": "Multivitamins + Zinc",
+  "strength": "1 capsule",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1051",
+  "brand": "Ceelin",
+  "generic": "Ascorbic Acid",
+  "strength": "100 mg/mL \u00b7 15 mL",
+  "form": "Drops"
+ },
+ {
+  "sku": "YM-1052",
+  "brand": "Generic",
+  "generic": "Ferrous Sulfate + Folic Acid",
+  "strength": "325/1 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1056",
+  "brand": "Generic",
+  "generic": "Amlodipine",
+  "strength": "10 mg",
+  "form": "Tablet"
+ }
+]

@@ -1,0 +1,202 @@
+[
+ {
+  "sku": "YM-1057",
+  "file": "/medicines/YM-1057.jpg",
+  "match": "generic",
+  "owner": "RiteMED Phils., Inc. (Unilab group); made by Sandoz",
+  "sourceName": "TGP (The Generics Pharmacy)",
+  "sourceUrl": "https://tgp.com.ph/product/rx-ritemed-losartan-50mg-fctablet-4806033305480/",
+  "imageUrl": "https://tgp.com.ph/wp-content/uploads/2026/07/100724_1-1024x1024.jpg",
+  "note": "RiteMed Losartan Potassium 50 mg film-coated tablet box (30 tablets). TGP logo header cropped off; trimmed and centered on white."
+ },
+ {
+  "sku": "YM-1058",
+  "file": "/medicines/YM-1058.jpg",
+  "match": "generic",
+  "owner": "RiteMED Phils., Inc. (Unilab group); made by Sandoz",
+  "sourceName": "TGP (The Generics Pharmacy)",
+  "sourceUrl": "https://tgp.com.ph/product/rx-ritemed-losartan-100mg-fctablet-4806033305497/",
+  "imageUrl": "https://tgp.com.ph/wp-content/uploads/2026/07/100731_1-1024x1024.jpg",
+  "note": "RiteMed Losartan Potassium 100 mg film-coated tablet box (30 tablets). TGP logo header cropped off; trimmed and centered on white."
+ },
+ {
+  "sku": "YM-1061",
+  "file": "/medicines/YM-1061.jpg",
+  "match": "generic",
+  "owner": "TGP Pharma, Inc. (exclusive distributor)",
+  "sourceName": "TGP (The Generics Pharmacy)",
+  "sourceUrl": "https://tgp.com.ph/product/rx-urilzid-hydrochlorothiazide-tab-25mg/",
+  "imageUrl": "https://tgp.com.ph/wp-content/uploads/2026/07/100290_1-1024x1024.jpg",
+  "note": "TGP Hydrochlorothiazide (Urilzid) 25 mg film-coated tablet box, 100 tablets. Generic name is the headline; Urilzid is TGP's sub-label. TGP logo header cropped off; trimmed and centered on white."
+ },
+ {
+  "sku": "YM-1062",
+  "file": "/medicines/YM-1062.jpg",
+  "match": "generic",
+  "owner": "RiteMED Phils., Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/captopril-25mg-tablet-ritemed/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/10/63340.png",
+  "note": "RiteMed Captopril 25 mg tablet box (100 tablets) with blister strip."
+ },
+ {
+  "sku": "YM-1065",
+  "file": "/medicines/YM-1065.jpg",
+  "match": "generic",
+  "owner": "RiteMED Phils., Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/gliclazide-80mg-tablet-ritemed/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/10/66871.png",
+  "note": "RiteMed Gliclazide 80 mg tablet box (60 tablets) with blister."
+ },
+ {
+  "sku": "YM-1066",
+  "file": "/medicines/YM-1066.jpg",
+  "match": "exact",
+  "owner": "Servier",
+  "sourceName": "DoctorOnCall (Malaysia)",
+  "sourceUrl": "https://www.doctoroncall.com.my/medicine/diamicron-mr-60mg-tablet-60s",
+  "imageUrl": "https://media.doctoroncall.com.my/uploads/2026/06/diamicron-mr-60mg-tablet-2-featured.png",
+  "note": "Diamicron MR 60 mg modified-release tablets box (60 scored tablets) with blister. Non-PH (Malaysian) listing; PH pharmacy sites only had a text placeholder."
+ },
+ {
+  "sku": "YM-1067",
+  "file": "/medicines/YM-1067.jpg",
+  "match": "exact",
+  "owner": "Novartis (imported by Novartis Healthcare Philippines, Inc.)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/galvus-50-mg-tablet/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/37011.jpg",
+  "note": "Galvus (vildagliptin) 50 mg tablet box, 28 tablets, Philippine pack."
+ },
+ {
+  "sku": "YM-1069",
+  "file": "/medicines/YM-1069.jpg",
+  "match": "exact",
+  "owner": "Roche Diabetes Care",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/accu-chek-instant-strips-50x1s/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2020/01/Untitled-1.jpg",
+  "note": "Accu-Chek Instant test strips box, 50 strips."
+ },
+ {
+  "sku": "YM-1074",
+  "file": "/medicines/YM-1074.jpg",
+  "match": "generic",
+  "owner": "RiteMED Phils., Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/rosuvastatin-10mg-fc-tb-ritemed/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2018/05/72044.png",
+  "note": "RiteMed Rosuvastatin 10 mg film-coated tablet box (30 tablets) with blister."
+ },
+ {
+  "sku": "YM-1076",
+  "file": "/medicines/YM-1076.jpg",
+  "match": "generic",
+  "owner": "TGP Pharma, Inc. (exclusive distributor)",
+  "sourceName": "TGP (The Generics Pharmacy)",
+  "sourceUrl": "https://tgp.com.ph/product/cholefen-fenofibrate-cap-200mg/",
+  "imageUrl": "https://tgp.com.ph/wp-content/uploads/2026/07/100244_1-1024x1024.jpg",
+  "note": "TGP Fenofibrate (Cholefen) 200 mg capsule box, 30 capsules. TGP logo header cropped off; trimmed and centered on white."
+ },
+ {
+  "sku": "YM-1077",
+  "file": "/medicines/YM-1077.jpg",
+  "match": "exact",
+  "owner": "GlaxoSmithKline (GSK)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/amoxil-500mg-capsule/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/1952.png",
+  "note": "Amoxil 500 mg capsules box (100 capsules). The pack has a Thai-language sticker, so it is probably an export or Thai-market pack, not the Philippine carton."
+ },
+ {
+  "sku": "YM-1083",
+  "file": "/medicines/YM-1083.jpg",
+  "match": "generic",
+  "owner": "RiteMED Phils., Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/cefuroxime-500mg-tablet-ritemed-2/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/10/62684.png",
+  "note": "RiteMed Cefuroxime Axetil 500 mg tablet box (60 tablets)."
+ },
+ {
+  "sku": "YM-1084",
+  "file": "/medicines/YM-1084.jpg",
+  "match": "generic",
+  "owner": "TGP Pharma, Inc. (exclusive distributor)",
+  "sourceName": "TGP (The Generics Pharmacy)",
+  "sourceUrl": "https://tgp.com.ph/product/rx-benedex-amoxicillin-trihyd-powsusp-250mg-60ml/",
+  "imageUrl": "https://tgp.com.ph/wp-content/uploads/2026/07/100038_1-1024x1024.jpg",
+  "note": "TGP Amoxicillin (Benedex) 250 mg/5 mL powder for suspension, 60 mL box. TGP logo header cropped off; trimmed and centered on white."
+ },
+ {
+  "sku": "YM-1087",
+  "file": "/medicines/YM-1087.jpg",
+  "match": "generic",
+  "owner": "RiteMED Phils., Inc. (Unilab group)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/rm-salbutamol-2mg-tablet/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/09/18748.png",
+  "note": "RiteMed Salbutamol 2 mg tablet box (100 tablets) with blister strips."
+ },
+ {
+  "sku": "YM-1088",
+  "file": "/medicines/YM-1088.jpg",
+  "match": "exact",
+  "owner": "GlaxoSmithKline (GSK)",
+  "sourceName": "Aster Online Pharmacy (UAE)",
+  "sourceUrl": "https://www.myaster.com/en/online-pharmacy/p/ventolin-2.5mg2.5ml-nebules-pack-of-40s/1011102",
+  "imageUrl": "https://media.myaster.com/images/products/1011102/ventolin-2.5mg2.5ml-nebules-pack-of-40s/1011102-1new.jpg",
+  "note": "Ventolin Nebules salbutamol 2.5 mg/2.5 mL box, 40 nebules, front face. This is a UAE listing because the PH sources were a placeholder (Rose) or blocked (Watsons), and the Malaysian image was watermarked."
+ },
+ {
+  "sku": "YM-1089",
+  "file": "/medicines/YM-1089.jpg",
+  "match": "exact",
+  "owner": "GlaxoSmithKline (GSK)",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/seretide-25250mcg/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2016/10/61655.jpg",
+  "note": "Seretide 25 mcg/250 mcg metered-dose inhaler box, 120 actuations, with dose counter."
+ },
+ {
+  "sku": "YM-1091",
+  "file": "/medicines/YM-1091.jpg",
+  "match": "exact",
+  "owner": "Unilab, Inc.",
+  "sourceName": "Rose Pharmacy",
+  "sourceUrl": "https://www.rosepharmacy.com/product/duavent-p-neb-500mcg/",
+  "imageUrl": "https://www.rosepharmacy.com/ph1/wp-content/uploads/2025/08/12849-1.jpg",
+  "note": "Duavent (ipratropium 500 mcg + salbutamol 2.5 mg per 2.5 mL) nebule solution box, Unilab."
+ },
+ {
+  "sku": "YM-1092",
+  "file": "/medicines/YM-1092.jpg",
+  "match": "generic",
+  "owner": "TGP Pharma, Inc. (distributor); made by Drugmaker's Laboratories",
+  "sourceName": "TGP (The Generics Pharmacy)",
+  "sourceUrl": "https://tgp.com.ph/product/rx-tgp-salbutamol-syr-2mg/",
+  "imageUrl": "https://tgp.com.ph/wp-content/uploads/2026/07/viber_image_2026-07-28_11-01-28-761-1-scaled.png",
+  "note": "TGP Salbutamol Sulfate 2 mg/5 mL syrup, 60 mL box. TGP logo header cropped off; trimmed and centered on white."
+ },
+ {
+  "sku": "YM-1098",
+  "file": "/medicines/YM-1098.jpg",
+  "match": "exact",
+  "owner": "Greenstone Pharmaceutical (HK), Inc.",
+  "sourceName": "TGP (The Generics Pharmacy)",
+  "sourceUrl": "https://tgp.com.ph/product/katinko-10g-medium-ointment/",
+  "imageUrl": "https://tgp.com.ph/wp-content/uploads/2025/11/katinko-10g-medium-ointment.jpg",
+  "note": "Katinko ointment jar and box (methyl salicylate, menthol and camphor); the listing is the 10 g size. The listing's bottom category banner was cropped off. The source image is fairly low resolution."
+ },
+ {
+  "sku": "YM-1099",
+  "file": null,
+  "match": null,
+  "owner": null,
+  "sourceName": null,
+  "sourceUrl": null,
+  "imageUrl": null,
+  "note": "No product named 'Dolo-Gen' (ibuprofen 400 mg) was found on Rose Pharmacy, TGP, or in web searches (FDA PH and retailer results). The brand may not exist in the PH market. No other brand was substituted."
+ }
+]

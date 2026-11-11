@@ -113,6 +113,8 @@ export interface Medicine {
   status: MedicineStatus;
   /** Shelf location label. */
   location: string;
+  /** Photo uploaded by staff (resized JPEG data URL). Overrides the catalog image. */
+  imageDataUrl?: string;
   createdAt: ISODateTime;
   updatedAt: ISODateTime;
 }

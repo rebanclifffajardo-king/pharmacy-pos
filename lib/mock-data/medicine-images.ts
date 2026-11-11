@@ -3,10 +3,12 @@ import data from "./medicine-images.json";
 /**
  * Product photos for the demo catalog, keyed by SKU.
  *
- * Every image is a free-licensed photograph from Wikimedia Commons (public domain,
- * CC0, CC BY or CC BY-SA), stored under /public/medicines and credited on the
- * Image Credits page as the licenses require. Medicines without an accurate
- * free-licensed photo intentionally show a "Photo pending" placeholder.
+ * Two kinds of images, all stored under /public/medicines and credited on the Image
+ * Credits page:
+ *   kind "commons"  free-licensed photo from Wikimedia Commons (PD, CC0, CC BY, CC BY-SA)
+ *   kind "retail"   manufacturer / retailer product image — copyright of its owner,
+ *                   used for this demonstration with the project owner's approval;
+ *                   obtain permission before commercial or public production use.
  *
  *   match "exact"   same brand and strength
  *   match "brand"   same brand, different strength or market pack
@@ -15,6 +17,7 @@ import data from "./medicine-images.json";
  * Regenerate with: npx tsx scripts/medicine-images/build.ts
  */
 export interface MedicineImageCredit {
+  kind: "commons" | "retail";
   sku: string;
   file: string;
   match: "exact" | "brand" | "generic";
@@ -24,6 +27,9 @@ export interface MedicineImageCredit {
   licenseUrl: string | null;
   sourceUrl: string;
   note: string;
+  /** retail only: brand owner / manufacturer and the site the image came from. */
+  owner?: string;
+  sourceName?: string;
 }
 
 export const MEDICINE_IMAGES = data as unknown as Record<string, MedicineImageCredit>;
@@ -35,5 +41,5 @@ export function getMedicineImage(sku: string): MedicineImageCredit | undefined {
 export const MATCH_LABEL: Record<MedicineImageCredit["match"], string> = {
   exact: "Actual product",
   brand: "Same brand · pack may differ",
-  generic: "Representative photo of the generic",
+  generic: "Generic · same ingredient & form",
 };

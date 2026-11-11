@@ -21,7 +21,7 @@ export function MedicineImage({
   showPending,
   dim,
 }: {
-  medicine: Pick<Medicine, "sku" | "brandName" | "genericName" | "strength" | "dosageForm">;
+  medicine: Pick<Medicine, "sku" | "brandName" | "genericName" | "strength" | "dosageForm" | "imageDataUrl">;
   size?: number;
   className?: string;
   fit?: "cover" | "contain";
@@ -30,16 +30,17 @@ export function MedicineImage({
   /** Grey out (archived / blocked items). */
   dim?: boolean;
 }) {
-  const img = getMedicineImage(medicine.sku);
+  const catalog = getMedicineImage(medicine.sku);
+  const src = medicine.imageDataUrl || catalog?.file;
   const [broken, setBroken] = useState(false);
   const radius = size >= 72 ? 16 : size >= 48 ? 12 : 10;
   const alt = `${medicine.brandName === "Generic" ? "Generic " + medicine.genericName : medicine.brandName} ${medicine.strength}`;
 
-  if (img && !broken) {
+  if (src && !broken) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src={img.file}
+        src={src}
         alt={alt}
         width={size}
         height={size}

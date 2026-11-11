@@ -1,0 +1,142 @@
+[
+ {
+  "sku": "YM-1003",
+  "brand": "Dolfenal",
+  "generic": "Mefenamic Acid",
+  "strength": "500 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1004",
+  "brand": "Alaxan FR",
+  "generic": "Ibuprofen + Paracetamol",
+  "strength": "200/325 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1005",
+  "brand": "Medicol Advance",
+  "generic": "Ibuprofen",
+  "strength": "400 mg",
+  "form": "Softgel"
+ },
+ {
+  "sku": "YM-1006",
+  "brand": "Tempra",
+  "generic": "Paracetamol",
+  "strength": "120 mg/5 mL \u00b7 60 mL",
+  "form": "Syrup"
+ },
+ {
+  "sku": "YM-1008",
+  "brand": "Generic",
+  "generic": "Mefenamic Acid",
+  "strength": "500 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1009",
+  "brand": "Flanax",
+  "generic": "Naproxen Sodium",
+  "strength": "550 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1010",
+  "brand": "Rexidol",
+  "generic": "Paracetamol + Caffeine",
+  "strength": "500/65 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1011",
+  "brand": "Bioflu",
+  "generic": "Phenylephrine + Chlorphenamine + Paracetamol",
+  "strength": "10/2/500 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1012",
+  "brand": "Neozep Forte",
+  "generic": "Phenylephrine + Chlorphenamine + Paracetamol",
+  "strength": "10/2/500 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1013",
+  "brand": "Decolgen Forte",
+  "generic": "Phenylephrine + Chlorphenamine + Paracetamol",
+  "strength": "10/2/500 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1014",
+  "brand": "Sinutab",
+  "generic": "Phenylephrine + Paracetamol",
+  "strength": "5/500 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1015",
+  "brand": "Tuseran Forte",
+  "generic": "Dextromethorphan + Phenylephrine + Paracetamol",
+  "strength": "15/10/325 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1016",
+  "brand": "Disudrin",
+  "generic": "Phenylephrine",
+  "strength": "5 mg/5 mL \u00b7 60 mL",
+  "form": "Syrup"
+ },
+ {
+  "sku": "YM-1017",
+  "brand": "Generic",
+  "generic": "Phenylephrine + Chlorphenamine",
+  "strength": "10/2 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1018",
+  "brand": "Solmux",
+  "generic": "Carbocisteine",
+  "strength": "500 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1019",
+  "brand": "Mucosolvan",
+  "generic": "Ambroxol",
+  "strength": "30 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1020",
+  "brand": "Ascof Lagundi",
+  "generic": "Vitex negundo L. leaf",
+  "strength": "600 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1021",
+  "brand": "Ascof Lagundi",
+  "generic": "Vitex negundo L. leaf",
+  "strength": "300 mg/5 mL \u00b7 60 mL",
+  "form": "Syrup"
+ },
+ {
+  "sku": "YM-1022",
+  "brand": "Generic",
+  "generic": "Carbocisteine",
+  "strength": "500 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1023",
+  "brand": "Generic",
+  "generic": "Ambroxol",
+  "strength": "30 mg",
+  "form": "Tablet"
+ }
+]

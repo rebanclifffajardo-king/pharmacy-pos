@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
 import type { DosageForm, Medicine } from "@/lib/types";
 import { useDb } from "@/lib/store/app-store";
@@ -14,6 +14,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/compone
 import { Field, MoneyInput, NativeSelect, TextInput } from "@/components/shared/field";
 import { Button } from "@/components/ui/button";
 import { round2 } from "@/lib/utils/format";
+import { MedicinePhotoInput } from "./medicine-photo-input";
 
 export const DOSAGE_FORMS: DosageForm[] = ["Tablet", "Capsule", "Softgel", "Syrup", "Suspension", "Drops", "Sachet", "Inhaler", "Nebule", "Solution", "Ointment", "Cream", "Lozenge", "Spray", "Device"];
 
@@ -92,6 +93,8 @@ function MedicineForm({ medicine, onCancel, onSaved }: { medicine?: Medicine; on
   const canPrice = useCan("inventory.price");
   const isEdit = !!medicine;
   const [f, setF] = useState<FormState>(() => initialState(medicine, db));
+  const [photo, setPhoto] = useState<string | undefined>(undefined);
+  const saving = useRef(false);
   const set = <K extends keyof FormState>(k: K, v: FormState[K]) => setF((s) => ({ ...s, [k]: v }));
   const priceLocked = isEdit && !canPrice;
   const price = num(f.sellingPrice);
@@ -99,6 +102,7 @@ function MedicineForm({ medicine, onCancel, onSaved }: { medicine?: Medicine; on
   const margin = price > 0 && cost >= 0 ? (1 - cost / price) * 100 : null;
 
   const submit = () => {
+    if (saving.current) return; // ignore double submits
     const packSize = Math.round(num(f.packSize));
     const strip = f.stripSize.trim() ? Math.round(num(f.stripSize)) : 0;
     if (!Number.isFinite(packSize) || packSize < 1) return void toast.error("Pack size must be at least 1.");
@@ -125,17 +129,26 @@ function MedicineForm({ medicine, onCancel, onSaved }: { medicine?: Medicine; on
       unit: unitForForm(f.dosageForm),
       sku: f.sku.trim() || undefined,
       barcode: f.barcode.trim() || undefined,
+      // Only send the photo when it changed, so an edit never wipes an existing one.
+      ...(photo !== undefined ? { imageDataUrl: photo } : {}),
     };
+    saving.current = true;
     if (isEdit) {
       const res = actions.updateMedicine({ id: medicine.id, changes: input });
-      if (!res.ok) return void toast.error("Not saved", { description: res.error });
+      if (!res.ok) {
+        saving.current = false;
+        return void toast.error("Not saved", { description: res.error });
+      }
       toast.success("Medicine updated", { description: medicineName(res.data) });
       onSaved(res.data);
     } else {
       const qty = num(f.batchQty);
       const opening = Number.isFinite(qty) && qty > 0 ? { batchNo: f.batchNo, expiryDate: f.batchExpiry, quantity: Math.round(qty) } : undefined;
       const res = actions.addMedicine({ medicine: input, openingBatch: opening });
-      if (!res.ok) return void toast.error("Not added", { description: res.error });
+      if (!res.ok) {
+        saving.current = false;
+        return void toast.error("Not added", { description: res.error });
+      }
       toast.success("Medicine added", { description: `${medicineName(res.data)} · ${res.data.sku}${opening ? ` · ${opening.quantity} ${res.data.unit} opening stock` : ""}` });
       onSaved(res.data);
     }
@@ -149,6 +162,13 @@ function MedicineForm({ medicine, onCancel, onSaved }: { medicine?: Medicine; on
         submit();
       }}
     >
+      <MedicinePhotoInput
+        sku={medicine?.sku ?? f.sku.trim()}
+        current={medicine?.imageDataUrl}
+        value={photo}
+        onChange={setPhoto}
+        preview={{ brandName: f.brandName.trim() || "Generic", genericName: f.genericName || "New medicine", strength: f.strength, dosageForm: f.dosageForm }}
+      />
       <fieldset className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <legend className="label-caps mb-2">Product</legend>
         <Field label="Generic name *">

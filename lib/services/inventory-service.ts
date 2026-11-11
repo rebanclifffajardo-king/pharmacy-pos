@@ -23,7 +23,12 @@ export type MedicineInput = Pick<
   | "packSize"
   | "location"
 > &
-  Partial<Pick<Medicine, "sku" | "barcode" | "packaging" | "unit" | "stripSize">>;
+  Partial<Pick<Medicine, "sku" | "barcode" | "packaging" | "unit" | "stripSize">> & {
+    /** Data URL of an uploaded photo; "" removes an existing one. */
+    imageDataUrl?: string;
+  };
+
+const MAX_IMAGE_CHARS = 600_000;
 
 export interface OpeningBatchInput {
   batchNo: string;
@@ -41,6 +46,10 @@ function validateMedicine(db: DemoDatabase, input: MedicineInput, selfId?: strin
   if (input.costPrice < 0) throw new DomainError("Cost cannot be negative.");
   if (input.minStock < 0 || input.reorderQty < 0) throw new DomainError("Reorder values cannot be negative.");
   if (!(input.packSize >= 1)) throw new DomainError("Pack size must be at least 1.");
+  if (input.imageDataUrl) {
+    if (!/^data:image\/(jpeg|png|webp);base64,/.test(input.imageDataUrl)) throw new DomainError("The photo must be a JPEG, PNG or WebP image.");
+    if (input.imageDataUrl.length > MAX_IMAGE_CHARS) throw new DomainError("The photo is too large — use an image under about 400 KB.");
+  }
   if (input.sku && db.medicines.some((m) => m.sku.toLowerCase() === input.sku!.toLowerCase() && m.id !== selfId)) {
     throw new DomainError(`SKU ${input.sku} is already used.`);
   }
@@ -84,6 +93,7 @@ export function addMedicine(db: DemoDatabase, ctx: CommandContext, input: { medi
       rxRequired: mi.rxRequired,
       status: "active",
       location: mi.location.trim() || "Unassigned",
+      imageDataUrl: mi.imageDataUrl || undefined,
       createdAt: nowIso,
       updatedAt: nowIso,
     };
@@ -133,9 +143,11 @@ export function updateMedicine(db: DemoDatabase, ctx: CommandContext, input: { i
       ...(c.dosageForm && !c.unit ? { unit: unitForForm(c.dosageForm) } : {}),
       updatedAt: ctx.now.toISOString(),
     });
+    if (c.imageDataUrl === "") delete med.imageDataUrl;
     const parts: string[] = [];
     if (c.sellingPrice !== undefined && before.price !== med.sellingPrice) parts.push(`price ${peso(before.price)} → ${peso(med.sellingPrice)}`);
     if (c.minStock !== undefined && before.min !== med.minStock) parts.push(`reorder level ${before.min} → ${med.minStock}`);
+    if (c.imageDataUrl !== undefined && c.imageDataUrl !== m.imageDataUrl) parts.push(c.imageDataUrl ? "photo uploaded" : "photo removed");
     logActivity(d, ctx, {
       kind: "inventory",
       tone: "info",
