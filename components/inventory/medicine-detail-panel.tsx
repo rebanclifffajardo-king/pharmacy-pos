@@ -13,6 +13,7 @@ import { StockStatusChip } from "@/components/shared/stock-status-chip";
 import { Chip, RxChip } from "@/components/shared/chip";
 import { Button } from "@/components/ui/button";
 import { MedicineTile } from "./medicine-tile";
+import { PhotoCredit } from "@/components/shared/photo-credit";
 import { ExpiryChip, batchStatusInfo } from "@/components/stock/batch-chips";
 import { cn } from "@/lib/utils";
 
@@ -80,6 +81,8 @@ export function MedicineDetailPanel({
             </span>
           </div>
         </div>
+
+        <PhotoCredit sku={medicine.sku} />
 
         <div className="grid grid-cols-3 gap-2">
           <div className="flex flex-col gap-0.5 rounded-xl bg-canvas p-3">

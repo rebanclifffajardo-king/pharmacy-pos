@@ -1,0 +1,177 @@
+[
+ {
+  "sku": "YM-1076",
+  "brand": "Generic",
+  "generic": "Fenofibrate",
+  "strength": "200 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1077",
+  "brand": "Amoxil",
+  "generic": "Amoxicillin",
+  "strength": "500 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1078",
+  "brand": "Generic",
+  "generic": "Amoxicillin",
+  "strength": "500 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1079",
+  "brand": "Augmentin",
+  "generic": "Co-amoxiclav",
+  "strength": "625 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1080",
+  "brand": "Generic",
+  "generic": "Cefalexin",
+  "strength": "500 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1081",
+  "brand": "Generic",
+  "generic": "Azithromycin",
+  "strength": "500 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1082",
+  "brand": "Generic",
+  "generic": "Ciprofloxacin",
+  "strength": "500 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1083",
+  "brand": "Generic",
+  "generic": "Cefuroxime",
+  "strength": "500 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1084",
+  "brand": "Generic",
+  "generic": "Amoxicillin",
+  "strength": "250 mg/5 mL \u00b7 60 mL",
+  "form": "Suspension"
+ },
+ {
+  "sku": "YM-1085",
+  "brand": "Generic",
+  "generic": "Doxycycline",
+  "strength": "100 mg",
+  "form": "Capsule"
+ },
+ {
+  "sku": "YM-1086",
+  "brand": "Ventolin",
+  "generic": "Salbutamol",
+  "strength": "100 mcg \u00b7 200 doses",
+  "form": "Inhaler"
+ },
+ {
+  "sku": "YM-1087",
+  "brand": "Generic",
+  "generic": "Salbutamol",
+  "strength": "2 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1088",
+  "brand": "Ventolin Nebules",
+  "generic": "Salbutamol",
+  "strength": "2.5 mg/2.5 mL",
+  "form": "Nebule"
+ },
+ {
+  "sku": "YM-1089",
+  "brand": "Seretide",
+  "generic": "Salmeterol + Fluticasone",
+  "strength": "25/250 mcg \u00b7 120 doses",
+  "form": "Inhaler"
+ },
+ {
+  "sku": "YM-1090",
+  "brand": "Generic",
+  "generic": "Montelukast",
+  "strength": "10 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1091",
+  "brand": "Duavent",
+  "generic": "Ipratropium + Salbutamol",
+  "strength": "0.5/2.5 mg",
+  "form": "Nebule"
+ },
+ {
+  "sku": "YM-1092",
+  "brand": "Generic",
+  "generic": "Salbutamol",
+  "strength": "2 mg/5 mL \u00b7 60 mL",
+  "form": "Syrup"
+ },
+ {
+  "sku": "YM-1093",
+  "brand": "Betadine",
+  "generic": "Povidone-Iodine",
+  "strength": "10% \u00b7 60 mL",
+  "form": "Solution"
+ },
+ {
+  "sku": "YM-1094",
+  "brand": "Bactroban",
+  "generic": "Mupirocin",
+  "strength": "2% \u00b7 15 g",
+  "form": "Ointment"
+ },
+ {
+  "sku": "YM-1095",
+  "brand": "Generic",
+  "generic": "Isopropyl Alcohol",
+  "strength": "70% \u00b7 500 mL",
+  "form": "Solution"
+ },
+ {
+  "sku": "YM-1096",
+  "brand": "Band-Aid",
+  "generic": "Adhesive Bandages",
+  "strength": "Pack of 10",
+  "form": "Device"
+ },
+ {
+  "sku": "YM-1097",
+  "brand": "Generic",
+  "generic": "Hydrogen Peroxide",
+  "strength": "3% \u00b7 120 mL",
+  "form": "Solution"
+ },
+ {
+  "sku": "YM-1098",
+  "brand": "Katinko",
+  "generic": "Menthol + Camphor + Methyl Salicylate",
+  "strength": "10 g",
+  "form": "Ointment"
+ },
+ {
+  "sku": "YM-1099",
+  "brand": "Dolo-Gen",
+  "generic": "Ibuprofen",
+  "strength": "400 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1100",
+  "brand": "Generic",
+  "generic": "Silver Sulfadiazine",
+  "strength": "1% \u00b7 20 g",
+  "form": "Cream"
+ }
+]

@@ -13,6 +13,7 @@ import { fefoPreview, packOptions, updateLine, usePosStore, type CartLine } from
 import { useCurrentUser } from "@/hooks/use-session";
 import { AnimatedNumber } from "@/components/shared/animated-number";
 import { RxChip } from "@/components/shared/chip";
+import { MedicineImage } from "@/components/shared/medicine-image";
 import { AuthorizeFields } from "@/components/shared/authorize-fields";
 import { Field, TextInput } from "@/components/shared/field";
 import { Button } from "@/components/ui/button";
@@ -193,7 +194,8 @@ function CartRow({ db, line, lines }: { db: DemoDatabase; line: CartLine; lines:
       className={cn("flex flex-col gap-2.5 overflow-hidden border-b border-line-soft px-5 py-3.5 transition-colors duration-500", highlighted ? "bg-brand-50" : "bg-surface")}
     >
       <div className="flex justify-between gap-3">
-        <div className="flex min-w-0 flex-col gap-0.5">
+        <MedicineImage medicine={m} size={40} />
+        <div className="flex min-w-0 flex-1 flex-col gap-0.5">
           <span className="flex flex-wrap items-center gap-1.5 text-sm font-semibold">
             {medicineName(m)} {m.rxRequired && <RxChip size="sm" />}
           </span>

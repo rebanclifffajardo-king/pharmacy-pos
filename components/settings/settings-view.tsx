@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import Image from "next/image";
 import { useMemo, useRef, useState, type ReactNode } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -439,6 +441,13 @@ function DemoSection({ canManage }: { canManage: boolean }) {
             <li>Changes survive page refreshes in this browser only. Other browsers and devices keep their own copy.</li>
             <li>QR Ph and card payments are simulated and labeled; no payment provider is connected.</li>
             <li>Seed data is deterministic: a reset restores the same records, re-dated to today.</li>
+            <li>
+              Medicine photos are free-licensed images from Wikimedia Commons —{" "}
+              <Link href="/image-credits" className="font-medium text-brand-700 hover:underline">
+                see Image Credits
+              </Link>
+              .
+            </li>
           </ul>
         </Card>
       </div>

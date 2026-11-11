@@ -1,0 +1,177 @@
+[
+ {
+  "sku": "YM-1051",
+  "brand": "Ceelin",
+  "generic": "Ascorbic Acid",
+  "strength": "100 mg/mL \u00b7 15 mL",
+  "form": "Drops"
+ },
+ {
+  "sku": "YM-1052",
+  "brand": "Generic",
+  "generic": "Ferrous Sulfate + Folic Acid",
+  "strength": "325/1 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1053",
+  "brand": "Norvasc",
+  "generic": "Amlodipine",
+  "strength": "5 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1054",
+  "brand": "Cozaar",
+  "generic": "Losartan",
+  "strength": "50 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1055",
+  "brand": "Generic",
+  "generic": "Amlodipine",
+  "strength": "5 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1056",
+  "brand": "Generic",
+  "generic": "Amlodipine",
+  "strength": "10 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1057",
+  "brand": "Generic",
+  "generic": "Losartan",
+  "strength": "50 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1058",
+  "brand": "Generic",
+  "generic": "Losartan",
+  "strength": "100 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1059",
+  "brand": "Generic",
+  "generic": "Metoprolol",
+  "strength": "50 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1060",
+  "brand": "Concor",
+  "generic": "Bisoprolol",
+  "strength": "5 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1061",
+  "brand": "Generic",
+  "generic": "Hydrochlorothiazide",
+  "strength": "25 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1062",
+  "brand": "Generic",
+  "generic": "Captopril",
+  "strength": "25 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1063",
+  "brand": "Glucophage",
+  "generic": "Metformin",
+  "strength": "500 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1064",
+  "brand": "Generic",
+  "generic": "Metformin",
+  "strength": "500 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1065",
+  "brand": "Generic",
+  "generic": "Gliclazide",
+  "strength": "80 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1066",
+  "brand": "Diamicron MR",
+  "generic": "Gliclazide",
+  "strength": "60 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1067",
+  "brand": "Galvus",
+  "generic": "Vildagliptin",
+  "strength": "50 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1068",
+  "brand": "Generic",
+  "generic": "Glimepiride",
+  "strength": "2 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1069",
+  "brand": "Accu-Chek Instant",
+  "generic": "Blood Glucose Test Strips",
+  "strength": "50 strips",
+  "form": "Device"
+ },
+ {
+  "sku": "YM-1070",
+  "brand": "Lipitor",
+  "generic": "Atorvastatin",
+  "strength": "20 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1071",
+  "brand": "Generic",
+  "generic": "Atorvastatin",
+  "strength": "20 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1072",
+  "brand": "Generic",
+  "generic": "Atorvastatin",
+  "strength": "40 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1073",
+  "brand": "Crestor",
+  "generic": "Rosuvastatin",
+  "strength": "10 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1074",
+  "brand": "Generic",
+  "generic": "Rosuvastatin",
+  "strength": "10 mg",
+  "form": "Tablet"
+ },
+ {
+  "sku": "YM-1075",
+  "brand": "Generic",
+  "generic": "Simvastatin",
+  "strength": "20 mg",
+  "form": "Tablet"
+ }
+]

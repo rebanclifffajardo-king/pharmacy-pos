@@ -1,16 +1,15 @@
 "use client";
 
 import { forwardRef, useMemo } from "react";
-import { FlaskConical, Pill, Plus, ScanBarcode, Search, Syringe } from "lucide-react";
+import { Plus, ScanBarcode, Search } from "lucide-react";
 import type { Category, Medicine, StockInfo } from "@/lib/types";
 import { medicineName } from "@/lib/services/stock";
 import { formatDate, int, peso } from "@/lib/utils/format";
 import { Chip, RxChip } from "@/components/shared/chip";
 import { EmptyState } from "@/components/shared/empty-state";
+import { MedicineImage } from "@/components/shared/medicine-image";
 import { cn } from "@/lib/utils";
 
-const PILL_FORMS = new Set(["Tablet", "Capsule", "Softgel", "Lozenge"]);
-const BOTTLE_FORMS = new Set(["Syrup", "Suspension", "Drops", "Solution", "Spray"]);
 
 export interface ProductView {
   m: Medicine;
@@ -128,8 +127,6 @@ function ProductTile({ p, onAdd }: { p: ProductView; onAdd: (m: Medicine) => voi
   const { m } = p;
   const st = useMemo(() => statusFor(p), [p]);
   const blocked = p.info.saleable <= 0;
-  const kind = PILL_FORMS.has(m.dosageForm) ? "pill" : BOTTLE_FORMS.has(m.dosageForm) ? "bottle" : "other";
-  const Icon = kind === "pill" ? Pill : kind === "bottle" ? FlaskConical : Syringe;
   return (
     <button
       type="button"
@@ -143,16 +140,7 @@ function ProductTile({ p, onAdd }: { p: ProductView; onAdd: (m: Medicine) => voi
       )}
     >
       <div className="flex items-start gap-2.5">
-        <span
-          className={cn(
-            "grid size-11 shrink-0 place-items-center rounded-xl",
-            kind === "pill" && "bg-brand-50 text-brand",
-            kind === "bottle" && "bg-ok-bg text-ok-dot",
-            kind === "other" && "bg-orange-bg text-orange-dot"
-          )}
-        >
-          <Icon className="size-[22px]" aria-hidden />
-        </span>
+        <MedicineImage medicine={m} size={56} dim={blocked} />
         <div className="flex min-w-0 flex-1 flex-col gap-0.5">
           <span className="text-sm leading-tight font-semibold text-ink">{medicineName(m)}</span>
           <span className="line-clamp-2 text-xs leading-snug text-ink-500">
